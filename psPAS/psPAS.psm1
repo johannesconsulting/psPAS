@@ -55,7 +55,7 @@ Get-ChildItem $PSScriptRoot\ -Recurse -Include '*.ps1' -Exclude '*.ps1xml' |
 
 	}
 
-# Store module root path for use in functions (like FIDO2)
+# Store module root path for use in functions
 $Script:ModuleRoot = $PSScriptRoot
 
 # Script scope session object for session data

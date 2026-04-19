@@ -575,13 +575,13 @@ function New-PASSession {
 				}
 
 				if ($type -eq 'FIDO2') {
-					# FIDO2 authentication requires username but no password
+					#FIDO2 authentication requires username but no password
 					Assert-VersionRequirement -SelfHosted
-					
-					if (-not $PSBoundParameters.Keys.Contains('UserName')) {
+
+					if (-not $PSBoundParameters.ContainsKey('UserName')) {
 						throw 'Username is required for FIDO2 authentication. Use -UserName parameter.'
 					}
-					
+
 				} elseif ($type -ne 'PKIPN') {
 
 					if ($PSBoundParameters.Keys.Contains('Credential')) {
@@ -667,7 +667,7 @@ function New-PASSession {
 						break
 					}
 					( { $type -eq 'FIDO2' } ) {
-						# Perform FIDO2 Authentication
+						#Perform FIDO2 Authentication
 						$PASSession = Invoke-FIDO2Authentication -BaseURI $Uri -UserName $UserName -LogonRequest $LogonRequest
 						break
 					}
