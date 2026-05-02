@@ -203,6 +203,155 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 		}
 
+		Context 'Bulk Operation' {
+
+			BeforeEach {
+				Mock Invoke-PASRestMethod -MockWith { }
+
+				$BulkAccountIDs = @('Acc1', 'Acc2', 'Acc3')
+				$Password = 'SomePassword' | ConvertTo-SecureString -AsPlainText -Force
+
+				$Script:RequestBody = $null
+				$Script:psPASSession.BaseURI = 'https://SomeURL/SomeApp'
+				$psPASSession.ExternalVersion = '15.0'
+				$psPASSession.WebSession = New-Object Microsoft.PowerShell.Commands.WebRequestSession
+			}
+
+			It 'sends bulk verify request to expected api endpoint' {
+
+				Invoke-PASCPMOperation -AccountID $BulkAccountIDs -VerifyTask
+
+				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
+
+					$URI -eq 'https://SomeURL/SomeApp/API/Accounts/Verify/Bulk'
+				}
+
+			}
+
+			It 'sends bulk verify request using expected method' {
+
+				Invoke-PASCPMOperation -AccountID $BulkAccountIDs -VerifyTask
+
+				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
+
+					$Method -eq 'POST'
+				}
+
+			}
+
+			It 'sends bulk verify request with expected body' {
+
+				Invoke-PASCPMOperation -AccountID $BulkAccountIDs -VerifyTask
+
+				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
+
+					$Parsed = $Body | ConvertFrom-Json
+					$Parsed.bulkItems.Count -eq 3 -and
+					$Parsed.bulkItems[0].accountId -eq 'Acc1' -and
+					$Parsed.bulkItems[1].accountId -eq 'Acc2' -and
+					$Parsed.bulkItems[2].accountId -eq 'Acc3'
+				}
+
+			}
+
+			It 'sends bulk change request to expected api endpoint' {
+
+				Invoke-PASCPMOperation -AccountID $BulkAccountIDs -ChangeTask
+
+				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
+
+					$URI -eq 'https://SomeURL/SomeApp/API/Accounts/Change/Bulk'
+				}
+
+			}
+
+			It 'sends bulk change request including ChangeEntireGroup on each item' {
+
+				Invoke-PASCPMOperation -AccountID $BulkAccountIDs -ChangeTask -ChangeEntireGroup $true
+
+				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
+
+					$Parsed = $Body | ConvertFrom-Json
+					$Parsed.bulkItems.Count -eq 3 -and
+					$Parsed.bulkItems[0].ChangeEntireGroup -eq $true -and
+					$Parsed.bulkItems[2].ChangeEntireGroup -eq $true
+				}
+
+			}
+
+			It 'sends bulk reconcile request to expected api endpoint' {
+
+				Invoke-PASCPMOperation -AccountID $BulkAccountIDs -ReconcileTask
+
+				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
+
+					$URI -eq 'https://SomeURL/SomeApp/API/Accounts/Reconcile/Bulk'
+				}
+
+			}
+
+			It 'sends bulk SetNextPassword request to expected api endpoint' {
+
+				Invoke-PASCPMOperation -AccountID $BulkAccountIDs -ChangeTask -ChangeImmediately $true -NewCredentials $Password
+
+				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
+
+					$URI -eq 'https://SomeURL/SomeApp/API/Accounts/SetNextPassword/Bulk'
+				}
+
+			}
+
+			It 'sends bulk SetNextPassword request including credentials on each item' {
+
+				Invoke-PASCPMOperation -AccountID $BulkAccountIDs -ChangeTask -ChangeImmediately $true -NewCredentials $Password
+
+				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
+
+					$Parsed = $Body | ConvertFrom-Json
+					$Parsed.bulkItems.Count -eq 3 -and
+					$Parsed.bulkItems[0].NewCredentials -eq 'SomePassword' -and
+					$Parsed.bulkItems[0].changeImmediately -eq $true
+				}
+
+			}
+
+			It 'sends bulk Password/Update request to expected api endpoint' {
+
+				Invoke-PASCPMOperation -AccountID $BulkAccountIDs -ChangeTask -NewCredentials $Password
+
+				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
+
+					$URI -eq 'https://SomeURL/SomeApp/API/Accounts/Password/Update/Bulk'
+				}
+
+			}
+
+			It 'throws when bulk operation requested via Gen1 API' {
+
+				{ Invoke-PASCPMOperation -AccountID $BulkAccountIDs -VerifyTask -UseGen1API } | Should -Throw
+
+			}
+
+			It 'throws when bulk operation requested below required version' {
+
+				$psPASSession.ExternalVersion = '14.6'
+				{ Invoke-PASCPMOperation -AccountID $BulkAccountIDs -VerifyTask } | Should -Throw
+
+			}
+
+			It 'sends single (non-bulk) request when only one AccountID supplied' {
+
+				Invoke-PASCPMOperation -AccountID 'OnlyOne' -VerifyTask
+
+				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
+
+					$URI -eq 'https://SomeURL/SomeApp/API/Accounts/OnlyOne/Verify'
+				}
+
+			}
+
+		}
+
 	}
 
 }

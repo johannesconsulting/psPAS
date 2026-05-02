@@ -9,7 +9,7 @@ function Invoke-PASCPMOperation {
 		)]
 		[ValidateNotNullOrEmpty()]
 		[Alias('id')]
-		[string]$AccountID,
+		[string[]]$AccountID,
 
 		[parameter(
 			Mandatory = $true,
@@ -115,6 +115,24 @@ function Invoke-PASCPMOperation {
 		$ThisRequest['WebSession'] = $psPASSession.WebSession
 		$ThisRequest['Method'] = 'PUT'
 
+		# Determine if multiple AccountIDs were supplied (directly bound, not via pipeline)
+		$BulkOperation = $false
+		if (Test-IsMultiValue -Value $PSBoundParameters['AccountID']) {
+
+			#Bulk operations not supported by the Gen1 / classic API parameter sets
+			if ($PSCmdlet.ParameterSetName -match 'Credentials$') {
+
+				throw 'Bulk operations are not supported when using the Gen1 (classic) API.'
+
+			}
+
+			#Bulk CPM operations require 15.0 or above
+			Assert-VersionRequirement -RequiredVersion 15.0
+
+			$BulkOperation = $true
+
+		}
+
 	}#Begin
 
 	process {
@@ -176,20 +194,60 @@ function Invoke-PASCPMOperation {
 
 				}
 
-				#create request body
-				$ThisRequest['Body'] = $boundParameters | ConvertTo-Json
+				if ($BulkOperation) {
+
+					#Build BulkItems array, one entry per supplied AccountID
+					$BulkItems = [System.Collections.Generic.List[object]]::new()
+
+					foreach ($id in $AccountID) {
+
+						$Item = @{ accountId = $id }
+
+						#Include any task-specific properties on each bulk item
+						foreach ($key in $boundParameters.Keys) {
+							$Item[$key] = $boundParameters[$key]
+						}
+
+						$BulkItems.Add($Item)
+
+					}
+
+					$ThisRequest['Body'] = @{ 'bulkItems' = $BulkItems } | ConvertTo-Json -Depth 4
+
+				} else {
+
+					#create request body for single account operation
+					$ThisRequest['Body'] = $boundParameters | ConvertTo-Json
+
+				}
 
 			}
 
 		}
 
-		#Use AccountID + ParameterSet name for required URI
-		$ThisRequest['URI'] = "$URI/Accounts/$AccountID/$($PSCmdlet.ParameterSetName)"
+		if ($BulkOperation) {
 
-		if ($PSCmdlet.ShouldProcess($AccountID, "Initiate CPM $($PSBoundParameters.Keys | Where-Object{$_ -like '*Task'})")) {
+			#Bulk request URI uses the parameter set name as the operation segment, suffixed with /Bulk
+			$ThisRequest['URI'] = "$URI/Accounts/$($PSCmdlet.ParameterSetName)/Bulk"
 
-			#Send the request to the web service
-			Invoke-PASRestMethod @ThisRequest
+			if ($PSCmdlet.ShouldProcess(($AccountID -join ','), "Initiate Bulk CPM $($PSBoundParameters.Keys | Where-Object{$_ -like '*Task'})")) {
+
+				#Send the bulk request to the web service
+				Invoke-PASRestMethod @ThisRequest
+
+			}
+
+		} else {
+
+			#Use AccountID + ParameterSet name for required URI
+			$ThisRequest['URI'] = "$URI/Accounts/$AccountID/$($PSCmdlet.ParameterSetName)"
+
+			if ($PSCmdlet.ShouldProcess($AccountID, "Initiate CPM $($PSBoundParameters.Keys | Where-Object{$_ -like '*Task'})")) {
+
+				#Send the request to the web service
+				Invoke-PASRestMethod @ThisRequest
+
+			}
 
 		}
 

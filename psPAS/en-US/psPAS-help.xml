@@ -23904,6 +23904,8 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
       <maml:para>CPM Change Options: - Flags a managed account credentials for an immediate CPM password change.   - The "Initiate CPM password management operations" permission is required. - Sets a password to use for an account's next CPM change.   - The "Initiate CPM password management operations" &amp; "Specify next password value" permission is required. - Updates the account's password only in the Vault (without affecting the credentials on the target device).   - The "Update password value" permission is required.</maml:para>
       <maml:para>Verify &amp; Reconcile both require "Initiate CPM password management operations"</maml:para>
       <maml:para>Gen 1 Verify is not supported in Privilege Cloud</maml:para>
+      <maml:para>When multiple AccountID values are supplied, the command targets the bulk Gen2 API endpoints (`/API/Accounts/Verify/Bulk`, `/API/Accounts/Change/Bulk`, `/API/Accounts/Reconcile/Bulk`, `/API/Accounts/SetNextPassword/Bulk`, `/API/Accounts/Password/Update/Bulk`).</maml:para>
+      <maml:para>Bulk operations are not supported on the Gen1 (classic) API and require CyberArk version 15.0 or later.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -23912,10 +23914,11 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
           <maml:name>AccountID</maml:name>
           <maml:description>
             <maml:para>The unique ID of the account.</maml:para>
+            <maml:para>When multiple values are supplied the bulk API endpoints are used (CyberArk 15.0+).</maml:para>
           </maml:description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>String[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -23960,10 +23963,11 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
           <maml:name>AccountID</maml:name>
           <maml:description>
             <maml:para>The unique ID of the account.</maml:para>
+            <maml:para>When multiple values are supplied the bulk API endpoints are used (CyberArk 15.0+).</maml:para>
           </maml:description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>String[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -24021,10 +24025,11 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
           <maml:name>AccountID</maml:name>
           <maml:description>
             <maml:para>The unique ID of the account.</maml:para>
+            <maml:para>When multiple values are supplied the bulk API endpoints are used (CyberArk 15.0+).</maml:para>
           </maml:description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>String[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -24098,10 +24103,11 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
           <maml:name>AccountID</maml:name>
           <maml:description>
             <maml:para>The unique ID of the account.</maml:para>
+            <maml:para>When multiple values are supplied the bulk API endpoints are used (CyberArk 15.0+).</maml:para>
           </maml:description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>String[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -24162,10 +24168,11 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
           <maml:name>AccountID</maml:name>
           <maml:description>
             <maml:para>The unique ID of the account.</maml:para>
+            <maml:para>When multiple values are supplied the bulk API endpoints are used (CyberArk 15.0+).</maml:para>
           </maml:description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>String[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -24238,10 +24245,11 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
           <maml:name>AccountID</maml:name>
           <maml:description>
             <maml:para>The unique ID of the account.</maml:para>
+            <maml:para>When multiple values are supplied the bulk API endpoints are used (CyberArk 15.0+).</maml:para>
           </maml:description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>String[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -24316,10 +24324,11 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
           <maml:name>AccountID</maml:name>
           <maml:description>
             <maml:para>The unique ID of the account.</maml:para>
+            <maml:para>When multiple values are supplied the bulk API endpoints are used (CyberArk 15.0+).</maml:para>
           </maml:description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>String[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -24365,10 +24374,11 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
         <maml:name>AccountID</maml:name>
         <maml:description>
           <maml:para>The unique ID of the account.</maml:para>
+          <maml:para>When multiple values are supplied the bulk API endpoints are used (CyberArk 15.0+).</maml:para>
         </maml:description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
         <dev:type>
-          <maml:name>String</maml:name>
+          <maml:name>String[]</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -24578,6 +24588,22 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
         <dev:code>Invoke-PASCPMOperation -AccountID $ID -ReconcileTask</dev:code>
         <dev:remarks>
           <maml:para>Marks an account for immediate reconcile</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 8 --------------------------</maml:title>
+        <dev:code>Invoke-PASCPMOperation -AccountID '7_54','7_55','7_56' -VerifyTask</dev:code>
+        <dev:remarks>
+          <maml:para>Marks the listed accounts for verification using the bulk API.</maml:para>
+          <maml:para>Requires CyberArk version 15.0+</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 9 --------------------------</maml:title>
+        <dev:code>Invoke-PASCPMOperation -AccountID '7_54','7_55' -ChangeTask -NewCredentials $SecureString</dev:code>
+        <dev:remarks>
+          <maml:para>Updates the password in the Vault for the listed accounts using the bulk API.</maml:para>
+          <maml:para>Requires CyberArk version 15.0+</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
