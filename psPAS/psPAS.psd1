@@ -189,6 +189,7 @@
 		'Disable-PASPlatform',
 		'Enable-PASPlatform',
 		'Remove-PASPlatform',
+		'Rename-PASPlatform',
 		'Remove-PASGroup',
 		'Get-PASAllowedReferrer',
 		'Add-PASAllowedReferrer',

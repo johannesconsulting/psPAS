@@ -108,6 +108,7 @@ A psPAS command may not appear in the below list due to it not being explicitly 
 [Activate target platform][Activate target platform]                                        | [Enable-PASPlatform][Enable-PASPlatform]
 [Deactivate target platform][Deactivate target platform]                                    | [Disable-PASPlatform][Disable-PASPlatform]
 [Delete target platform][Delete target platform]                                            | [Remove-PASPlatform][Remove-PASPlatform]
+[Rename target platform][Rename target platform]                                            | [Rename-PASPlatform][Rename-PASPlatform]
 [Get dependent platforms][Get dependent platforms]                                          | [Get-PASPlatform][Get-PASPlatform]
 [Duplicate dependent platforms][Duplicate dependent platforms]                              | [Copy-PASPlatform][Copy-PASPlatform]
 [Delete dependent platform][Delete dependent platform]                                      | [Remove-PASPlatform][Remove-PASPlatform]
@@ -427,6 +428,7 @@ A psPAS command may not appear in the below list due to it not being explicitly 
 [Disable-PASPlatform]:/commands/Disable-PASPlatform
 [Enable-PASPlatform]:/commands/Enable-PASPlatform
 [Remove-PASPlatform]:/commands/Remove-PASPlatform
+[Rename-PASPlatform]:/commands/Rename-PASPlatform
 [Remove-PASGroup]:/commands/Remove-PASGroup
 [Add-PASOpenIDConnectProvider]:/commands/Add-PASOpenIDConnectProvider
 [Get-PASOpenIDConnectProvider]:/commands/Get-PASOpenIDConnectProvider
@@ -586,6 +588,7 @@ A psPAS command may not appear in the below list due to it not being explicitly 
 [Activate target platform]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-activate-target-platform.htm
 [Deactivate target platform]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-deactivate-target-platform.htm
 [Delete target platform]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-delete-target-platform.htm
+[Rename target platform]:https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/rest-api-update-target-platform.htm
 [Get dependent platforms]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-dependent-platforms.htm
 [Duplicate dependent platforms]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-duplicate-dependent-platforms.htm
 [Delete dependent platform]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-delete-dependent-platform.htm
