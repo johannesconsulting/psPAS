@@ -294,7 +294,16 @@
 		'Set-PASDependentLinkedAccount',
 		'Clear-PASDependentLinkedAccount',
 		'Import-PASTicketingSystem',
-		'Export-PASTicketingSystemLog'
+		'Export-PASTicketingSystemLog',
+		'Get-PASVRMServiceConfig',
+		'Get-PASVRMServiceStatus',
+		'Start-PASVRMService',
+		'Stop-PASVRMService',
+		'Restart-PASVRMService',
+		'Get-PASVRMDRSystemHealth',
+		'Invoke-PASVRMFailover',
+		'Get-PASVRMServiceConfigParameter',
+		'Set-PASVRMServiceConfig'
 
 	)
 

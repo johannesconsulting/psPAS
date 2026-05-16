@@ -244,6 +244,15 @@ A psPAS command may not appear in the below list due to it not being explicitly 
 [Remove PTA Syslog Configuration][Remove PTA Syslog Configuration]                                   | [Remove-PASPTASyslog][Remove-PASPTASyslog]
 [Set PTA SMTP Configuration][Set PTA SMTP Configuration]                                             | [Set-PASPTASMTP][Set-PASPTASMTP]
 [List Account Search Properties][List Account Search Properties]                                     | [Get-PASAccountSearchProperty][Get-PASAccountSearchProperty]
+[Get all configuration values][Get all configuration values]                                         | [Get-PASVRMServiceConfig][Get-PASVRMServiceConfig]
+[Get specific configuration parameter value][Get specific configuration parameter value]             | [Get-PASVRMServiceConfigParameter][Get-PASVRMServiceConfigParameter]
+[Set service configuration][Set service configuration]                                               | [Set-PASVRMServiceConfig][Set-PASVRMServiceConfig]
+[Get service status][Get service status]                                                             | [Get-PASVRMServiceStatus][Get-PASVRMServiceStatus]
+[Set service status to START][Set service status to START]                                           | [Start-PASVRMService][Start-PASVRMService]
+[Set service status to STOP][Set service status to STOP]                                             | [Stop-PASVRMService][Stop-PASVRMService]
+[Set service status to RESTART][Set service status to RESTART]                                       | [Restart-PASVRMService][Restart-PASVRMService]
+[Get DR system health check][Get DR system health check]                                             | [Get-PASVRMDRSystemHealth][Get-PASVRMDRSystemHealth]
+[Initiate DR failover][Initiate DR failover]                                                         | [Invoke-PASVRMFailover][Invoke-PASVRMFailover]
 
 [Enable-PASTheme]:/psPAS/Functions/Theme/Enable-PASTheme
 [Remove-PASTheme]:/psPAS/Functions/Theme/Remove-PASTheme
@@ -280,6 +289,15 @@ A psPAS command may not appear in the below list due to it not being explicitly 
 [Remove-PASPTASyslog]:/psPAS/Functions/PTA/Remove-PASPTASyslog
 [Set-PASPTASMTP]:/psPAS/Functions/PTA/Set-PASPTASMTP
 [Get-PASAccountSearchProperty]:/psPAS/Functions/Accounts/Get-PASAccountSearchProperty
+[Get-PASVRMServiceConfig]:/psPAS/Functions/VaultRemoteManager/Get-PASVRMServiceConfig
+[Get-PASVRMServiceConfigParameter]:/psPAS/Functions/VaultRemoteManager/Get-PASVRMServiceConfigParameter
+[Set-PASVRMServiceConfig]:/psPAS/Functions/VaultRemoteManager/Set-PASVRMServiceConfig
+[Get-PASVRMServiceStatus]:/psPAS/Functions/VaultRemoteManager/Get-PASVRMServiceStatus
+[Start-PASVRMService]:/psPAS/Functions/VaultRemoteManager/Start-PASVRMService
+[Stop-PASVRMService]:/psPAS/Functions/VaultRemoteManager/Stop-PASVRMService
+[Restart-PASVRMService]:/psPAS/Functions/VaultRemoteManager/Restart-PASVRMService
+[Get-PASVRMDRSystemHealth]:/psPAS/Functions/VaultRemoteManager/Get-PASVRMDRSystemHealth
+[Invoke-PASVRMFailover]:/psPAS/Functions/VaultRemoteManager/Invoke-PASVRMFailover
 [Get-PASUserTypeInfo]:/commands/Get-PASUserTypeInfo
 [Get-PASPTARiskEvent]:/commands/Get-PASPTARiskEvent
 [Set-PASPTARiskEvent]:/commands/Set-PASPTARiskEvent
@@ -465,6 +483,15 @@ A psPAS command may not appear in the below list due to it not being explicitly 
 [Remove PTA Syslog Configuration]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/RemovePTASyslog.htm
 [Set PTA SMTP Configuration]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/SetPTASMTP.htm
 [List Account Search Properties]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetAccountSearchProperties.htm
+[Get all configuration values]:https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/server-api-vrm-get-service-config.htm
+[Get specific configuration parameter value]:https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/server-api-vrm-get-service-config-parameter.htm
+[Set service configuration]:https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/server-api-vrm-set-service-config-.htm
+[Get service status]:https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/server-api-vrm-get-service-status.htm
+[Set service status to START]:https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/server-api-vrm-set-service-status-start.htm
+[Set service status to STOP]:https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/server-api-vrm-set-service-status-stop.htm
+[Set service status to RESTART]:https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/server-api-vrm-set-service-status-restart.htm
+[Get DR system health check]:https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/server-api-vrm-system-health.htm
+[Initiate DR failover]:https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/server-api-vrm-initiate-dr-failover.htm
 [Get incoming request list]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetIncomingRequestList.htm
 [Create access request for multiple accounts]:https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/13.2/en/Content/WebServices/Create-multiple-requests.htm
 [Get risk events]:https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/GetRiskEvents.htm
