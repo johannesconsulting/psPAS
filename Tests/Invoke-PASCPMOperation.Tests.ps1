@@ -115,27 +115,6 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 			}
 
-			It 'sends change request to expected classic api endpoint' {
-				Invoke-PASCPMOperation -AccountID $AccountID -ChangeTask -ImmediateChangeByCPM 'Yes' -ChangeCredsForGroup 'No'
-
-				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
-
-					$URI -eq 'https://SomeURL/SomeApp/WebServices/PIMServices.svc/Accounts/SomeID/ChangeCredentials'
-				}
-
-			}
-
-			It 'sends change request to classic api using expected method' {
-
-				Invoke-PASCPMOperation -AccountID $AccountID -ChangeTask -ImmediateChangeByCPM 'Yes' -ChangeCredsForGroup 'No'
-
-				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Scope It -ParameterFilter {
-
-					$Method -eq 'PUT'
-				}
-
-			}
-
 			It 'sends change request, when specifying value, to expected api endpoint' {
 
 				Invoke-PASCPMOperation -AccountID $AccountID -ChangeTask -ChangeImmediately $true -NewCredentials $Password

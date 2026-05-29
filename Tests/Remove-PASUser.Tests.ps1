@@ -51,14 +51,14 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 			}
 
 			$InputObj = [pscustomobject]@{
-				'UserName' = 'ThatUser'
+				'id' = 1234
 
 			}
 		}
 
 		Context 'Mandatory Parameters' {
 
-			$Parameters = @{Parameter = 'UserName' }
+			$Parameters = @{Parameter = 'id' }
 
 			It 'specifies parameter <Parameter> as mandatory' -TestCases $Parameters {
 
@@ -80,18 +80,8 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 			}
 
-			It 'sends request to expected endpoint - Classic API' {
+			It 'sends request to expected endpoint' {
 				$InputObj | Remove-PASUser
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
-
-					$URI -eq "$($Script:psPASSession.BaseURI)/WebServices/PIMServices.svc/Users/ThatUser"
-
-				} -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'sends request to expected endpoint - V2 API' {
-				Remove-PASUser -id 1234
 				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
 
 					$URI -eq "$($Script:psPASSession.BaseURI)/api/Users/1234"

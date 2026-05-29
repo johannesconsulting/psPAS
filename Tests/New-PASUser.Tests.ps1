@@ -47,90 +47,15 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 		Context 'Mandatory Parameters' {
 
-			It 'specifies parameter UserName as mandatory for ParameterSet Gen1' {
+			It 'specifies parameter UserName as mandatory' {
 
-				(Get-Command New-PASUser).Parameters['UserName'].ParameterSets['Gen1'].IsMandatory | Should -Be $true
-
-			}
-
-			It 'specifies parameter UserName as mandatory for ParameterSet Gen2' {
-
-				(Get-Command New-PASUser).Parameters['UserName'].ParameterSets['Gen2'].IsMandatory | Should -Be $true
-
-			}
-
-			It 'specifies parameter InitialPassword as mandatory for ParameterSet Gen1' {
-
-				(Get-Command New-PASUser).Parameters['InitialPassword'].ParameterSets['Gen1'].IsMandatory | Should -Be $true
+				(Get-Command New-PASUser).Parameters['UserName'].Attributes.Mandatory | Select-Object -Unique | Should -Be $true
 
 			}
 
 		}
 
-		Context 'Input - Gen1' {
-
-			BeforeEach {
-
-				Mock Invoke-PASRestMethod -MockWith {
-					[PSCustomObject]@{'Detail1' = 'Detail'; 'Detail2' = 'Detail' }
-				}
-
-				$InputObj = [pscustomobject]@{
-					'UserName'        = 'SomeUser'
-					'InitialPassword' = $('P_Password' | ConvertTo-SecureString -AsPlainText -Force)
-					'FirstName'       = 'Some'
-					'LastName'        = 'User'
-					'ExpiryDate'      = '10/31/2018'
-
-				}
-
-				$response = $InputObj | New-PASUser -UseClassicAPI
-
-			}
-
-			It 'sends request' {
-
-				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'sends request to expected endpoint' {
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
-
-					$URI -eq "$($Script:psPASSession.BaseURI)/WebServices/PIMServices.svc/Users"
-
-				} -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'uses expected method' {
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter { $Method -match 'POST' } -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'sends request with expected body' {
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
-
-					$Script:RequestBody = $Body | ConvertFrom-Json
-
-					($Script:RequestBody) -ne $null
-
-				} -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'has a request body with expected number of properties' {
-
-				($Script:RequestBody | Get-Member -MemberType NoteProperty).length | Should -Be 5
-
-			}
-
-		}
-
-		Context 'Input - Gen2' {
+		Context 'Input' {
 
 			BeforeEach {
 
@@ -233,7 +158,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 				}
 
-				$response = $InputObj | New-PASUser -UseClassicAPI
+				$response = $InputObj | New-PASUser
 
 			}
 
@@ -250,13 +175,6 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 			}
 
 			It 'outputs object with expected typename' {
-
-				$response | Get-Member | Select-Object -ExpandProperty typename -Unique | Should -Be psPAS.CyberArk.Vault.User
-
-			}
-
-			It 'outputs object with expected typename - Gen2' {
-				$response = $InputObj | New-PASUser
 				$response | Get-Member | Select-Object -ExpandProperty typename -Unique | Should -Be psPAS.CyberArk.Vault.User.Extended
 
 			}

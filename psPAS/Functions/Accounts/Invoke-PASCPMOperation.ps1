@@ -38,11 +38,6 @@ function Invoke-PASCPMOperation {
 			ValueFromPipelinebyPropertyName = $true,
 			ParameterSetName = 'Change'
 		)]
-		[parameter(
-			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $true,
-			ParameterSetName = 'ChangeCredentials'
-		)]
 		[switch]$ChangeTask,
 
 		[parameter(
@@ -85,22 +80,6 @@ function Invoke-PASCPMOperation {
 
 		[parameter(
 			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $false,
-			ParameterSetName = 'ChangeCredentials'
-		)]
-		[ValidateSet('Yes', 'No')]
-		[string]$ImmediateChangeByCPM,
-
-		[parameter(
-			Mandatory = $false,
-			ValueFromPipelinebyPropertyName = $false,
-			ParameterSetName = 'ChangeCredentials'
-		)]
-		[ValidateSet('Yes', 'No')]
-		[string]$ChangeCredsForGroup,
-
-		[parameter(
-			Mandatory = $true,
 			ValueFromPipelinebyPropertyName = $true,
 			ParameterSetName = 'VerifyCredentials'
 		)]
@@ -124,19 +103,6 @@ function Invoke-PASCPMOperation {
 			Get-PASParameter -ParametersToRemove ImmediateChangeByCPM, AccountID, VerifyTask, ChangeTask, ReconcileTask
 
 		switch ($PSCmdlet.ParameterSetName) {
-
-			'ChangeCredentials' {
-
-				#!Depracated above 13.2
-				Assert-VersionRequirement -MaximumVersion 13.2
-
-				#add ImmediateChangeByCPM to header as key=value pair
-				$ThisRequest['WebSession'].Headers['ImmediateChangeByCPM'] = $ImmediateChangeByCPM
-
-				#create request body
-				$ThisRequest['Body'] = $boundParameters | ConvertTo-Json
-
-			}
 
 			'VerifyCredentials' {
 

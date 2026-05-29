@@ -100,24 +100,6 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 				$psPASSession.ExternalVersion = '0.0'
 			}
 
-			It 'sends request to expected endpoint - Gen1 ParameterSet' {
-
-				$InputObj | Get-PASAccountGroup -UseGen1API
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
-
-					$URI -eq "$($Script:psPASSession.BaseURI)/API/Safes/SomeSafe/AccountGroups"
-
-				} -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'throws error if version requirement not met' {
-				$psPASSession.ExternalVersion = '1.0'
-				{ Get-PASAccountGroup -Safe 'SomeSafe' } | Should -Throw
-				$psPASSession.ExternalVersion = '0.0'
-			}
-
 		}
 
 		Context 'Output' {

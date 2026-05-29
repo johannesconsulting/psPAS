@@ -61,62 +61,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 
 
-		Context 'Gen1 Input' {
-
-			BeforeEach {
-
-				Mock Invoke-PASRestMethod -MockWith {
-
-				}
-
-				$InputObj = [pscustomobject]@{
-					'SafeName' = 'SomeSafe'
-
-				}
-
-				$response = $InputObj | Remove-PASSafe -UseGen1API
-
-			}
-
-			It 'sends request' {
-
-				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'sends request to expected endpoint' {
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
-
-					$URI -eq "$($Script:psPASSession.BaseURI)/WebServices/PIMServices.svc/Safes/SomeSafe"
-
-				} -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'uses expected method' {
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter { $Method -match 'DELETE' } -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'sends request with no body' {
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter { $Body -eq $null } -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'throws if version exceeds 12.2' {
-
-				$psPASSession.ExternalVersion = '12.3'
-				{ Get-PASSafe -SafeName SomeSafe -UseGen1API } | Should -Throw
-				$psPASSession.ExternalVersion = '0.0'
-
-			}
-
-		}
-
-		Context 'Gen2 Input' {
+		Context 'Input' {
 
 			BeforeEach {
 
@@ -169,7 +114,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 		}
 
-		Context 'Gen1 Output' {
+		Context 'Output' {
 
 			BeforeEach {
 
@@ -182,32 +127,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 				}
 
-				$response = $InputObj | Remove-PASSafe -UseGen1API
-
-			}
-
-			It 'provides no output' {
-
-				$response | Should -BeNullOrEmpty
-
-			}
-
-		}
-
-		Context 'Gen2 Output' {
-
-			BeforeEach {
-
-				Mock Invoke-PASRestMethod -MockWith {
-
-				}
-
-				$InputObj = [pscustomobject]@{
-					'SafeName' = 'SomeSafe'
-
-				}
-
-				$response = $InputObj | Remove-PASSafe -UseGen1API
+				$response = $InputObj | Remove-PASSafe
 
 			}
 

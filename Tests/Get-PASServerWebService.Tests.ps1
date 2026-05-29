@@ -60,7 +60,7 @@ Describe $($PSCommandPath -replace '.Tests.ps1') {
 					}
 				}
 				$Script:psPASSession.BaseURI = 'https://SomeURL/SomeApp'
-				$response = Get-PASServerWebService -BaseURI 'https://SomeURL' -PVWAAppName SomeApp -UseGen1API
+				$response = Get-PASServerWebService -BaseURI 'https://SomeURL' -PVWAAppName SomeApp
 			}
 
 			It 'sends request' {
@@ -70,18 +70,6 @@ Describe $($PSCommandPath -replace '.Tests.ps1') {
 			}
 
 			It 'sends request to expected endpoint' {
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
-
-					$URI -eq 'https://SomeURL/SomeApp/WebServices/PIMServices.svc/Verify'
-
-				} #-Times 1 -Exactly -Scope It
-
-			}
-
-			It 'sends request to expected Gen2 endpoint' {
-
-				Get-PASServerWebService -BaseURI 'https://SomeURL' -PVWAAppName SomeApp
 
 				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
 
@@ -117,7 +105,7 @@ Describe $($PSCommandPath -replace '.Tests.ps1') {
 					}
 				}
 				$Script:psPASSession.BaseURI = 'https://SomeURL/SomeApp'
-				$response = Get-PASServerWebService -BaseURI 'https://SomeURL' -PVWAAppName SomeApp -UseGen1API
+				$response = Get-PASServerWebService -BaseURI 'https://SomeURL' -PVWAAppName SomeApp
 			}
 
 			It 'provides output' {

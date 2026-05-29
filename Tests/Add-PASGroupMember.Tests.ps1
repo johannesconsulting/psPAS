@@ -51,12 +51,6 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 			}
 
 			$InputObj = [pscustomobject]@{
-				'GroupName' = 'SomeGroup'
-				'UserName'  = 'SomeUser'
-
-			}
-
-			$InputObjV10 = [pscustomobject]@{
 				'memberId'   = 'someName'
 				'memberType' = 'domain'
 				'domainName' = 'SomeDomain'
@@ -66,8 +60,8 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 		}
 		Context 'Mandatory Parameters' {
 
-			$Parameters = @{Parameter = 'GroupName' },
-			@{Parameter = 'UserName' }
+			$Parameters = @{Parameter = 'groupId' },
+			@{Parameter = 'memberId' }
 
 			It 'specifies parameter <Parameter> as mandatory' -TestCases $Parameters {
 
@@ -95,19 +89,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
 
-					$URI -eq "$($Script:psPASSession.BaseURI)/WebServices/PIMServices.svc/Groups/SomeGroup/Users/"
-
-				} -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'sends request to expected endpoint - V10' {
-
-				$InputObjV10 | Add-PASGroupMember
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
-
-					$URI -eq "$($Script:psPASSession.BaseURI)/API/UserGroups/$($InputObjV10.groupId)/Members"
+					$URI -eq "$($Script:psPASSession.BaseURI)/API/UserGroups/$($InputObj.groupId)/Members"
 
 				} -Times 1 -Exactly -Scope It
 
@@ -116,14 +98,6 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 			It 'uses expected method' {
 
 				$InputObj | Add-PASGroupMember
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter { $Method -match 'POST' } -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'uses expected method - V10' {
-
-				$InputObjV10 | Add-PASGroupMember
 
 				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter { $Method -match 'POST' } -Times 1 -Exactly -Scope It
 
@@ -145,26 +119,6 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 			It 'has a request body with expected number of properties' {
 
-				($Script:RequestBody | Get-Member -MemberType NoteProperty).length | Should -Be 1
-
-			}
-
-			It 'sends request with expected body - v10' {
-
-				$InputObjV10 | Add-PASGroupMember
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
-
-					$Script:RequestBody = $Body | ConvertFrom-Json
-
-					($Script:RequestBody) -ne $null
-
-				} -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'has a request body with expected number of properties - V10' {
-
 				($Script:RequestBody | Get-Member -MemberType NoteProperty).length | Should -Be 3
 
 			}
@@ -174,7 +128,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 				$psPASSession.ExternalVersion = '1.0'
 
-				{ $InputObjV10 | Add-PASGroupMember } | Should -Throw
+				{ $InputObj | Add-PASGroupMember } | Should -Throw
 
 				$psPASSession.ExternalVersion = '0.0'
 

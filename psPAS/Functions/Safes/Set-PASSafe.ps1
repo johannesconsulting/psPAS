@@ -70,29 +70,14 @@ function Set-PASSafe {
 			ValueFromPipelinebyPropertyName = $true,
 			ParameterSetName = 'Gen2-NumberOfDaysRetention'
 		)]
-		[parameter(
-			Mandatory = $false,
-			ValueFromPipelinebyPropertyName = $true,
-			ParameterSetName = 'Gen1-NumberOfDaysRetention'
-		)]
 		[ValidateRange(0, 3650)]
-		[int]$NumberOfDaysRetention,
-
-		[parameter(
-			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $true,
-			ParameterSetName = 'Gen1-NumberOfVersionsRetention'
-		)]
-		[parameter(
-			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $true,
-			ParameterSetName = 'Gen1-NumberOfDaysRetention'
-		)]
-		[switch]$UseGen1API
+		[int]$NumberOfDaysRetention
 
 	)
 
-	begin { }#begin
+	begin {
+		Assert-VersionRequirement -RequiredVersion 12.2
+	}#begin
 
 	process {
 
@@ -118,43 +103,14 @@ function Set-PASSafe {
 			}
 		}
 
-		switch ($PSCmdlet.ParameterSetName) {
+		$typename = "$typename.Gen2"
 
-			( { $PSItem -match '^Gen2-' } ) {
+		#Create URL for Request
+		$URI = "$($psPASSession.BaseURI)/api/Safes/$($SafeName | Get-EscapedString)"
 
-				Assert-VersionRequirement -RequiredVersion 12.2
+		#Create Request Body
+		$body = $BoundParameters | ConvertTo-Json
 
-				$typename = "$typename.Gen2"
-
-				#Create URL for Request
-				$URI = "$($psPASSession.BaseURI)/api/Safes/$($SafeName | Get-EscapedString)"
-
-				#Create Request Body
-				$body = $BoundParameters | ConvertTo-Json
-
-				break
-
-			}
-
-			( { $PSItem -match '^Gen1-' } ) {
-
-				Assert-VersionRequirement -MaximumVersion 12.3
-
-				#Create URL for Request
-				$URI = "$($psPASSession.BaseURI)/WebServices/PIMServices.svc/Safes/$($SafeName | Get-EscapedString)"
-
-				#Create Request Body
-				$body = @{
-
-					'safe' = $BoundParameters
-
-				} | ConvertTo-Json
-
-				break
-
-			}
-
-		}
 
 		if ($PSCmdlet.ShouldProcess($SafeName, 'Update Safe Properties')) {
 
@@ -163,25 +119,7 @@ function Set-PASSafe {
 
 			if ($null -ne $result) {
 
-				switch ($PSCmdlet.ParameterSetName) {
-
-					( { $PSItem -match '^Gen1-' } ) {
-
-						$return = $result.UpdateSafeResult
-
-						break
-
-					}
-
-					default {
-
-						$return = $result
-
-						break
-
-					}
-
-				}
+				$return = $result
 
 				$return | Add-ObjectDetail -typename $typename
 

@@ -53,7 +53,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 					'UserName'   = 'SomeUser'
 					'FirstName'  = 'Some'
 					'LastName'   = 'User'
-					'ExpiryDate' = $(Get-Date -Day 31 -Month 10 -Year 2018 -Hour 0 -Minute 0 -Second 0 -Millisecond 0)
+					'ExpiryDate' = [datetime]::SpecifyKind((Get-Date -Day 31 -Month 10 -Year 2018 -Hour 0 -Minute 0 -Second 0 -Millisecond 0), [DateTimeKind]::Utc)
 					'workStreet' = 'SomeStreet'
 					'homePage'   = 'www.geocities.com'
 					'faxNumber'  = '1979'
@@ -102,6 +102,19 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 			It 'has expected value for ExpiryDate' {
 				$result = $InputObj | Format-PASUserObject
 				$result['ExpiryDate'] | Should -Be '1540944000'
+			}
+
+			It 'has array value for allowedAuthenticationMethods' {
+				$InputObj['allowedAuthenticationMethods'] = 'FIDO'
+				$result = $InputObj | Format-PASUserObject
+				($result['allowedAuthenticationMethods'] -is [array]) | Should -Be $true
+				$result['allowedAuthenticationMethods'] | Should -Be @('FIDO')
+			}
+
+			It 'converts allowedAuthenticationMethods to expected json array' {
+				$InputObj['allowedAuthenticationMethods'] = 'FIDO'
+				$result = $InputObj | Format-PASUserObject | ConvertTo-Json -Depth 4 | ConvertFrom-Json
+				$result.allowedAuthenticationMethods | Should -Be @('FIDO')
 			}
 
 			It 'does not include unexpected keys in result' {

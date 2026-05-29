@@ -1,61 +1,23 @@
 # .ExternalHelp psPAS-help.xml
 function Remove-PASUser {
-	[CmdletBinding(SupportsShouldProcess, DefaultParameterSetName = 'Gen2')]
+	[CmdletBinding(SupportsShouldProcess)]
 	param(
 
 		[parameter(
 			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $true,
-			ParameterSetName = 'Gen2'
+			ValueFromPipelinebyPropertyName = $true
 		)]
-		[int]$id,
-
-		[parameter(
-			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $true,
-			ParameterSetName = 'Gen1'
-		)]
-		[string]$UserName
+		[int]$id
 	)
 
 	begin {
-
-		if ($PSCmdlet.ParameterSetName -eq 'Gen2') {
-
-			Assert-VersionRequirement -RequiredVersion 11.1
-
-		}
-
+		Assert-VersionRequirement -RequiredVersion 11.1
 	}#begin
 
 	process {
 
-		switch ($PSCmdlet.ParameterSetName) {
-
-			'Gen2' {
-
-				$URI = "$($psPASSession.BaseURI)/api/Users/$id"
-
-				$User = $id
-
-				break
-
-			}
-
-			default {
-
-				Assert-VersionRequirement -MaximumVersion 12.3
-
-				#Create URL for request
-				$URI = "$($psPASSession.BaseURI)/WebServices/PIMServices.svc/Users/$($UserName | Get-EscapedString)"
-
-				$User = $UserName
-
-				break
-
-			}
-
-		}
+		$URI = "$($psPASSession.BaseURI)/api/Users/$id"
+		$User = $id
 
 		if ($PSCmdlet.ShouldProcess($User, 'Delete User')) {
 

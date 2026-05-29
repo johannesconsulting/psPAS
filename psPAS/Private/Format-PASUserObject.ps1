@@ -29,6 +29,7 @@ function Format-PASUserObject {
 		$phonesParams = [Collections.Generic.List[String]]@('homeNumber', 'businessNumber', 'cellularNumber', 'faxNumber', 'pagerNumber')
 		$personalDetailsParams = [Collections.Generic.List[String]]@('street', 'city', 'state', 'zip', 'country', 'title', 'organization',
 			'department', 'profession', 'FirstName', 'middleName', 'LastName')
+		$arrayParams = [Collections.Generic.List[String]]@('allowedAuthenticationMethods')
 	}
 
 	process {
@@ -38,6 +39,13 @@ function Format-PASUserObject {
 
 		#Process each key of the input hashtable
 		switch ($UserProperties.keys) {
+
+			{ $arrayParams -contains $PSItem } {
+
+				#Ensure value is an array, even if only a single value is provided
+				$UserObject[$PSItem] = @($UserObject[$PSItem])
+
+			}
 
 			'ExpiryDate' {
 

@@ -101,22 +101,13 @@ function Get-PASUser {
 			ValueFromPipelinebyPropertyName = $true,
 			ParameterSetName = 'Gen2-ExtendedDetails'
 		)]
-		[parameter(
-			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $true,
-			ParameterSetName = 'Gen1'
-		)]
-		[string]$UserName,
+		[string]$UserName
 
-		[parameter(
-			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $false,
-			ParameterSetName = 'Gen1'
-		)]
-		[switch]$UseGen1API
 	)
 
-	begin { }#begin
+	begin {
+		Assert-VersionRequirement -RequiredVersion 10.9
+	}#begin
 
 	process {
 
@@ -162,8 +153,6 @@ function Get-PASUser {
 
 				}
 
-				Assert-VersionRequirement -RequiredVersion 10.9
-
 				#Get Parameters to include in request
 				$boundParameters = $PSBoundParameters | Get-PASParameter
 
@@ -176,19 +165,6 @@ function Get-PASUser {
 					$URI = "$URI`?$queryString"
 
 				}
-
-				break
-
-			}
-
-			'Gen1' {
-
-				Assert-VersionRequirement -MaximumVersion 12.3
-
-				#Create URL for request
-				$URI = "$($psPASSession.BaseURI)/WebServices/PIMServices.svc/Users/$($UserName | Get-EscapedString)"
-
-				$TypeName = 'psPAS.CyberArk.Vault.User'
 
 				break
 

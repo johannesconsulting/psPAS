@@ -53,12 +53,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 					[PSCustomObject]@{'Detail1' = 'Detail'; 'Detail2' = 'Detail' }
 				}
 
-				$InputObj = [pscustomobject]@{
-					'UserName' = 'SomeUser'
-
-				}
-
-				$InputObjV10 = [PSCustomObject]@{
+				$InputObj = [PSCustomObject]@{
 					'Search'        = 'SomeUser'
 					'ComponentUser' = $true
 
@@ -75,20 +70,6 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 			}
 
 			It 'sends request to expected endpoint' {
-
-				$response = $InputObj | Get-PASUser -UseGen1API
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
-
-					$URI -eq "$($Script:psPASSession.BaseURI)/WebServices/PIMServices.svc/Users/SomeUser"
-
-				} -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'sends request to expected endpoint - Gen2' {
-
-				$InputObjV10 | Get-PASUser
 
 				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
 
@@ -126,7 +107,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 			It 'throws error if version requirement not met' {
 				$psPASSession.ExternalVersion = '1.0'
 
-				{ $InputObjV10 | Get-PASUser } | Should -Throw
+				{ $InputObj | Get-PASUser } | Should -Throw
 				$psPASSession.ExternalVersion = '0.0'
 
 			}
@@ -161,12 +142,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 					[PSCustomObject]@{'Detail1' = 'Detail'; 'Detail2' = 'Detail' }
 				}
 
-				$InputObj = [pscustomobject]@{
-					'UserName' = 'SomeUser'
-
-				}
-
-				$InputObjV10 = [PSCustomObject]@{
+				$InputObj = [PSCustomObject]@{
 					'Search'        = 'SomeUser'
 					'ComponentUser' = $true
 
@@ -189,20 +165,12 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 			It 'outputs object with expected typename' {
 
-				$response = $InputObj | Get-PASUser -UseGen1API
-
-				$response | Get-Member | Select-Object -ExpandProperty typename -Unique | Should -Be psPAS.CyberArk.Vault.User
-
-			}
-
-			It 'outputs object with expected typename - Gen2' {
-
 				Mock Invoke-PASRestMethod -MockWith { [PSCustomObject]@{'Users' =
 						[PSCustomObject]@{'Detail1' = 'Detail'; 'Detail2' = 'Detail' }
 					}
 				}
 
-				$response = $InputObjV10 | Get-PASUser
+				$response = $InputObj | Get-PASUser
 				$response | Get-Member | Select-Object -ExpandProperty typename -Unique | Should -Be psPAS.CyberArk.Vault.User.Extended
 
 			}

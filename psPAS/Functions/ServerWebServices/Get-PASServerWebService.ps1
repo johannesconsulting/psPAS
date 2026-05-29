@@ -18,14 +18,7 @@ function Get-PASServerWebService {
 			Mandatory = $false,
 			ValueFromPipelinebyPropertyName = $true
 		)]
-		[string]$PVWAAppName = 'PasswordVault',
-
-		[parameter(
-			Mandatory = $false,
-			ValueFromPipelinebyPropertyName = $true
-		)]
-		[Alias('UseClassicAPI')]
-		[switch]$UseGen1API
+		[string]$PVWAAppName = 'PasswordVault'
 
 	)
 
@@ -33,29 +26,20 @@ function Get-PASServerWebService {
 
 	process {
 
-		switch ($PSBoundParameters.Keys) {
+		#Create URL for request
+		$URI = "$BaseURI/$PVWAAppName/API/verify/"
 
-			'UseGen1API' {
-				#!Depracated above 13.2
-				Assert-VersionRequirement -MaximumVersion 13.2
+		$Request = @{
+			Uri    = $URI
+			Method = 'GET'
+		}
 
-				#Create URL for request
-				$URI = "$BaseURI/$PVWAAppName/WebServices/PIMServices.svc/Verify"
-
-				break
-			}
-
-			default {
-
-				#Create URL for request
-				$URI = "$BaseURI/$PVWAAppName/API/verify/"
-
-			}
-
+		if ($PSBoundParameters.ContainsKey('WebSession')) {
+			$Request['WebSession'] = $WebSession
 		}
 
 		#send request to web service
-		$result = Invoke-PASRestMethod -Uri $URI -Method GET
+		$result = Invoke-PASRestMethod @Request
 
 		if ($null -ne $result) {
 

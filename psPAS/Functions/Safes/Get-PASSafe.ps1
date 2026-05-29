@@ -50,11 +50,6 @@ function Get-PASSafe {
 		[parameter(
 			Mandatory = $true,
 			ValueFromPipelinebyPropertyName = $true,
-			ParameterSetName = 'Gen1-byName'
-		)]
-		[parameter(
-			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $true,
 			ParameterSetName = 'Gen2-byName'
 		)]
 		[ValidateNotNullOrEmpty()]
@@ -70,32 +65,6 @@ function Get-PASSafe {
 
 		[parameter(
 			Mandatory = $false,
-			ValueFromPipelinebyPropertyName = $false,
-			ParameterSetName = 'Gen1-byQuery'
-		)]
-		[string]$query,
-
-		[parameter(
-			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $false,
-			ParameterSetName = 'Gen1-byAll'
-		)]
-		[switch]$FindAll,
-
-		[parameter(
-			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $true,
-			ParameterSetName = 'Gen1-byName'
-		)]
-		[parameter(
-			Mandatory = $true,
-			ValueFromPipelinebyPropertyName = $false,
-			ParameterSetName = 'Gen1-byAll'
-		)]
-		[switch]$UseGen1API,
-
-		[parameter(
-			Mandatory = $false,
 			ValueFromPipelineByPropertyName = $false
 		)]
 		[int]$TimeoutSec
@@ -104,7 +73,6 @@ function Get-PASSafe {
 	begin {
 
 		$typeName = 'psPAS.CyberArk.Vault.Safe'
-		$Limit = 25   #default if you call the API with no value
 
 	}#begin
 
@@ -153,8 +121,6 @@ function Get-PASSafe {
 
 				}
 
-				$returnProperty = 'value'
-
 				#define base URL
 				$URI = "$($psPASSession.BaseURI)/API/Safes"
 
@@ -195,84 +161,12 @@ function Get-PASSafe {
 
 			}
 
-			( { $PSItem -match '^Gen1-' } ) {
-
-				#check required version
-				Assert-VersionRequirement -MaximumVersion 12.3
-
-				#Create URL for Gen1 API requests
-				$URI = "$($psPASSession.BaseURI)/WebServices/PIMServices.svc/Safes"
-
-			}
-
-			'Gen1-byName' {
-
-				$returnProperty = 'GetSafeResult'
-
-				#Build URL from base URL
-				$URI = "$URI/$($SafeName | Get-EscapedString)"
-
-				break
-
-			}
-
-			'Gen1-byQuery' {
-
-				$returnProperty = 'SearchSafesResult'
-
-				if ($null -ne $queryString) {
-
-					#Build URL from base URL
-					$URI = "$URI`?$queryString"
-
-				}
-
-				break
-
-			}
-
-			'Gen1-byAll' {
-
-				$returnProperty = 'GetSafesResult'
-
-				break
-
-			}
-
 		}
 
 		#send request to web service
 		$result = Invoke-PASRestMethod -Uri $URI -Method GET -TimeoutSec $TimeoutSec
 
 		switch ($PSCmdlet.ParameterSetName) {
-
-			( { $PSItem -match '^Gen1-' } ) {
-
-				$Total = $result.Total
-
-				if ($Total -gt 0) {
-
-					$Safes = [Collections.Generic.List[Object]]::New(($result.$returnProperty))
-
-					for ( $Offset = $Limit ; $Offset -lt $Total ; $Offset += $Limit ) {
-
-						$Null = $Safes.AddRange((Invoke-PASRestMethod -Uri "$URI`?limit=$Limit&OffSet=$Offset$searchQuery" -Method GET -TimeoutSec $TimeoutSec).Safes)
-
-					}
-
-					$return = $Safes
-
-				}
-
-				elseif ($null -ne $result) {
-
-					$return = $result.$returnProperty
-
-				}
-
-				break
-
-			}
 
 			'Gen2' {
 

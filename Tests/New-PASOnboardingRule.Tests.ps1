@@ -50,8 +50,8 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 			}
 
 			$InputObj = [pscustomobject]@{
-				'DecisionPlatformId' = 'SomePlatform'
-				'DecisionSafeName'   = 'SomeSafe'
+				'TargetPlatformId' = 'SomePlatform'
+				'TargetSafeName'   = 'SomeSafe'
 				'SystemTypeFilter'   = 'Windows'
 
 			}
@@ -61,9 +61,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 		}
 		Context 'Mandatory Parameters' {
 
-			$Parameters = @{Parameter = 'DecisionPlatformId' },
-			@{Parameter = 'DecisionSafeName' },
-			@{Parameter = 'SystemTypeFilter' },
+			$Parameters = @{Parameter = 'SystemTypeFilter' },
 			@{Parameter = 'TargetPlatformId' },
 			@{Parameter = 'TargetSafeName' }
 
@@ -127,20 +125,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 				$psPASSession.ExternalVersion = '0.0'
 			}
 
-			It 'accepts alternative parameterset input' {
-
-				$InputObj = [pscustomobject]@{
-					'TargetPlatformId' = 'SomePlatform'
-					'TargetSafeName'   = 'SomeSafe'
-					'SystemTypeFilter' = 'Windows'
-
-				}
-
-				{ $InputObj | New-PASOnboardingRule } | Should -Not -Throw
-
-			}
-
-			It 'throws error if parameterset version requirement not met' {
+			It 'throws error if version 10.2 requirement not met' {
 
 				$InputObj = [pscustomobject]@{
 					'TargetPlatformId' = 'SomePlatform'

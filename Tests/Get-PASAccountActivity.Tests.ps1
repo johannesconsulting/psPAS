@@ -62,58 +62,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 		}
 
-		Context 'Input - Gen 1' {
-
-			BeforeEach {
-
-				Mock Invoke-PASRestMethod -MockWith {
-					[pscustomobject]@{'GetAccountActivitiesResult' = [pscustomobject]@{
-							'prop1' = 'val1'
-							'prop2' = 'val2'
-							'prop3' = 'val3'
-						}
-					}
-				}
-
-				$InputObj = [pscustomobject]@{
-					'AccountID' = '66_6'
-
-				}
-
-				$response = $InputObj | Get-PASAccountActivity -UseGen1API -Verbose
-			}
-
-			It 'sends request' {
-
-				Assert-MockCalled Invoke-PASRestMethod -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'sends request to expected endpoint' {
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter {
-
-					$URI -eq "$($Script:psPASSession.BaseURI)/WebServices/PIMServices.svc/Accounts/66_6/Activities"
-
-				} -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'uses expected method' {
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter { $Method -match 'GET' } -Times 1 -Exactly -Scope It
-
-			}
-
-			It 'sends request with no body' {
-
-				Assert-MockCalled Invoke-PASRestMethod -ParameterFilter { $Body -eq $null } -Times 1 -Exactly -Scope It
-
-			}
-
-		}
-
-		Context 'Input - Gen 2' {
+		Context 'Input' {
 
 			BeforeEach {
 
@@ -164,50 +113,7 @@ Describe $($PSCommandPath -Replace '.Tests.ps1') {
 
 		}
 
-		Context 'Output - Gen 1' {
-
-			BeforeEach {
-
-				Mock Invoke-PASRestMethod -MockWith {
-					[pscustomobject]@{'GetAccountActivitiesResult' = [pscustomobject]@{
-							'prop1' = 'val1'
-							'prop2' = 'val2'
-							'prop3' = 'val3'
-						}
-					}
-				}
-
-				$InputObj = [pscustomobject]@{
-					'AccountID' = '66_6'
-
-				}
-
-				$response = $InputObj | Get-PASAccountActivity -UseGen1API -Verbose
-			}
-
-			It 'provides output' {
-
-				$response | Should -Not -Be null
-
-			}
-
-			It 'has output with expected number of properties' {
-
-				($response | Get-Member -MemberType NoteProperty).length | Should -Be 3
-
-			}
-
-			It 'outputs object with expected typename' {
-
-				$response | Get-Member | Select-Object -ExpandProperty typename -Unique | Should -Be psPAS.CyberArk.Vault.Account.Activity
-
-			}
-
-
-
-		}
-
-		Context 'Output - Gen 2' {
+		Context 'Output' {
 
 			BeforeEach {
 
