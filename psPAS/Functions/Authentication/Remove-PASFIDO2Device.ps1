@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Remove-PASFIDO2Device {
 
 	[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', 'OwnDevice', Justification = 'False Positive')]

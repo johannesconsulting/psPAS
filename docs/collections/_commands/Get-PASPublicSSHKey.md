@@ -1,24 +1,39 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASPublicSSHKey
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASPublicSSHKey
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASPublicSSHKey
 ---
 
 # Get-PASPublicSSHKey
 
 ## SYNOPSIS
+
 Retrieves a user's SSH Keys.
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Get-PASPublicSSHKey [-UserName] <String> [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Get-PASPublicSSHKey [-UserName] <string> [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Retrieves all public SSH keys that are authorized for a specific user.
 
 The "Reset User Passwords" Vault permission is required to query public SSH Keys.
@@ -32,6 +47,7 @@ A user cannot manage their own public SSH keys.
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Get-PASPublicSSHKey -UserName user1
 ```
@@ -39,6 +55,7 @@ Get-PASPublicSSHKey -UserName user1
 Lists all SSH Keys for vault user
 
 ### EXAMPLE 2
+
 ```
 Get-PASUser -Search Bob | Get-PASPublicSSHKey
 ```
@@ -46,6 +63,7 @@ Get-PASUser -Search Bob | Get-PASPublicSSHKey
 Returns all authorized SSH keys for the vault user found by Get-PASUser, with the UserName value supplied via the pipeline.
 
 ### EXAMPLE 3
+
 ```
 Get-PASPublicSSHKey -UserName Bob | Where-Object PublicSSHKey -match '^ssh-ed25519'
 ```
@@ -53,6 +71,7 @@ Get-PASPublicSSHKey -UserName Bob | Where-Object PublicSSHKey -match '^ssh-ed255
 Returns only the Ed25519 format public SSH keys authorized for vault user Bob.
 
 ### EXAMPLE 4
+
 ```
 Get-PASPublicSSHKey -UserName Bob | Export-Csv .\bob-ssh-keys.csv -NoTypeInformation
 ```
@@ -62,26 +81,43 @@ Exports all of vault user Bob's authorized SSH keys to a CSV file.
 ## PARAMETERS
 
 ### -UserName
+
+The username of the Vault user whose public SSH keys will be added
+
+A username cannot contain the following characters: "%", "&", "+" or ".".
 The username of the Vault user whose public SSH keys will be added
 
 A username cannot contain the following characters: "%", "&", "+" or ".".
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -89,6 +125,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASPublicSSHKey](https://pspas.pspete.dev/commands/Get-PASPublicSSHKey)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Get%20Public%20SSH%20Keys.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Get%20Public%20SSH%20Keys.htm)
+- [https://pspas.pspete.dev/commands/Get-PASPublicSSHKey](https://pspas.pspete.dev/commands/Get-PASPublicSSHKey)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Get%20Public%20SSH%20Keys.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Get%20Public%20SSH%20Keys.htm)

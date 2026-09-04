@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Add-PASSafeMember {
 	[CmdletBinding(DefaultParameterSetName = 'Gen2', SupportsShouldProcess)]
 	param(

@@ -1,76 +1,90 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Set-PASSafeMember
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Set-PASSafeMember
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Set-PASSafeMember
 ---
 
 # Set-PASSafeMember
 
 ## SYNOPSIS
+
 Updates a Safe Member
 
 ## SYNTAX
 
 ### Gen2 (Default)
+
 ```
-Set-PASSafeMember -SafeName <String> -MemberName <String> [-MembershipExpirationDate <DateTime>]
- [-UseAccounts <Boolean>] [-RetrieveAccounts <Boolean>] [-ListAccounts <Boolean>] [-AddAccounts <Boolean>]
- [-UpdateAccountContent <Boolean>] [-UpdateAccountProperties <Boolean>]
- [-InitiateCPMAccountManagementOperations <Boolean>] [-SpecifyNextAccountContent <Boolean>]
- [-RenameAccounts <Boolean>] [-DeleteAccounts <Boolean>] [-UnlockAccounts <Boolean>] [-ManageSafe <Boolean>]
- [-ManageSafeMembers <Boolean>] [-BackupSafe <Boolean>] [-ViewAuditLog <Boolean>] [-ViewSafeMembers <Boolean>]
- [-requestsAuthorizationLevel1 <Boolean>] [-requestsAuthorizationLevel2 <Boolean>]
- [-AccessWithoutConfirmation <Boolean>] [-CreateFolders <Boolean>] [-DeleteFolders <Boolean>]
- [-MoveAccountsAndFolders <Boolean>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PASSafeMember -SafeName <string> -MemberName <string> [-MembershipExpirationDate <datetime>]
+ [-UseAccounts <bool>] [-RetrieveAccounts <bool>] [-ListAccounts <bool>] [-AddAccounts <bool>]
+ [-UpdateAccountContent <bool>] [-UpdateAccountProperties <bool>]
+ [-InitiateCPMAccountManagementOperations <bool>] [-SpecifyNextAccountContent <bool>]
+ [-RenameAccounts <bool>] [-DeleteAccounts <bool>] [-UnlockAccounts <bool>] [-ManageSafe <bool>]
+ [-ManageSafeMembers <bool>] [-BackupSafe <bool>] [-ViewAuditLog <bool>] [-ViewSafeMembers <bool>]
+ [-requestsAuthorizationLevel1 <bool>] [-requestsAuthorizationLevel2 <bool>]
+ [-AccessWithoutConfirmation <bool>] [-CreateFolders <bool>] [-DeleteFolders <bool>]
+ [-MoveAccountsAndFolders <bool>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### Full
+
 ```
-Set-PASSafeMember -SafeName <String> -MemberName <String> [-MembershipExpirationDate <DateTime>] [-Full]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PASSafeMember -SafeName <string> -MemberName <string> -Full
+ [-MembershipExpirationDate <datetime>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### AccountsManager
+
 ```
-Set-PASSafeMember -SafeName <String> -MemberName <String> [-MembershipExpirationDate <DateTime>]
- [-AccountsManager] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PASSafeMember -SafeName <string> -MemberName <string> -AccountsManager
+ [-MembershipExpirationDate <datetime>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### Approver
+
 ```
-Set-PASSafeMember -SafeName <String> -MemberName <String> [-MembershipExpirationDate <DateTime>] [-Approver]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PASSafeMember -SafeName <string> -MemberName <string> -Approver
+ [-MembershipExpirationDate <datetime>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ReadOnly
+
 ```
-Set-PASSafeMember -SafeName <String> -MemberName <String> [-MembershipExpirationDate <DateTime>] [-ReadOnly]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PASSafeMember -SafeName <string> -MemberName <string> -ReadOnly
+ [-MembershipExpirationDate <datetime>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ConnectOnly
+
 ```
-Set-PASSafeMember -SafeName <String> -MemberName <String> [-MembershipExpirationDate <DateTime>] [-ConnectOnly]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PASSafeMember -SafeName <string> -MemberName <string> -ConnectOnly
+ [-MembershipExpirationDate <datetime>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### Gen1
+
 ```
-Set-PASSafeMember -SafeName <String> -MemberName <String> [-MembershipExpirationDate <DateTime>]
- [-UseAccounts <Boolean>] [-RetrieveAccounts <Boolean>] [-ListAccounts <Boolean>] [-AddAccounts <Boolean>]
- [-UpdateAccountContent <Boolean>] [-UpdateAccountProperties <Boolean>]
- [-InitiateCPMAccountManagementOperations <Boolean>] [-SpecifyNextAccountContent <Boolean>]
- [-RenameAccounts <Boolean>] [-DeleteAccounts <Boolean>] [-UnlockAccounts <Boolean>] [-ManageSafe <Boolean>]
- [-ManageSafeMembers <Boolean>] [-BackupSafe <Boolean>] [-ViewAuditLog <Boolean>] [-ViewSafeMembers <Boolean>]
- [-RequestsAuthorizationLevel <Int32>] [-AccessWithoutConfirmation <Boolean>] [-CreateFolders <Boolean>]
- [-DeleteFolders <Boolean>] [-MoveAccountsAndFolders <Boolean>] [-UseGen1API] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Set-PASSafeMember -SafeName <string> -MemberName <string> -UseGen1API
+ [-MembershipExpirationDate <datetime>] [-UseAccounts <bool>] [-RetrieveAccounts <bool>]
+ [-ListAccounts <bool>] [-AddAccounts <bool>] [-UpdateAccountContent <bool>]
+ [-UpdateAccountProperties <bool>] [-InitiateCPMAccountManagementOperations <bool>]
+ [-SpecifyNextAccountContent <bool>] [-RenameAccounts <bool>] [-DeleteAccounts <bool>]
+ [-UnlockAccounts <bool>] [-ManageSafe <bool>] [-ManageSafeMembers <bool>] [-BackupSafe <bool>]
+ [-ViewAuditLog <bool>] [-ViewSafeMembers <bool>] [-RequestsAuthorizationLevel <int>]
+ [-AccessWithoutConfirmation <bool>] [-CreateFolders <bool>] [-DeleteFolders <bool>]
+ [-MoveAccountsAndFolders <bool>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Updates an existing Safe Member's permissions on a safe.
 
 Manage Safe Members permission is required.
@@ -80,6 +94,7 @@ Default operation against the Gen2 API requires a minimum version of 12.2
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -AddAccounts $true
 ```
@@ -89,6 +104,7 @@ Updates TargetUser's permissions as safe member on TargetSafe to include "Add Ac
 Minimum required version 12.2
 
 ### EXAMPLE 2
+
 ```
 Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -AddAccounts $true -UseGen1API
 ```
@@ -96,6 +112,7 @@ Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -AddAccounts $true
 Updates TargetUser's permissions as safe member on TargetSafe to include "Add Accounts" using the Gen1 API.
 
 ### EXAMPLE 3
+
 ```
 Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -ReadOnly
 ```
@@ -103,6 +120,7 @@ Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -ReadOnly
 Updates TargetUser's permissions as safe member on TargetSafe to the predefined "Read Only" role.
 
 ### EXAMPLE 4
+
 ```
 Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -MembershipExpirationDate (Get-Date).AddMonths(6) -Full
 ```
@@ -110,6 +128,7 @@ Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -MembershipExpirat
 Updates TargetUser's permissions as safe member on TargetSafe to the predefined "Full" role, and sets their safe membership to expire in 6 months.
 
 ### EXAMPLE 5
+
 ```
 Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -AccountsManager
 ```
@@ -117,6 +136,7 @@ Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -AccountsManager
 Updates TargetUser's permissions as safe member on TargetSafe to the predefined "Accounts Manager" role.
 
 ### EXAMPLE 6
+
 ```
 Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -Approver
 ```
@@ -124,6 +144,7 @@ Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -Approver
 Updates TargetUser's permissions as safe member on TargetSafe to the predefined "Approver" role.
 
 ### EXAMPLE 7
+
 ```
 Set-PASSafeMember -SafeName TargetSafe -MemberName TargetUser -ConnectOnly
 ```
@@ -132,551 +153,1055 @@ Updates TargetUser's permissions as safe member on TargetSafe to the predefined 
 
 ## PARAMETERS
 
-### -SafeName
-The name of the safe to which the safe member belong
+### -AccessWithoutConfirmation
 
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -MemberName
-Vault or Domain User, or Group, safe member to update.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: UserName
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -MembershipExpirationDate
-Defines when the member's Safe membership expires.
-
-```yaml
-Type: DateTime
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -UseAccounts
-Boolean value defining if UseAccounts permission will be granted to
+Boolean value defining if AccessWithoutConfirmation permission will be granted to
 safe member on safe.
+Boolean value defining if AccessWithoutConfirmation permission will be granted to safe member on safe.
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: RestrictedRetrieve
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -RetrieveAccounts
-Boolean value defining if RetrieveAccounts permission will be granted
-to safe member on safe.
+### -AccountsManager
+
+Sets Accounts Manager permissions for user on safe
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: Retrieve
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -ListAccounts
-Boolean value defining if ListAccounts permission will be granted to
-safe member on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: ListContent
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AccountsManager
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -AddAccounts
+
 Boolean value defining if permission will be granted to safe member
 on safe.
 
 Includes UpdateAccountProperties (when adding or removing permission).
+Boolean value defining if permission will be granted to safe member on safe.
+
+Includes UpdateAccountProperties (when adding or removing permission).
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: Add
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -UpdateAccountContent
-Boolean value defining if AddAccounts permission will be granted to safe
-member on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: Update
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -UpdateAccountProperties
-Boolean value defining if UpdateAccountProperties permission will be granted
-to safe member on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: UpdateMetadata
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -InitiateCPMAccountManagementOperations
-Boolean value defining if InitiateCPMAccountManagementOperations permission
-will be granted to safe member on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
 Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- Add
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -SpecifyNextAccountContent
-Boolean value defining if SpecifyNextAccountContent permission will be granted
-to safe member on safe.
+### -Approver
+
+Sets Approver permissions for user on safe
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -RenameAccounts
-Boolean value defining if RenameAccounts permission will be granted to safe
-member on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: Rename
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -DeleteAccounts
-Boolean value defining if DeleteAccounts permission will be granted to safe
-member on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: Delete
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -UnlockAccounts
-Boolean value defining if UnlockAccounts permission will be granted to safe
-member on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: Unlock
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -ManageSafe
-Boolean value defining if ManageSafe permission will be granted to safe member
-on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -ManageSafeMembers
-Boolean value defining if ManageSafeMembers permission will be granted to safe
-member on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Approver
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -BackupSafe
+
 Boolean value defining if BackupSafe permission will be granted to safe member
 on safe.
+Boolean value defining if BackupSafe permission will be granted to safe member on safe.
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -ViewAuditLog
-Boolean value defining if ViewAuditLog permission will be granted to safe member
-on safe.
+### -ConnectOnly
+
+Set Connect Only permissions for user on safe
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: ViewAudit
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: ConnectOnly
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -ViewSafeMembers
-Boolean value defining if ViewSafeMembers permission will be granted to safe member
+### -CreateFolders
+
+Boolean value defining if CreateFolders permission will be granted to safe member
 on safe.
+Boolean value defining if CreateFolders permission will be granted to safe member on safe.
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: ViewMembers
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- AddRenameFolder
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -DeleteAccounts
+
+Boolean value defining if DeleteAccounts permission will be granted to safe
+member on safe.
+Boolean value defining if DeleteAccounts permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- Delete
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -DeleteFolders
+
+Boolean value defining if DeleteFolders permission will be granted to safe member
+on safe.
+Boolean value defining if DeleteFolders permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Full
+
+Sets Full Permissions for user on safe
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Full
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -InitiateCPMAccountManagementOperations
+
+Boolean value defining if InitiateCPMAccountManagementOperations permission
+will be granted to safe member on safe.
+Boolean value defining if InitiateCPMAccountManagementOperations permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -ListAccounts
+
+Boolean value defining if ListAccounts permission will be granted to
+safe member on safe.
+Boolean value defining if ListAccounts permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- ListContent
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -ManageSafe
+
+Boolean value defining if ManageSafe permission will be granted to safe member
+on safe.
+Boolean value defining if ManageSafe permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -ManageSafeMembers
+
+Boolean value defining if ManageSafeMembers permission will be granted to safe
+member on safe.
+Boolean value defining if ManageSafeMembers permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -MemberName
+
+Vault or Domain User, or Group, safe member to update.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- UserName
+ParameterSets:
+- Name: Full
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AccountsManager
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Approver
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ReadOnly
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ConnectOnly
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -MembershipExpirationDate
+
+Defines when the member's Safe membership expires.
+
+```yaml
+Type: System.Nullable`1[System.DateTime]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Full
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AccountsManager
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Approver
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ReadOnly
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ConnectOnly
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -MoveAccountsAndFolders
+
+Boolean value defining if MoveAccountsAndFolders permission will be granted to safe
+member on safe.
+Boolean value defining if MoveAccountsAndFolders permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- MoveFilesAndFolders
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -ReadOnly
+
+Sets Read Only permissions for user on safe
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: ReadOnly
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -RenameAccounts
+
+Boolean value defining if RenameAccounts permission will be granted to safe
+member on safe.
+Boolean value defining if RenameAccounts permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- Rename
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -RequestsAuthorizationLevel
+
+Integer value defining level assigned to RequestsAuthorizationLevel for safe member.
+
+Valid Values: 0, 1 or 2
 Integer value defining level assigned to RequestsAuthorizationLevel for safe member.
 
 Valid Values: 0, 1 or 2
 
 ```yaml
-Type: Int32
-Parameter Sets: Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -AccessWithoutConfirmation
-Boolean value defining if AccessWithoutConfirmation permission will be granted to
-safe member on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -CreateFolders
-Boolean value defining if CreateFolders permission will be granted to safe member
-on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: AddRenameFolder
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -DeleteFolders
-Boolean value defining if DeleteFolders permission will be granted to safe member
-on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -MoveAccountsAndFolders
-Boolean value defining if MoveAccountsAndFolders permission will be granted to safe
-member on safe.
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen1
-Aliases: MoveFilesAndFolders
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -requestsAuthorizationLevel1
+
+Boolean value defining if requestsAuthorizationLevel1 permission will be granted to safe member on safe.
+
+Minimum required version 12.2
 Boolean value defining if requestsAuthorizationLevel1 permission will be granted to safe member on safe.
 
 Minimum required version 12.2
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -requestsAuthorizationLevel2
+
+Boolean value defining if requestsAuthorizationLevel2 permission will be granted to safe member on safe.
+
+Minimum required version 12.2
 Boolean value defining if requestsAuthorizationLevel2 permission will be granted to safe member on safe.
 
 Minimum required version 12.2
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2
-Aliases:
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -RetrieveAccounts
+
+Boolean value defining if RetrieveAccounts permission will be granted
+to safe member on safe.
+Boolean value defining if RetrieveAccounts permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- Retrieve
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -SafeName
+
+The name of the safe to which the safe member belong
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Full
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AccountsManager
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Approver
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ReadOnly
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ConnectOnly
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -SpecifyNextAccountContent
+
+Boolean value defining if SpecifyNextAccountContent permission will be granted
+to safe member on safe.
+Boolean value defining if SpecifyNextAccountContent permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -UnlockAccounts
+
+Boolean value defining if UnlockAccounts permission will be granted to safe
+member on safe.
+Boolean value defining if UnlockAccounts permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- Unlock
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -UpdateAccountContent
+
+Boolean value defining if AddAccounts permission will be granted to safe
+member on safe.
+Boolean value defining if AddAccounts permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- Update
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -UpdateAccountProperties
+
+Boolean value defining if UpdateAccountProperties permission will be granted
+to safe member on safe.
+Boolean value defining if UpdateAccountProperties permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- UpdateMetadata
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -UseAccounts
+
+Boolean value defining if UseAccounts permission will be granted to
+safe member on safe.
+Boolean value defining if UseAccounts permission will be granted to safe member on safe.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- RestrictedRetrieve
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -UseGen1API
+
+Specify to force usage the Gen1 API endpoint.
+
+Should be specified for versions earlier than 12.2
 Specify to force usage the Gen1 API endpoint.
 
 Should be specified for versions earlier than 12.2
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: Gen1
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -AccountsManager
-Sets Accounts Manager permissions for user on safe
+### -ViewAuditLog
+
+Boolean value defining if ViewAuditLog permission will be granted to safe member
+on safe.
+Boolean value defining if ViewAuditLog permission will be granted to safe member on safe.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: AccountsManager
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+- ViewAudit
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -Approver
-Sets Approver permissions for user on safe
+### -ViewSafeMembers
+
+Boolean value defining if ViewSafeMembers permission will be granted to safe member
+on safe.
+Boolean value defining if ViewSafeMembers permission will be granted to safe member on safe.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: Approver
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+- ViewMembers
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -ConnectOnly
-Set Connect Only permissions for user on safe
+### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: ConnectOnly
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Full
-Sets Full Permissions for user on safe
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: Full
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ReadOnly
-Sets Read Only permissions for user on safe
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: ReadOnly
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.DateTime
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
+
+### System.Int32
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -684,6 +1209,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Set-PASSafeMember](https://pspas.pspete.dev/commands/Set-PASSafeMember)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Update%20Safe%20Member.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Update%20Safe%20Member.htm)
+- [https://pspas.pspete.dev/commands/Set-PASSafeMember](https://pspas.pspete.dev/commands/Set-PASSafeMember)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Update%20Safe%20Member.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Update%20Safe%20Member.htm)

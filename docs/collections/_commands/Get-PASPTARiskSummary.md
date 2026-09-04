@@ -1,8 +1,12 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASPTARiskEventSummary
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASPTARiskEventSummary
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASPTARiskEventSummary
 ---
 
@@ -14,11 +18,22 @@ Get PTA risk events summary.
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
 Get-PASPTARiskSummary [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Get-PASPTARiskSummary [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Display count and summary information on current PTA Risk Events.
 
 Requires minimum version of 13.2
@@ -26,6 +41,7 @@ Requires minimum version of 13.2
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```powershell
 Get-PASPTARiskEventSummary
 ```
@@ -33,6 +49,7 @@ Get-PASPTARiskEventSummary
 Output PTA risk events summary
 
 ### EXAMPLE 2
+
 ```powershell
 $Summary = Get-PASPTARiskSummary
 $Summary | Format-List
@@ -41,6 +58,7 @@ $Summary | Format-List
 Retrieves the current PTA risk events summary and displays every property.
 
 ### EXAMPLE 3
+
 ```powershell
 Get-PASPTARiskSummary | ConvertTo-Json -Depth 5
 ```
@@ -50,7 +68,11 @@ Returns the PTA risk events summary as a JSON formatted string, useful for repor
 ## PARAMETERS
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -60,6 +82,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASPTARiskEventSummary](https://pspas.pspete.dev/commands/Get-PASPTARiskEventSummary)
-
-[https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/GetRisks.htm](https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/GetRisks.htm)
+- [https://pspas.pspete.dev/commands/Get-PASPTARiskEventSummary](https://pspas.pspete.dev/commands/Get-PASPTARiskEventSummary)
+- [https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/GetRisks.htm](https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/GetRisks.htm)

@@ -1,8 +1,12 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Export-PASTicketingSystemLog
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Export-PASTicketingSystemLog
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Export-PASTicketingSystemLog
 ---
 
@@ -14,10 +18,21 @@ Export ticketing system logs from Privilege Cloud
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
-Export-PASTicketingSystemLog [[-days] <Int32>] [-username <String>] [-path] <String> [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Export-PASTicketingSystemLog [[-days] <Int32>] [-path] <String> [-username <String>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
+
+### __AllParameterSets
+
+```
+Export-PASTicketingSystemLog [[-days] <int>] [[-username] <string>] [-path] <string> [-WhatIf]
+ [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -59,20 +74,47 @@ Exports logs for the previous 7 days (the default value of -days) covering all s
 
 ## PARAMETERS
 
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### -days
 
 The number of days to include log entries from, up to a maximum of 7 days
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -path
@@ -80,48 +122,20 @@ Accept wildcard characters: False
 The path to save the exported logs to
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 3
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -WhatIf
-
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 2
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -username
@@ -129,23 +143,68 @@ Accept wildcard characters: False
 The name of the user who requested the ticketing system.
 
 If no user is defined, the log covers all system users.
+The name of the user who requested the ticketing system.
+
+If no user is defined, the log covers all system users.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.Int32
+
+{{ Fill in the Description }}
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -153,6 +212,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Export-PASTicketingSystemLog](https://pspas.pspete.dev/commands/Export-PASTicketingSystemLog)
-
-[https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/privcloud-ticketing-systems-custom-export-logs.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/privcloud-ticketing-systems-custom-export-logs.htm)
+- [https://pspas.pspete.dev/commands/Export-PASTicketingSystemLog](https://pspas.pspete.dev/commands/Export-PASTicketingSystemLog)
+- [https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/privcloud-ticketing-systems-custom-export-logs.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/privcloud-ticketing-systems-custom-export-logs.htm)

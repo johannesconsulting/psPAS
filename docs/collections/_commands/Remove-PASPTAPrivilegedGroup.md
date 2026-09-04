@@ -1,29 +1,45 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Remove-PASPTAPrivilegedGroup
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Remove-PASPTAPrivilegedGroup
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Remove-PASPTAPrivilegedGroup
 ---
 
 # Remove-PASPTAPrivilegedGroup
 
 ## SYNOPSIS
+
 Deletes PTA configured privileged group
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Remove-PASPTAPrivilegedGroup [-ID] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Remove-PASPTAPrivilegedGroup [-ID] <string> [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Delete privileged group configured in PTA
 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```powershell
 Remove-PASPTAPrivilegedGroup -ID 65b6aa31721d9b5f3a56ca7e
 ```
@@ -31,6 +47,7 @@ Remove-PASPTAPrivilegedGroup -ID 65b6aa31721d9b5f3a56ca7e
 Deletes group configuration matching ID
 
 ### EXAMPLE 2
+
 ```powershell
 Get-PASPTAPrivilegedGroup | Where-Object { $_.group -eq 'Domain Admins' } | Remove-PASPTAPrivilegedGroup
 ```
@@ -38,6 +55,7 @@ Get-PASPTAPrivilegedGroup | Where-Object { $_.group -eq 'Domain Admins' } | Remo
 Finds the Domain Admins group configuration and removes it from PTA.
 
 ### EXAMPLE 3
+
 ```powershell
 Remove-PASPTAPrivilegedGroup -ID 65b6aa31721d9b5f3a56ca7e -WhatIf
 ```
@@ -46,56 +64,86 @@ Shows what would happen if the group configuration matching ID was removed, with
 
 ## PARAMETERS
 
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### -ID
+
 The ID of the group configuration to delete
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -103,6 +151,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Remove-PASPTAPrivilegedGroup](https://pspas.pspete.dev/commands/Remove-PASPTAPrivilegedGroup)
-
-[https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/DeleteSecurity.htm](https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/DeleteSecurity.htm)
+- [https://pspas.pspete.dev/commands/Remove-PASPTAPrivilegedGroup](https://pspas.pspete.dev/commands/Remove-PASPTAPrivilegedGroup)
+- [https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/DeleteSecurity.htm](https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/DeleteSecurity.htm)

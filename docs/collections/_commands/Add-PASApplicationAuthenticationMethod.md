@@ -1,62 +1,76 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Add-PASApplicationAuthenticationMethod
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Add-PASApplicationAuthenticationMethod
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Add-PASApplicationAuthenticationMethod
 ---
 
 # Add-PASApplicationAuthenticationMethod
 
 ## SYNOPSIS
+
 Adds an authentication method to an application.
 
 ## SYNTAX
 
 ### machineAddress
+
 ```
 Add-PASApplicationAuthenticationMethod -AppID <String> -machineAddress <String> [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ### osUser
+
 ```
 Add-PASApplicationAuthenticationMethod -AppID <String> -osUser <String> [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
 ### hash
+
 ```
-Add-PASApplicationAuthenticationMethod -AppID <String> -hash <String> [-Comment <String>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Add-PASApplicationAuthenticationMethod -AppID <String> -hash <String> [-Comment <String>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### certificateserialnumber
+
 ```
-Add-PASApplicationAuthenticationMethod -AppID <String> -certificateserialnumber <String> [-Comment <String>]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Add-PASApplicationAuthenticationMethod -AppID <String> -certificateserialnumber <String>
+ [-Comment <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### certificateattr
+
 ```
 Add-PASApplicationAuthenticationMethod -AppID <String> [-Subject <String[]>] [-Issuer <String[]>]
  [-SubjectAlternativeName <String[]>] [-Comment <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### path
+
 ```
-Add-PASApplicationAuthenticationMethod -AppID <String> -path <String> [-IsFolder <Boolean>]
- [-AllowInternalScripts <Boolean>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Add-PASApplicationAuthenticationMethod -AppID <string> -path <string> [-IsFolder <bool>]
+ [-AllowInternalScripts <bool>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Adds a new authentication method to a specific application iin the vault.
 The "Manage Users" permission is required to be held by the user running the function.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Add-PASApplicationAuthenticationMethod -AppID NewApp -machineAddress "AppServer1.domain.com"
 ```
@@ -64,6 +78,7 @@ Add-PASApplicationAuthenticationMethod -AppID NewApp -machineAddress "AppServer1
 Adds a Machine Address application authentication mechanism to NewApp
 
 ### EXAMPLE 2
+
 ```
 Add-PASApplicationAuthenticationMethod -AppID NewApp -osUser "Domain\SomeUser"
 ```
@@ -71,6 +86,7 @@ Add-PASApplicationAuthenticationMethod -AppID NewApp -osUser "Domain\SomeUser"
 Adds an osUSer application authentication mechanism to NewApp
 
 ### EXAMPLE 3
+
 ```
 Add-PASApplicationAuthenticationMethod -AppID NewApp -path "SomePath"
 ```
@@ -78,6 +94,7 @@ Add-PASApplicationAuthenticationMethod -AppID NewApp -path "SomePath"
 Adds path application authentication mechanism to NewApp
 
 ### EXAMPLE 4
+
 ```
 Add-PASApplicationAuthenticationMethod -AppID NewApp -certificateserialnumber 040000000000FA3DEFE9A9 -Comment "DEV Cert"
 ```
@@ -85,6 +102,7 @@ Add-PASApplicationAuthenticationMethod -AppID NewApp -certificateserialnumber 04
 Adds certificateserialnumber application authentication mechanism to NewApp
 
 ### EXAMPLE 5
+
 ```
 Add-PASApplicationAuthenticationMethod -AppID AppWebService -Subject "CN=application.company.com"
 ```
@@ -92,6 +110,7 @@ Add-PASApplicationAuthenticationMethod -AppID AppWebService -Subject "CN=applica
 Adds Certificate Attribute authentication
 
 ### EXAMPLE 6
+
 ```
 Add-PASApplicationAuthenticationMethod -AppID AppWebService -SubjectAlternativeName "DNS Name=application.service"
 ```
@@ -99,6 +118,7 @@ Add-PASApplicationAuthenticationMethod -AppID AppWebService -SubjectAlternativeN
 Adds Certificate Attribute authentication for certificate SAN attribute
 
 ### EXAMPLE 7
+
 ```
 Add-PASApplicationAuthenticationMethod -AppID NewApp -hash B7EE0505FE0940FF16F0E3FEB79374F5A9BFCF52 -Comment "DEV Hash"
 ```
@@ -107,222 +127,371 @@ Adds a hash application authentication mechanism to NewApp
 
 ## PARAMETERS
 
+### -AllowInternalScripts
+
+Boolean value denoting if internal scripts are allowed.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: path
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### -AppID
+
 The name of the application for which a new authentication method is being added.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -path
-The path to configure as an authentication method
-
-```yaml
-Type: String
-Parameter Sets: path
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -hash
-A file hash to configure as an authentication method
-
-```yaml
-Type: String
-Parameter Sets: hash
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -osUser
-An osUser to configure as an authentication method
-
-```yaml
-Type: String
-Parameter Sets: osUser
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -machineAddress
-Address value to configure as an authentication method
-
-```yaml
-Type: String
-Parameter Sets: machineAddress
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: machineAddress
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: osUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: hash
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: certificateserialnumber
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: certificateattr
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: path
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -certificateserialnumber
+
 Certificate Serial Number to configure as an authentication method
 
 ```yaml
-Type: String
-Parameter Sets: certificateserialnumber
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: certificateserialnumber
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -Subject
-The content of the subject attribute.
+### -Comment
+
+Note Property
 
 ```yaml
-Type: String[]
-Parameter Sets: certificateattr
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: hash
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: certificateserialnumber
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: certificateattr
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -hash
+
+A file hash to configure as an authentication method
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: hash
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -IsFolder
+
+Boolean value denoting if path is a folder.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: path
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Issuer
+
 The content of the issuer attribute
 
 ```yaml
-Type: String[]
-Parameter Sets: certificateattr
-Aliases:
+Type: System.String[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: certificateattr
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -machineAddress
+
+Address value to configure as an authentication method
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: machineAddress
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -osUser
+
+An osUser to configure as an authentication method
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: osUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -path
+
+The path to configure as an authentication method
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: path
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Subject
+
+The content of the subject attribute.
+
+```yaml
+Type: System.String[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: certificateattr
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -SubjectAlternativeName
+
+The content of the subject alternative name attribute
+
+Accepts attributes "DNS Name", "IP Address", "URI", "RFC822"
 The content of the subject alternative name attribute
 
 Accepts attributes "DNS Name", "IP Address", "URI", "RFC822"
 
 ```yaml
-Type: String[]
-Parameter Sets: certificateattr
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -IsFolder
-Boolean value denoting if path is a folder.
-
-```yaml
-Type: Boolean
-Parameter Sets: path
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -AllowInternalScripts
-Boolean value denoting if internal scripts are allowed.
-
-```yaml
-Type: Boolean
-Parameter Sets: path
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Comment
-Note Property
-
-```yaml
-Type: String
-Parameter Sets: hash, certificateserialnumber, certificateattr
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: certificateattr
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.String[]
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -330,6 +499,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Add-PASApplicationAuthenticationMethod](https://pspas.pspete.dev/commands/Add-PASApplicationAuthenticationMethod)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Authentication.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Authentication.htm)
+- [https://pspas.pspete.dev/commands/Add-PASApplicationAuthenticationMethod](https://pspas.pspete.dev/commands/Add-PASApplicationAuthenticationMethod)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Authentication.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Authentication.htm)

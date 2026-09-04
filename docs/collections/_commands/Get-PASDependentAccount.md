@@ -1,38 +1,49 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASDependentAccount
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASDependentAccount
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASDependentAccount
 ---
 
 # Get-PASDependentAccount
 
 ## SYNOPSIS
+
 Returns details of dependent accounts.
 
 ## SYNTAX
 
 ### AllDependentAccounts (Default)
+
 ```
-Get-PASDependentAccount [-search <String>] [-MasterAccountId <String>] [-modificationTime <DateTime>]
- [-platformId <String>] [-SafeName <String>] [-includeDeleted <Boolean>] [-limit <Int32>] [-TimeoutSec <Int32>]
- [<CommonParameters>]
+Get-PASDependentAccount [-search <string>] [-MasterAccountId <string>]
+ [-modificationTime <datetime>] [-platformId <string>] [-SafeName <string>] [-includeDeleted <bool>]
+ [-limit <int>] [-TimeoutSec <int>] [<CommonParameters>]
 ```
 
 ### SpecificDependentAccount
+
 ```
-Get-PASDependentAccount -id <String> -dependentAccountId <String> [-extendedDetails <Boolean>]
- [-TimeoutSec <Int32>] [<CommonParameters>]
+Get-PASDependentAccount -id <string> -dependentAccountId <string> [-extendedDetails <bool>]
+ [-TimeoutSec <int>] [<CommonParameters>]
 ```
 
 ### SpecificAccount
+
 ```
-Get-PASDependentAccount -id <String> [-search <String>] [-modificationTime <DateTime>] [-platformId <String>]
- [-failed <Boolean>] [-TimeoutSec <Int32>] [<CommonParameters>]
+Get-PASDependentAccount -id <string> [-search <string>] [-modificationTime <datetime>]
+ [-platformId <string>] [-failed <bool>] [-TimeoutSec <int>] [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Returns details of dependent accounts.
 
 Can return all dependent accounts, specific dependent accounts, or details fo dependent accounts associated with a specific master account
@@ -40,6 +51,7 @@ Can return all dependent accounts, specific dependent accounts, or details fo de
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
 Get-PASDependentAccount
 ```
@@ -47,6 +59,7 @@ Get-PASDependentAccount
 Returns all Dependent Accounts
 
 ### Example 2
+
 ```powershell
 Get-PASDependentAccount -id 12_34
 ```
@@ -54,6 +67,7 @@ Get-PASDependentAccount -id 12_34
 Returns all Dependent Accounts of Account with id 12_34
 
 ### Example 3
+
 ```powershell
 Get-PASDependentAccount -id 12_34 -dependentAccountId 12_78
 ```
@@ -62,190 +76,307 @@ Returns Dependent Account with id of 12_78 of Account with id 12_34
 
 ## PARAMETERS
 
-### -id
-The account ID of the master account
-
-```yaml
-Type: String
-Parameter Sets: SpecificDependentAccount, SpecificAccount
-Aliases: AccountID
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
 ### -dependentAccountId
+
 The unique ID of the dependent account
 
 ```yaml
-Type: String
-Parameter Sets: SpecificDependentAccount
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -search
-A list of keywords to search for in accounts, separated by a space.
-
-```yaml
-Type: String
-Parameter Sets: AllDependentAccounts, SpecificAccount
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -MasterAccountId
-The parent account ID of the dependent accounts to return.
-
-```yaml
-Type: String
-Parameter Sets: AllDependentAccounts
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -modificationTime
-Date after which the dependent account was modified.
-
-```yaml
-Type: DateTime
-Parameter Sets: AllDependentAccounts, SpecificAccount
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -platformId
-Unique identifier of the dependent platform.
-
-```yaml
-Type: String
-Parameter Sets: AllDependentAccounts, SpecificAccount
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -SafeName
-The Safe name of the dependent account.
-
-```yaml
-Type: String
-Parameter Sets: AllDependentAccounts
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -includeDeleted
-Whether to include deleted accounts in the results or not.
-
-```yaml
-Type: Boolean
-Parameter Sets: AllDependentAccounts
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -failed
-Get only failed dependent accounts.
-
-```yaml
-Type: Boolean
-Parameter Sets: SpecificAccount
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SpecificDependentAccount
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -extendedDetails
+
 Whether to retrieve Linked Accounts data or not
 
 ```yaml
-Type: Boolean
-Parameter Sets: SpecificDependentAccount
-Aliases:
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SpecificDependentAccount
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -failed
+
+Get only failed dependent accounts.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SpecificAccount
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -id
+
+The account ID of the master account
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- AccountID
+ParameterSets:
+- Name: SpecificDependentAccount
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: SpecificAccount
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -includeDeleted
+
+Whether to include deleted accounts in the results or not.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AllDependentAccounts
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -limit
+
 The maximum number of dependent accounts to return in each page of results
 
 ```yaml
-Type: Int32
-Parameter Sets: AllDependentAccounts
-Aliases:
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AllDependentAccounts
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -MasterAccountId
+
+The parent account ID of the dependent accounts to return.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AllDependentAccounts
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -modificationTime
+
+Date after which the dependent account was modified.
+
+```yaml
+Type: System.DateTime
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SpecificAccount
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AllDependentAccounts
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -platformId
+
+Unique identifier of the dependent platform.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SpecificAccount
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AllDependentAccounts
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -SafeName
+
+The Safe name of the dependent account.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AllDependentAccounts
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -search
+
+A list of keywords to search for in accounts, separated by a space.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SpecificAccount
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AllDependentAccounts
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -TimeoutSec
+
 Timeout in seconds for the request
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.DateTime
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
+
+### System.Int32
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -253,10 +384,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASDependentAccount](https://pspas.pspete.dev/commands/Get-PASDependentAccount)
-
-[https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-all-dependent-accounts.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-all-dependent-accounts.htm)
-
-[https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-all-dependent-accounts-specific.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-all-dependent-accounts-specific.htm)
-
-[https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-dependent-account-details.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-dependent-account-details.htm)
+- [https://pspas.pspete.dev/commands/Get-PASDependentAccount](https://pspas.pspete.dev/commands/Get-PASDependentAccount)
+- [https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-all-dependent-accounts.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-all-dependent-accounts.htm)
+- [https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-all-dependent-accounts-specific.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-all-dependent-accounts-specific.htm)
+- [https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-dependent-account-details.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-dependent-account-details.htm)

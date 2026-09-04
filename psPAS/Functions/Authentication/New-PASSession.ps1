@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function New-PASSession {
 	[CmdletBinding(SupportsShouldProcess, DefaultParameterSetName = 'Gen2')]
 	param(

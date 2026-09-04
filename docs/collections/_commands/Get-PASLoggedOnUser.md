@@ -1,30 +1,39 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASLoggedOnUser
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASLoggedOnUser
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASLoggedOnUser
 ---
 
 # Get-PASLoggedOnUser
 
 ## SYNOPSIS
+
 Returns details of the logged on user
 
 ## SYNTAX
 
 ### Gen2 (Default)
+
 ```
 Get-PASLoggedOnUser [<CommonParameters>]
 ```
 
 ### Gen1
+
 ```
-Get-PASLoggedOnUser [-UseGen1API] [<CommonParameters>]
+Get-PASLoggedOnUser -UseGen1API [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Returns information on the user who is logged in.
 
 By default, uses the Gen2 `api/currentuser` endpoint, which works against both self-hosted and
@@ -38,6 +47,7 @@ is only applicable to self-hosted implementations.
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Get-PASLoggedOnUser
 ```
@@ -45,6 +55,7 @@ Get-PASLoggedOnUser
 Returns information on the currently authenticated user.
 
 ### EXAMPLE 2
+
 ```
 $user = Get-PASLoggedOnUser
 ```
@@ -52,6 +63,7 @@ $user = Get-PASLoggedOnUser
 Saves the details of the currently authenticated user in the $user variable.
 
 ### EXAMPLE 3
+
 ```
 (Get-PASLoggedOnUser).UserName
 ```
@@ -61,24 +73,37 @@ Returns just the UserName property value of the currently authenticated user.
 ## PARAMETERS
 
 ### -UseGen1API
+
+Use the legacy Gen1 `WebServices/PIMServices.svc/User` endpoint instead of the Gen2 `api/currentuser` endpoint.
+
+Only applicable to self-hosted implementations.
 Use the legacy Gen1 `WebServices/PIMServices.svc/User` endpoint instead of the Gen2 `api/currentuser` endpoint.
 
 Only applicable to self-hosted implementations.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: Gen1
-Aliases:
-
-Required: True
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -88,6 +113,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASLoggedOnUser](https://pspas.pspete.dev/commands/Get-PASLoggedOnUser)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/User%20Web%20Services%20-%20Logged%20on%20User%20Details.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/User%20Web%20Services%20-%20Logged%20on%20User%20Details.htm)
+- [https://pspas.pspete.dev/commands/Get-PASLoggedOnUser](https://pspas.pspete.dev/commands/Get-PASLoggedOnUser)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/User%20Web%20Services%20-%20Logged%20on%20User%20Details.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/User%20Web%20Services%20-%20Logged%20on%20User%20Details.htm)

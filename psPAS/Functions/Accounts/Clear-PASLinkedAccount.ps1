@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Clear-PASLinkedAccount {
     [CmdletBinding(SupportsShouldProcess)]
     param(

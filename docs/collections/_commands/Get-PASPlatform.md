@@ -1,9 +1,12 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASPlatform
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASPlatform
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASPlatform
 ---
 
@@ -16,36 +19,44 @@ Retrieves details of Vault platforms.
 ## SYNTAX
 
 ### targets (Default)
+
 ```
-Get-PASPlatform [-Active <Boolean>] [-Search <String>] [-SystemType <String>] [-PeriodicVerify <Boolean>]
- [-ManualVerify <Boolean>] [-PeriodicChange <Boolean>] [-ManualChange <Boolean>]
- [-AutomaticReconcile <Boolean>] [-ManualReconcile <Boolean>] [<CommonParameters>]
+Get-PASPlatform [-Active <bool>] [-Search <string>] [-SystemType <string>] [-PeriodicVerify <bool>]
+ [-ManualVerify <bool>] [-PeriodicChange <bool>] [-ManualChange <bool>] [-AutomaticReconcile <bool>]
+ [-ManualReconcile <bool>] [<CommonParameters>]
 ```
 
 ### dependents
+
 ```
 Get-PASPlatform [-Search <String>] [-DependentPlatform] [<CommonParameters>]
 ```
 
 ### rotationalGroups
+
 ```
 Get-PASPlatform [-Search <String>] [-RotationalGroup] [<CommonParameters>]
 ```
 
 ### groups
+
 ```
 Get-PASPlatform [-Search <String>] [-GroupPlatform] [<CommonParameters>]
 ```
 
 ### platform-details
+
 ```
 Get-PASPlatform -PlatformID <String> [<CommonParameters>]
 ```
 
 ### target-details
+
 ```
-Get-PASPlatform -ID <Int32> [-Scope <String>] [<CommonParameters>]
+Get-PASPlatform -ID <int> [-Scope <string>] [<CommonParameters>]
 ```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -192,197 +203,25 @@ Minimum required version 15.2, Self-Hosted only
 Filter active/inactive platforms
 
 Minimum required version 11.1
-
-```yaml
-Type: Boolean
-Parameter Sets: targets
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Search
-
-Filter platform by search pattern
+Filter active/inactive platforms
 
 Minimum required version 11.1
 
 ```yaml
-Type: String
-Parameter Sets: targets, dependents, rotationalGroups, groups
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PlatformID
-
-The unique ID/Name of the platform.
-
-Minimum required version 9.10
-
-```yaml
-Type: String
-Parameter Sets: platform-details
-Aliases: Name
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -DependentPlatform
-
-Specify to return details of dependent platforms
-
-Minimum required version 11.4
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: dependents
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -GroupPlatform
-
-Specify to return details of group platforms
-
-Minimum required version 11.4
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: groups
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -RotationalGroup
-
-Specify to return details of rotational group platforms
-
-Minimum required version 11.4
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: rotationalGroups
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -SystemType
-
-Filter target platforms for specific system type
-
-Minimum required version 11.4
-
-```yaml
-Type: String
-Parameter Sets: targets
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PeriodicVerify
-
-Filter target platforms by periodic verification configuration
-
-Minimum required version 11.4
-
-```yaml
-Type: Boolean
-Parameter Sets: targets
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -ManualVerify
-
-Filter target platforms by manual verification configuration
-
-Minimum required version 11.4
-
-```yaml
-Type: Boolean
-Parameter Sets: targets
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PeriodicChange
-
-Filter target platforms by periodic change configuration
-
-Minimum required version 11.4
-
-```yaml
-Type: Boolean
-Parameter Sets: targets
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -ManualChange
-
-Filter target platforms by manual change configuration
-
-Minimum required version 11.4
-
-```yaml
-Type: Boolean
-Parameter Sets: targets
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: targets
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -AutomaticReconcile
@@ -390,35 +229,77 @@ Accept wildcard characters: False
 Filter target platforms by automatic reconciliation configuration
 
 Minimum required version 11.4
-
-```yaml
-Type: Boolean
-Parameter Sets: targets
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -ManualReconcile
-
-Filter target platforms by manual reconciliation configuration
+Filter target platforms by automatic reconciliation configuration
 
 Minimum required version 11.4
 
 ```yaml
-Type: Boolean
-Parameter Sets: targets
-Aliases:
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: targets
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -DependentPlatform
+
+Specify to return details of dependent platforms
+
+Minimum required version 11.4
+Specify to return details of dependent platforms
+
+Minimum required version 11.4
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: dependents
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -GroupPlatform
+
+Specify to return details of group platforms
+
+Minimum required version 11.4
+Specify to return details of group platforms
+
+Minimum required version 11.4
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: groups
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -ID
@@ -426,17 +307,208 @@ Accept wildcard characters: False
 The unique numeric ID of the target platform.
 
 Minimum required version 15.2, Self-Hosted only
+The unique numeric ID of the target platform.
+
+Minimum required version 15.2, Self-Hosted only
 
 ```yaml
-Type: Int32
-Parameter Sets: target-details
-Aliases:
+Type: System.Int32
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: target-details
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -ManualChange
+
+Filter target platforms by manual change configuration
+
+Minimum required version 11.4
+Filter target platforms by manual change configuration
+
+Minimum required version 11.4
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: targets
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -ManualReconcile
+
+Filter target platforms by manual reconciliation configuration
+
+Minimum required version 11.4
+Filter target platforms by manual reconciliation configuration
+
+Minimum required version 11.4
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: targets
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -ManualVerify
+
+Filter target platforms by manual verification configuration
+
+Minimum required version 11.4
+Filter target platforms by manual verification configuration
+
+Minimum required version 11.4
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: targets
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -PeriodicChange
+
+Filter target platforms by periodic change configuration
+
+Minimum required version 11.4
+Filter target platforms by periodic change configuration
+
+Minimum required version 11.4
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: targets
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -PeriodicVerify
+
+Filter target platforms by periodic verification configuration
+
+Minimum required version 11.4
+Filter target platforms by periodic verification configuration
+
+Minimum required version 11.4
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: targets
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -PlatformID
+
+The unique ID/Name of the platform.
+
+Minimum required version 9.10
+The unique ID/Name of the platform.
+
+Minimum required version 9.10
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- Name
+ParameterSets:
+- Name: platform-details
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -RotationalGroup
+
+Specify to return details of rotational group platforms
+
+Minimum required version 11.4
+Specify to return details of rotational group platforms
+
+Minimum required version 11.4
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: rotationalGroups
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Scope
@@ -447,23 +519,124 @@ If omitted, the response includes all sections.
 Supports tab completion; valid values depend on the connected environment/version.
 
 Minimum required version 15.2, Self-Hosted only
+Limits the response to a specific section of the target platform's settings.
+If omitted, the response includes all sections.
+
+Supports tab completion; valid values depend on the connected environment/version.
+
+Minimum required version 15.2, Self-Hosted only
 
 ```yaml
-Type: String
-Parameter Sets: target-details
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: target-details
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -Search
+
+Filter platform by search pattern
+
+Minimum required version 11.1
+Filter platform by search pattern
+
+Minimum required version 11.1
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: dependents
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: rotationalGroups
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: groups
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: targets
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -SystemType
+
+Filter target platforms for specific system type
+
+Minimum required version 11.4
+Filter target platforms for specific system type
+
+Minimum required version 11.4
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: targets
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.Boolean
+
+{{ Fill in the Description }}
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Int32
+
+{{ Fill in the Description }}
+
+### System.Management.Automation.SwitchParameter
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -479,18 +652,11 @@ CyberArk version 15.2 (Self-Hosted only) required for ID & Scope parameters
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASPlatform](https://pspas.pspete.dev/commands/Get-PASPlatform)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-platforms.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-platforms.htm)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetPlatformDetails.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetPlatformDetails.htm)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-target-platforms.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-target-platforms.htm)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-dependent-platforms.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-dependent-platforms.htm)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-group-platforms.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-group-platforms.htm)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-rotational-group-platforms.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-rotational-group-platforms.htm)
-
-[https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/rest-api-get-target-platform-settings.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/rest-api-get-target-platform-settings.htm)
+- [https://pspas.pspete.dev/commands/Get-PASPlatform](https://pspas.pspete.dev/commands/Get-PASPlatform)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-platforms.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-platforms.htm)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetPlatformDetails.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetPlatformDetails.htm)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-target-platforms.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-target-platforms.htm)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-dependent-platforms.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-dependent-platforms.htm)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-group-platforms.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-group-platforms.htm)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-rotational-group-platforms.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/rest-api-get-rotational-group-platforms.htm)
+- [https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/rest-api-get-target-platform-settings.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/rest-api-get-target-platform-settings.htm)

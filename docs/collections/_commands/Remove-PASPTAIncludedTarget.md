@@ -1,29 +1,45 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Remove-PASPTAIncludedTarget
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Remove-PASPTAIncludedTarget
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Remove-PASPTAIncludedTarget
 ---
 
 # Remove-PASPTAIncludedTarget
 
 ## SYNOPSIS
+
 Remove PTA included target
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Remove-PASPTAIncludedTarget [-ID] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Remove-PASPTAIncludedTarget [-ID] <string> [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Remove configured included target from PTA
 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```powershell
 Remove-PASPTAIncludedTarget -ID 65b6aa31721d9b5f3a56ca7e
 ```
@@ -31,6 +47,7 @@ Remove-PASPTAIncludedTarget -ID 65b6aa31721d9b5f3a56ca7e
 Removes included target matching ID
 
 ### EXAMPLE 2
+
 ```powershell
 Remove-PASPTAIncludedTarget -ID 65b6aa31721d9b5f3a56ca7e -WhatIf
 ```
@@ -38,6 +55,7 @@ Remove-PASPTAIncludedTarget -ID 65b6aa31721d9b5f3a56ca7e -WhatIf
 Shows what would happen if the included target with the specified ID were removed, without making the change
 
 ### EXAMPLE 3
+
 ```powershell
 Get-PASPTAIncludedTarget | Where-Object { $_.cidr -eq '192.168.60.10/24' } | Remove-PASPTAIncludedTarget
 ```
@@ -45,6 +63,7 @@ Get-PASPTAIncludedTarget | Where-Object { $_.cidr -eq '192.168.60.10/24' } | Rem
 Finds the included target matching the specified CIDR value and removes it from PTA administration
 
 ### EXAMPLE 4
+
 ```powershell
 Get-PASPTAIncludedTarget | Remove-PASPTAIncludedTarget -Confirm:$false
 ```
@@ -53,56 +72,86 @@ Removes all currently configured included targets from PTA administration withou
 
 ## PARAMETERS
 
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### -ID
+
 The ID of the target to remove
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -110,6 +159,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Remove-PASPTAIncludedTarget](https://pspas.pspete.dev/commands/Remove-PASPTAIncludedTarget)
-
-[https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/DeleteSecurity.htm](https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/DeleteSecurity.htm)
+- [https://pspas.pspete.dev/commands/Remove-PASPTAIncludedTarget](https://pspas.pspete.dev/commands/Remove-PASPTAIncludedTarget)
+- [https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/DeleteSecurity.htm](https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/DeleteSecurity.htm)

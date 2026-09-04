@@ -1,30 +1,47 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Remove-PASPTASecurityConfigurationProperty
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Remove-PASPTASecurityConfigurationProperty
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Remove-PASPTASecurityConfigurationProperty
 ---
 
 # Remove-PASPTASecurityConfigurationProperty
 
 ## SYNOPSIS
+
 Removes PTA security configuration property
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
-Remove-PASPTASecurityConfigurationProperty [-propertyKey] <String> [-id] <String> [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Remove-PASPTASecurityConfigurationProperty [-propertyKey] <String> [-id] <String> [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Remove-PASPTASecurityConfigurationProperty [-propertyKey] <string> [-id] <string> [-WhatIf]
+ [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 This deletes a specific PTA security configuration property
 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Remove-PASPTASecurityConfigurationProperty -propertyKey "PrivilegedUsersList" -id "someid"
 ```
@@ -32,6 +49,7 @@ Remove-PASPTASecurityConfigurationProperty -propertyKey "PrivilegedUsersList" -i
 Removes the specified id from the PrivilegedUsersList property
 
 ### EXAMPLE 2
+
 ```
 Remove-PASPTASecurityConfigurationProperty -propertyKey "SCTExcludedAccountsList" -id "someid"
 ```
@@ -39,6 +57,7 @@ Remove-PASPTASecurityConfigurationProperty -propertyKey "SCTExcludedAccountsList
 Removes the specified id from the SCTExcludedAccountsList property
 
 ### EXAMPLE 3
+
 ```
 [PSCustomObject]@{propertyKey = 'IrregularIpUserExcludedSourceIpsList'; id = '10.0.0.5'} | Remove-PASPTASecurityConfigurationProperty
 ```
@@ -46,6 +65,7 @@ Removes the specified id from the SCTExcludedAccountsList property
 Removes the specified id from the IrregularIpUserExcludedSourceIpsList property, using pipeline input
 
 ### EXAMPLE 4
+
 ```
 Remove-PASPTASecurityConfigurationProperty -propertyKey "PrivilegedDomainGroupsList" -id "someid" -WhatIf
 ```
@@ -54,79 +74,115 @@ Shows what would happen if the specified id was removed from the PrivilegedDomai
 
 ## PARAMETERS
 
-### -propertyKey
-The key of the PTA security configuration property
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -id
+
 The ID of the item to remove from the property
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -propertyKey
+
+The key of the PTA security configuration property
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
 ## NOTES
+
 Minimum Version CyberArk 14.2
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Remove-PASPTASecurityConfigurationProperty](https://pspas.pspete.dev/commands/Remove-PASPTASecurityConfigurationProperty)
-
-[https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/deletesecurity.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/deletesecurity.htm)
+- [https://pspas.pspete.dev/commands/Remove-PASPTASecurityConfigurationProperty](https://pspas.pspete.dev/commands/Remove-PASPTASecurityConfigurationProperty)
+- [https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/deletesecurity.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/deletesecurity.htm)

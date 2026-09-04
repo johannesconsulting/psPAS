@@ -1,24 +1,39 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASAllowedReferrer
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASAllowedReferrer
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASAllowedReferrer
 ---
 
 # Get-PASAllowedReferrer
 
 ## SYNOPSIS
+
 Gets the allowed referrer list
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Get-PASAllowedReferrer [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Get-PASAllowedReferrer [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Returns details of all configured entries from the allowed referrer list.
 
 Vault admins group membership required
@@ -26,6 +41,7 @@ Vault admins group membership required
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Get-PASAllowedReferrer
 ```
@@ -33,6 +49,7 @@ Get-PASAllowedReferrer
 Returns referrer list
 
 ### EXAMPLE 2
+
 ```
 Get-PASAllowedReferrer | Where-Object referrerURL -like '*.company.com*'
 ```
@@ -40,6 +57,7 @@ Get-PASAllowedReferrer | Where-Object referrerURL -like '*.company.com*'
 Returns only the allowed referrer entries whose URL matches "*.company.com*".
 
 ### EXAMPLE 3
+
 ```
 Get-PASAllowedReferrer | Format-List *
 ```
@@ -49,7 +67,11 @@ Displays full details of every configured allowed referrer entry.
 ## PARAMETERS
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -59,6 +81,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASAllowedReferrer](https://pspas.pspete.dev/commands/Get-PASAllowedReferrer)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Get_Allowed_Referrer.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Get_Allowed_Referrer.htm)
+- [https://pspas.pspete.dev/commands/Get-PASAllowedReferrer](https://pspas.pspete.dev/commands/Get-PASAllowedReferrer)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Get_Allowed_Referrer.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Get_Allowed_Referrer.htm)

@@ -1,8 +1,12 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Stop-PASDiscoveryScan
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Stop-PASDiscoveryScan
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Stop-PASDiscoveryScan
 ---
 
@@ -14,9 +18,19 @@ Stops an existing discovery scan that is configured in the Vault.
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
 Stop-PASDiscoveryScan [-taskId] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
+
+### __AllParameterSets
+
+```
+Stop-PASDiscoveryScan [-taskId] <string> [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -44,56 +58,80 @@ Shows what would happen if the discovery scan was stopped, without actually stop
 
 ## PARAMETERS
 
-### -taskId
-
-The unique ID of the discovery scan to stop.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: id
-
-Required: True
-Position: 0
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -WhatIf
-
-Shows what would happen if the cmdlet runs. The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Confirm
 
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+### -taskId
+
+The unique ID of the discovery scan to stop.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- id
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -WhatIf
+
+Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -111,4 +149,4 @@ Requires CyberArk Self-Hosted version 12.2 or higher.
 
 ## RELATED LINKS
 
-[Stop-PASDiscoveryScan](https://pspas.pspete.dev/commands/Stop-PASDiscoveryScan)
+- [Stop-PASDiscoveryScan](https://pspas.pspete.dev/commands/Stop-PASDiscoveryScan)

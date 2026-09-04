@@ -1,47 +1,59 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/New-PASAccountObject
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/New-PASAccountObject
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: New-PASAccountObject
 ---
 
 # New-PASAccountObject
 
 ## SYNOPSIS
+
 Creates hashtable structured to be used as input for add account operations
 
 ## SYNTAX
 
 ### AccountObject (Default)
+
 ```
-New-PASAccountObject [-uploadIndex <Int32>] [-userName <String>] [-name <String>] [-address <String>]
- -platformID <String> -SafeName <String> [-secretType <String>] [-secret <SecureString>]
- [-platformAccountProperties <Hashtable>] [-automaticManagementEnabled <Boolean>]
- [-manualManagementReason <String>] [-remoteMachines <String>] [-accessRestrictedToRemoteMachines <Boolean>]
- [-groupName <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-PASAccountObject -platformID <string> -SafeName <string> [-uploadIndex <int>]
+ [-userName <string>] [-name <string>] [-address <string>] [-secretType <string>]
+ [-secret <securestring>] [-platformAccountProperties <hashtable>]
+ [-automaticManagementEnabled <bool>] [-manualManagementReason <string>] [-remoteMachines <string>]
+ [-accessRestrictedToRemoteMachines <bool>] [-groupName <string>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### PersonalAdminAccount
+
 ```
-New-PASAccountObject -userName <String> -address <String> -secret <SecureString> [-PersonalAdminAccount]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+New-PASAccountObject -userName <string> -address <string> -secret <securestring>
+ -PersonalAdminAccount [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### DependentAccountObject
+
 ```
-New-PASAccountObject [-name <String>] [-platformID <String>] [-platformAccountProperties <Hashtable>]
- [-automaticManagementEnabled <Boolean>] [-manualManagementReason <String>] [-DependentAccount] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+New-PASAccountObject -DependentAccount [-name <string>] [-platformID <string>]
+ [-platformAccountProperties <hashtable>] [-automaticManagementEnabled <bool>]
+ [-manualManagementReason <string>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Provide parameter values to return hashtable structured to be used as input for add account operations.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 New-PASAccountObject -userName SomeAccount1 -address domain.com -platformID WinDomain -SafeName SomeSafe
 ```
@@ -49,6 +61,7 @@ New-PASAccountObject -userName SomeAccount1 -address domain.com -platformID WinD
 Returns hashtable structured to be used as input for add account operations
 
 ### EXAMPLE 2
+
 ```
 New-PASAccountObject -name SomeName -platformAccountProperties @{"Some"="Prop"} -DependentAccount
 ```
@@ -56,6 +69,7 @@ New-PASAccountObject -name SomeName -platformAccountProperties @{"Some"="Prop"} 
 Returns hashtable structured to be used as input for dependent account operations
 
 ### EXAMPLE 3
+
 ```
 $SecureString = ConvertTo-SecureString "Str0ngP@ssw0rd!" -AsPlainText -Force
 New-PASAccountObject -userName AdminUser1 -address 10.0.0.5 -secret $SecureString -PersonalAdminAccount
@@ -64,6 +78,7 @@ New-PASAccountObject -userName AdminUser1 -address 10.0.0.5 -secret $SecureStrin
 Returns hashtable structured to be used as input for a personal admin account operation
 
 ### EXAMPLE 4
+
 ```
 $SecureKey = ConvertTo-SecureString "SomeKeyValue" -AsPlainText -Force
 New-PASAccountObject -userName SomeAccount2 -address 10.0.0.10 -platformID UnixSSH -SafeName UNIX -secretType Key -secret $SecureKey -automaticManagementEnabled $false -manualManagementReason "Pending review" -remoteMachines "host1.domain.com,host2.domain.com" -accessRestrictedToRemoteMachines $true -groupName UnixAdmins
@@ -73,331 +88,476 @@ Returns hashtable structured to represent an account object with an SSH key secr
 
 ## PARAMETERS
 
-### -uploadIndex
-The numeric identifier for the account.
+### -accessRestrictedToRemoteMachines
+
+Whether access is restricted to the defined remote machines.
 
 ```yaml
-Type: Int32
-Parameter Sets: AccountObject
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -userName
-Username on the target machine
-
-```yaml
-Type: String
-Parameter Sets: AccountObject
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-```yaml
-Type: String
-Parameter Sets: PersonalAdminAccount
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -name
-The name of the account.
-
-```yaml
-Type: String
-Parameter Sets: AccountObject, DependentAccountObject
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -address
+
 The Address of the machine where the account will be used
 
 ```yaml
-Type: String
-Parameter Sets: AccountObject
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: PersonalAdminAccount
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -automaticManagementEnabled
+
+Whether CPM Password Management should be enabled
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: DependentAccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-```yaml
-Type: String
-Parameter Sets: PersonalAdminAccount
-Aliases:
+### -DependentAccount
 
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Specify to format the account object for dependent account operations
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: DependentAccountObject
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -platformID
-The CyberArk platform to assign to the account
+### -groupName
+
+Group to associate the account with
 
 ```yaml
-Type: String
-Parameter Sets: AccountObject
-Aliases: PolicyID
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-```yaml
-Type: String
-Parameter Sets: DependentAccountObject
-Aliases: PolicyID
+### -manualManagementReason
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+A reason for disabling CPM Password Management
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: DependentAccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -SafeName
-The safe where the account will be created
+### -name
+
+The name of the account.
 
 ```yaml
-Type: String
-Parameter Sets: AccountObject
-Aliases: safe
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: DependentAccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -secretType
-The type of password.
+### -PersonalAdminAccount
+
+TBC
 
 ```yaml
-Type: String
-Parameter Sets: AccountObject
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -secret
-The password value
-
-```yaml
-Type: SecureString
-Parameter Sets: AccountObject
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-```yaml
-Type: SecureString
-Parameter Sets: PersonalAdminAccount
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: PersonalAdminAccount
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -platformAccountProperties
+
+key-value pairs to associate with the account, as defined by the account platform.
+
+These properties are validated against the mandatory and optional properties of the specified platform's definition.
 key-value pairs to associate with the account, as defined by the account platform.
 
 These properties are validated against the mandatory and optional properties of the specified platform's definition.
 
 ```yaml
-Type: Hashtable
-Parameter Sets: AccountObject, DependentAccountObject
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Collections.Hashtable
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: DependentAccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -automaticManagementEnabled
-Whether CPM Password Management should be enabled
+### -platformID
+
+The CyberArk platform to assign to the account
 
 ```yaml
-Type: Boolean
-Parameter Sets: AccountObject, DependentAccountObject
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -manualManagementReason
-A reason for disabling CPM Password Management
-
-```yaml
-Type: String
-Parameter Sets: AccountObject, DependentAccountObject
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- PolicyID
+ParameterSets:
+- Name: DependentAccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: AccountObject
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -remoteMachines
+
 For supported platforms, a list of remote machines the account can connect to.
 
 ```yaml
-Type: String
-Parameter Sets: AccountObject
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -accessRestrictedToRemoteMachines
-Whether access is restricted to the defined remote machines.
+### -SafeName
+
+The safe where the account will be created
 
 ```yaml
-Type: Boolean
-Parameter Sets: AccountObject
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- safe
+ParameterSets:
+- Name: AccountObject
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -groupName
-Group to associate the account with
+### -secret
+
+The password value
 
 ```yaml
-Type: String
-Parameter Sets: AccountObject
-Aliases:
+Type: System.Security.SecureString
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: PersonalAdminAccount
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -secretType
+
+The type of password.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -uploadIndex
+
+The numeric identifier for the account.
+
+```yaml
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -userName
+
+Username on the target machine
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: AccountObject
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: PersonalAdminAccount
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -PersonalAdminAccount
-TBC
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: PersonalAdminAccount
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -DependentAccount
-Specify to format the account object for dependent account operations
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: DependentAccountObject
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.Int32
+
+{{ Fill in the Description }}
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Security.SecureString
+
+{{ Fill in the Description }}
+
+### System.Collections.Hashtable
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
+
+### System.Management.Automation.SwitchParameter
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -405,4 +565,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/New-PASAccountObject](https://pspas.pspete.dev/commands/New-PASAccountObject)
+- [https://pspas.pspete.dev/commands/New-PASAccountObject](https://pspas.pspete.dev/commands/New-PASAccountObject)

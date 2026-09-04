@@ -1,41 +1,52 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Set-PASPTAEvent
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Set-PASPTAEvent
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Set-PASPTAEvent
 ---
 
 # Set-PASPTAEvent
 
 ## SYNOPSIS
+
 Updates the status of a security event
 
 ## SYNTAX
 
 ### 11.3 (Default)
+
 ```
-Set-PASPTAEvent [-EventID] <String> [[-mStatus] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PASPTAEvent -EventID <string> [-mStatus <string>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### 14.0
+
 ```
-Set-PASPTAEvent [-EventID] <String> [[-mStatus] <String>] [-closeReason <String>] [-reasonText <String>]
+Set-PASPTAEvent -EventID <string> [-mStatus <string>] [-closeReason <string>] [-reasonText <string>]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Updates the status of a security event to open or closed
 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Set-PASPTAEvent -EventID $id
 ```
 
 ### EXAMPLE 2
+
 ```
 Set-PASPTAEvent -EventID $id -mStatus CLOSED
 ```
@@ -43,6 +54,7 @@ Set-PASPTAEvent -EventID $id -mStatus CLOSED
 Closes the security event matching the specified EventID.
 
 ### EXAMPLE 3
+
 ```
 Set-PASPTAEvent -EventID $id -mStatus CLOSED -closeReason HANDLED -reasonText 'Confirmed as expected administrative activity'
 ```
@@ -50,6 +62,7 @@ Set-PASPTAEvent -EventID $id -mStatus CLOSED -closeReason HANDLED -reasonText 'C
 Closes the security event and records a close reason and explanatory text. Requires minimum version 14.0.
 
 ### EXAMPLE 4
+
 ```
 Set-PASPTAEvent -EventID $id -mStatus CLOSED -WhatIf
 ```
@@ -58,109 +71,171 @@ Shows what would happen if the security event was closed, without making the cha
 
 ## PARAMETERS
 
+### -closeReason
+
+The close reason for the security event after you have investigated and handled the event successfully or determined to close it for other reasons
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 14.0
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### -EventID
+
 The event ID.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 14.0
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: 11.3
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -mStatus
+
 The status to update (open or closed).
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 14.0
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: 11.3
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -reasonText
+
+Free text for the user to elaborate on the close reason. Limited to 100 characters
+Free text for the user to elaborate on the close reason.
+Limited to 100 characters
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 14.0
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -closeReason
-The close reason for the security event after you have investigated and handled the event successfully or determined to close it for other reasons
-
-```yaml
-Type: String
-Parameter Sets: 14.0
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -reasonText
-Free text for the user to elaborate on the close reason. Limited to 100 characters
-
-```yaml
-Type: String
-Parameter Sets: 14.0
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
 ## NOTES
+
 Minimum Version CyberArk 11.3
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Set-PASPTAEvent](https://pspas.pspete.dev/commands/Set-PASPTAEvent)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/CloseOpenSecurityEvent.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/CloseOpenSecurityEvent.htm)
+- [https://pspas.pspete.dev/commands/Set-PASPTAEvent](https://pspas.pspete.dev/commands/Set-PASPTAEvent)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/CloseOpenSecurityEvent.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/CloseOpenSecurityEvent.htm)

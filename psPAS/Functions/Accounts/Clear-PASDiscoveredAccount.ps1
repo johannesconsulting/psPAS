@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Clear-PASDiscoveredAccount {
     [CmdletBinding(SupportsShouldProcess)]
     param(

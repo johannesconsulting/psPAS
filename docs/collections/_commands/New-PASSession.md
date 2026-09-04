@@ -1,9 +1,12 @@
----
+﻿---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/New-PASSession
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/New-PASSession
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: New-PASSession
 ---
 
@@ -16,104 +19,124 @@ Authenticates a user to Idira (CyberArk) Vault/API.
 ## SYNTAX
 
 ### Gen2 (Default)
+
 ```
-New-PASSession [-Credential <PSCredential>] -BaseURI <String> [-newPassword <SecureString>] [-type <String>]
- [-concurrentSession <Boolean>] [-PVWAAppName <String>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
- [-CertificateThumbprint <String>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-PASSession -BaseURI <string> [-Credential <pscredential>] [-newPassword <securestring>]
+ [-type <string>] [-concurrentSession <bool>] [-PVWAAppName <string>] [-SkipVersionCheck]
+ [-Certificate <X509Certificate>] [-CertificateThumbprint <string>] [-SkipCertificateCheck]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ISPSS-URL-ServiceUser
+
 ```
-New-PASSession -Credential <PSCredential> -IdentityTenantURL <String> -PrivilegeCloudURL <String>
- [-ServiceUser] [-PVWAAppName <String>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
- [-CertificateThumbprint <String>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-PASSession -Credential <pscredential> -IdentityTenantURL <string> -PrivilegeCloudURL <string>
+ -ServiceUser [-PVWAAppName <string>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
+ [-CertificateThumbprint <string>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ISPSS-Subdomain-ServiceUser
+
 ```
-New-PASSession -Credential <PSCredential> -TenantSubdomain <String> [-ServiceUser] [-PVWAAppName <String>]
- [-SkipVersionCheck] [-Certificate <X509Certificate>] [-CertificateThumbprint <String>] [-SkipCertificateCheck]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+New-PASSession -Credential <pscredential> -TenantSubdomain <string> -ServiceUser
+ [-PVWAAppName <string>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
+ [-CertificateThumbprint <string>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ISPSS-URL-IdentityUser
+
 ```
-New-PASSession -Credential <PSCredential> -IdentityTenantURL <String> -PrivilegeCloudURL <String>
- [-IdentityUser] [-PVWAAppName <String>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
- [-CertificateThumbprint <String>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-PASSession -Credential <pscredential> -IdentityTenantURL <string> -PrivilegeCloudURL <string>
+ -IdentityUser [-PVWAAppName <string>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
+ [-CertificateThumbprint <string>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ISPSS-Subdomain-IdentityUser
+
 ```
-New-PASSession -Credential <PSCredential> -TenantSubdomain <String> [-IdentityUser] [-PVWAAppName <String>]
- [-SkipVersionCheck] [-Certificate <X509Certificate>] [-CertificateThumbprint <String>] [-SkipCertificateCheck]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+New-PASSession -Credential <pscredential> -TenantSubdomain <string> -IdentityUser
+ [-PVWAAppName <string>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
+ [-CertificateThumbprint <string>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### Gen1Radius
-```
-New-PASSession -Credential <PSCredential> -BaseURI <String> [-UseGen1API] -useRadiusAuthentication <Boolean>
- [-OTP <String>] [-OTPMode <String>] [-OTPDelimiter <String>] [-RadiusChallenge <String>]
- [-connectionNumber <Int32>] [-PVWAAppName <String>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
- [-CertificateThumbprint <String>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
 
-### Gen1
 ```
-New-PASSession -Credential <PSCredential> -BaseURI <String> [-UseGen1API] [-newPassword <SecureString>]
- [-connectionNumber <Int32>] [-PVWAAppName <String>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
- [-CertificateThumbprint <String>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-### Gen2Radius
-```
-New-PASSession -Credential <PSCredential> -BaseURI <String> [-type <String>] [-OTP <String>]
- [-OTPMode <String>] [-OTPDelimiter <String>] [-RadiusChallenge <String>] [-concurrentSession <Boolean>]
- [-PVWAAppName <String>] [-SkipVersionCheck] [-Certificate <X509Certificate>] [-CertificateThumbprint <String>]
- [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-### ISPSS-Subdomain-SAML
-```
-New-PASSession -TenantSubdomain <String> -SAMLResponse <String> [-PVWAAppName <String>] [-SkipVersionCheck]
- [-Certificate <X509Certificate>] [-CertificateThumbprint <String>] [-SkipCertificateCheck] [-WhatIf]
- [-Confirm] [<CommonParameters>]
-```
-
-### integrated
-```
-New-PASSession -BaseURI <String> [-UseDefaultCredentials] [-concurrentSession <Boolean>]
- [-PVWAAppName <String>] [-SkipVersionCheck] [-Certificate <X509Certificate>] [-CertificateThumbprint <String>]
- [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-### shared
-```
-New-PASSession -BaseURI <String> [-UseSharedAuthentication] [-PVWAAppName <String>] [-SkipVersionCheck]
- [-Certificate <X509Certificate>] [-CertificateThumbprint <String>] [-SkipCertificateCheck] [-WhatIf]
- [-Confirm] [<CommonParameters>]
-```
-
-### Gen2SAML
-```
-New-PASSession -BaseURI <String> [-SAMLAuth] [-SAMLResponse <String>] [-concurrentSession <Boolean>]
- [-PVWAAppName <String>] [-SkipVersionCheck] [-Certificate <X509Certificate>] [-CertificateThumbprint <String>]
- [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-### Gen1SAML
-```
-New-PASSession -BaseURI <String> [-UseGen1API] -SAMLResponse <String> [-PVWAAppName <String>]
- [-SkipVersionCheck] [-Certificate <X509Certificate>] [-CertificateThumbprint <String>] [-SkipCertificateCheck]
+New-PASSession -Credential <pscredential> -BaseURI <string> -UseGen1API
+ -useRadiusAuthentication <bool> [-OTP <string>] [-OTPMode <string>] [-OTPDelimiter <string>]
+ [-RadiusChallenge <string>] [-connectionNumber <int>] [-PVWAAppName <string>] [-SkipVersionCheck]
+ [-Certificate <X509Certificate>] [-CertificateThumbprint <string>] [-SkipCertificateCheck]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### ISPSS-URL-SAML
+### Gen1
+
 ```
-New-PASSession -IdentityTenantURL <String> -PrivilegeCloudURL <String> -SAMLResponse <String>
- [-PVWAAppName <String>] [-SkipVersionCheck] [-Certificate <X509Certificate>] [-CertificateThumbprint <String>]
+New-PASSession -Credential <pscredential> -BaseURI <string> -UseGen1API
+ [-newPassword <securestring>] [-connectionNumber <int>] [-PVWAAppName <string>] [-SkipVersionCheck]
+ [-Certificate <X509Certificate>] [-CertificateThumbprint <string>] [-SkipCertificateCheck]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### Gen2Radius
+
+```
+New-PASSession -Credential <pscredential> -BaseURI <string> [-type <string>] [-OTP <string>]
+ [-OTPMode <string>] [-OTPDelimiter <string>] [-RadiusChallenge <string>]
+ [-concurrentSession <bool>] [-PVWAAppName <string>] [-SkipVersionCheck]
+ [-Certificate <X509Certificate>] [-CertificateThumbprint <string>] [-SkipCertificateCheck]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### ISPSS-Subdomain-SAML
+
+```
+New-PASSession -TenantSubdomain <String> -SAMLResponse <String> [-PVWAAppName <String>]
+ [-SkipVersionCheck] [-Certificate <X509Certificate>] [-CertificateThumbprint <String>]
  [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
+
+### integrated
+
+```
+New-PASSession -BaseURI <string> [-UseDefaultCredentials] [-concurrentSession <bool>]
+ [-PVWAAppName <string>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
+ [-CertificateThumbprint <string>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### shared
+
+```
+New-PASSession -BaseURI <string> -UseSharedAuthentication [-PVWAAppName <string>]
+ [-SkipVersionCheck] [-Certificate <X509Certificate>] [-CertificateThumbprint <string>]
+ [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### Gen2SAML
+
+```
+New-PASSession -BaseURI <string> [-SAMLAuth] [-SAMLResponse <string>] [-concurrentSession <bool>]
+ [-PVWAAppName <string>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
+ [-CertificateThumbprint <string>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### Gen1SAML
+
+```
+New-PASSession -BaseURI <string> -UseGen1API -SAMLResponse <string> [-PVWAAppName <string>]
+ [-SkipVersionCheck] [-Certificate <X509Certificate>] [-CertificateThumbprint <string>]
+ [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### ISPSS-URL-SAML
+
+```
+New-PASSession -IdentityTenantURL <String> -PrivilegeCloudURL <String> -SAMLResponse <String>
+ [-PVWAAppName <String>] [-SkipVersionCheck] [-Certificate <X509Certificate>]
+ [-CertificateThumbprint <String>] [-SkipCertificateCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -401,44 +424,374 @@ Authenticates to a CyberArk Vault using SAML authentication & Gen1 API.
 
 ## PARAMETERS
 
+### -BaseURI
+
+A string containing the base web address to send the request to.
+
+Pass the PVWA HTTP address.
+
+Do not include "/PasswordVault/"
+A string containing the base web address to send the request to.
+
+Pass the PVWA HTTP address.
+
+Do not include "/PasswordVault/"
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: integrated
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: shared
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2SAML
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1SAML
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2Radius
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1Radius
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Certificate
+
+See Invoke-WebRequest
+
+Specifies the client certificate that is used for a secure web request.
+
+Enter a variable that contains a certificate or a command or expression that gets the certificate.
+See Invoke-WebRequest
+
+Specifies the client certificate that is used for a secure web request.
+
+Enter a variable that contains a certificate or a command or expression that gets the certificate.
+
+```yaml
+Type: System.Security.Cryptography.X509Certificates.X509Certificate
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -CertificateThumbprint
+
+See Invoke-WebRequest
+
+The thumbprint of the certificate to use for client certificate authentication.
+See Invoke-WebRequest
+
+The thumbprint of the certificate to use for client certificate authentication.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -concurrentSession
+
+Enables multiple simultaneous connection sessions as the same user.
+
+Minimum version required 11.3
+Enables multiple simultaneous connection sessions as the same user.
+
+Minimum version required 11.3
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2SAML
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: integrated
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -connectionNumber
+
+In order to allow more than one connection for the same user simultaneously, each request should be sent with different 'connectionNumber'.
+
+Valid values: 1-100
+In order to allow more than one connection for the same user simultaneously, each request should be sent with different 'connectionNumber'.
+
+Valid values: 1-100
+
+```yaml
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### -Credential
 
 A Valid PSCredential object.
 
 ```yaml
-Type: PSCredential
-Parameter Sets: Gen2
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
+Type: System.Management.Automation.PSCredential
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: ISPSS-URL-ServiceUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-Subdomain-ServiceUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-URL-IdentityUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-Subdomain-IdentityUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1Radius
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: Gen2Radius
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-```yaml
-Type: PSCredential
-Parameter Sets: ISPSS-URL-ServiceUser, ISPSS-Subdomain-ServiceUser, ISPSS-URL-IdentityUser, ISPSS-Subdomain-IdentityUser, Gen2Radius
-Aliases:
+### -IdentityTenantURL
 
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
+Specify the URL value of the CyberArk Identity Portal to authenticate against.
+
+E.G.:
+
+- https://identity-tenant-id.id.cyberark.cloud
+- https://identity-tenant-id.my.idaptive.app
+Specify the URL value of the CyberArk Identity Portal to authenticate against.
+
+E.G.:
+
+- https://identity-tenant-id.id.cyberark.cloud
+
+- https://identity-tenant-id.my.idaptive.app
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: ISPSS-URL-SAML
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-URL-ServiceUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-URL-IdentityUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-```yaml
-Type: PSCredential
-Parameter Sets: Gen1Radius, Gen1
-Aliases:
+### -IdentityUser
 
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
+Specify switch parameter to authenticate with standard Interactive Identity User.
+
+Authentication process will require use of the IdentityCommand module.
+
+See: Get-Help IdentityCommand.
+Specify switch parameter to authenticate with standard Interactive Identity User.
+
+Authentication process will require use of the IdentityCommand module.
+
+See: Get-Help IdentityCommand.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: ISPSS-URL-IdentityUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-Subdomain-IdentityUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -newPassword
@@ -446,15 +799,216 @@ Accept wildcard characters: False
 Optional parameter, enables you to change a CyberArk users password.
 
 ```yaml
-Type: SecureString
-Parameter Sets: Gen2, Gen1
-Aliases:
+Type: System.Security.SecureString
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -OTP
+
+One Time Passcode, if known, for RADIUS authentication.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -OTPDelimiter
+
+The character to use as a delimiter when appending the OTP to the password.
+
+Defaults to comma ",".
+The character to use as a delimiter when appending the OTP to the password.
+
+Defaults to comma ",".
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -OTPMode
+
+Specify if OTP is to be sent in 'Append' (appended to the password) or 'Challenge' mode (sent in response to RADIUS Challenge).
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -PrivilegeCloudURL
+
+Specify the URL value used to access the CyberArk Privilege Cloud API.
+
+E.G.:
+
+- https://subdomain.privilegecloud.cyberark.cloud
+Specify the URL value used to access the CyberArk Privilege Cloud API.
+
+E.G.:
+
+- https://subdomain.privilegecloud.cyberark.cloud
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: ISPSS-URL-SAML
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-URL-ServiceUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-URL-IdentityUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -PVWAAppName
+
+The name of the CyberArk PVWA Virtual Directory.
+
+Defaults to PasswordVault
+The name of the CyberArk PVWA Virtual Directory.
+
+Defaults to PasswordVault
+
+```yaml
+Type: System.String
+DefaultValue: PasswordVault
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -RadiusChallenge
+
+Specify if Radius challenge is satisfied by 'OTP' or 'Password'.
+
+If "OTP" (Default), Password will be sent first, with OTP as the challenge response.
+
+If "Password", then OTP value will be sent first, and Password will be sent as the challenge response.
+Specify if Radius challenge is satisfied by 'OTP' or 'Password'.
+
+If "OTP" (Default), Password will be sent first, with OTP as the challenge response.
+
+If "Password", then OTP value will be sent first, and Password will be sent as the challenge response.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -SAMLAuth
@@ -462,17 +1016,25 @@ Accept wildcard characters: False
 Specify to authenticate after retrieval of saml token via SSO.
 
 Minimum version required 11.4
+Specify to authenticate after retrieval of saml token via SSO.
+
+Minimum version required 11.4
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: Gen2SAML
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2SAML
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -SAMLResponse
@@ -480,61 +1042,176 @@ Accept wildcard characters: False
 SAML response token that identifies the session, encoded in BASE 64.
 
 The PS-SAML-Interactive can be used to get this value (see related links).
+SAML response token that identifies the session, encoded in BASE 64.
+
+The PS-SAML-Interactive can be used to get this value (see related links).
 
 ```yaml
-Type: String
-Parameter Sets: ISPSS-Subdomain-SAML, Gen1SAML, ISPSS-URL-SAML
-Aliases: SAMLToken
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-```yaml
-Type: String
-Parameter Sets: Gen2SAML
-Aliases: SAMLToken
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -UseSharedAuthentication
-
-Specify the UseSharedAuthentication switch to use the Shared Authentication API endpoint to logon
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: shared
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- SAMLToken
+ParameterSets:
+- Name: ISPSS-URL-SAML
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-Subdomain-SAML
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1SAML
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2SAML
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -useRadiusAuthentication
+### -ServiceUser
 
-Whether or not users will be authenticated via a RADIUS server.
+Specify switch parameter to authenticate with Identity API Oauth Service User
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen1Radius
-Aliases:
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: ISPSS-URL-ServiceUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-Subdomain-ServiceUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: True
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -SkipCertificateCheck
+
+Skips certificate validation checks.
+
+Using this parameter is not secure and is not recommended.
+
+This switch is only intended to be used against known hosts using a self-signed certificate for testing purposes.
+
+Use at your own risk.
+Skips certificate validation checks.
+
+Using this parameter is not secure and is not recommended.
+
+This switch is only intended to be used against known hosts using a self-signed certificate for testing purposes.
+
+Use at your own risk.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -SkipVersionCheck
+
+If the SkipVersionCheck switch is specified, Get-PASServer will not be called after successfully authenticating.
+
+Get-PASServer is not supported before version 9.7.
+If the SkipVersionCheck switch is specified, Get-PASServer will not be called after successfully authenticating.
+
+Get-PASServer is not supported before version 9.7.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -TenantSubdomain
+
+The subdomain name value of the Shared Services Privilege Cloud Tenant.
+
+The value provided for the subdomain parameter will be used to discover the identity tenant api URL.
+
+- API operations will target URL: https://<TenantSubdomain>.privilegecloud.cyberark.cloud
+- Authentication will be performed against https://<DiscoveredIdentitySubdomain>.id.cyberark.cloud
+The subdomain name value of the Shared Services Privilege Cloud Tenant.
+
+The value provided for the subdomain parameter will be used to discover the identity tenant api URL.
+
+- API operations will target URL: https://<TenantSubdomain>.privilegecloud.cyberark.cloud
+
+- Authentication will be performed against https://<DiscoveredIdentitySubdomain>.id.cyberark.cloud
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: ISPSS-Subdomain-SAML
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-Subdomain-ServiceUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: ISPSS-Subdomain-IdentityUser
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -type
@@ -549,87 +1226,43 @@ Valid values are:
 - RADIUS
 - PKI
 - PKIPN
+When using the Gen2 API, specify the type of authentication to use.
+
+Valid values are:
+
+- CyberArk
+
+- LDAP
+
+- Windows (Minimum version required 10.4)
+
+- RADIUS
+
+- PKI
+
+- PKIPN
 
 ```yaml
-Type: String
-Parameter Sets: Gen2, Gen2Radius
-Aliases:
-
-Required: False
-Position: Named
-Default value: CyberArk
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -OTP
-
-One Time Passcode, if known, for RADIUS authentication.
-
-```yaml
-Type: String
-Parameter Sets: Gen1Radius, Gen2Radius
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -OTPMode
-
-Specify if OTP is to be sent in 'Append' (appended to the password) or 'Challenge' mode (sent in response to RADIUS Challenge).
-
-```yaml
-Type: String
-Parameter Sets: Gen1Radius, Gen2Radius
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -OTPDelimiter
-
-The character to use as a delimiter when appending the OTP to the password.
-
-Defaults to comma ",".
-
-```yaml
-Type: String
-Parameter Sets: Gen1Radius, Gen2Radius
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -RadiusChallenge
-
-Specify if Radius challenge is satisfied by 'OTP' or 'Password'.
-
-If "OTP" (Default), Password will be sent first, with OTP as the challenge response.
-
-If "Password", then OTP value will be sent first, and Password will be sent as the challenge response.
-
-```yaml
-Type: String
-Parameter Sets: Gen1Radius, Gen2Radius
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: CyberArk
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2Radius
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -UseDefaultCredentials
@@ -637,202 +1270,25 @@ Accept wildcard characters: False
 See Invoke-WebRequest
 
 Uses the credentials of the current user to send the web request
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: integrated
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -concurrentSession
-
-Enables multiple simultaneous connection sessions as the same user.
-
-Minimum version required 11.3
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen2Radius, integrated, Gen2SAML
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -connectionNumber
-
-In order to allow more than one connection for the same user simultaneously, each request should be sent with different 'connectionNumber'.
-
-Valid values: 1-100
-
-```yaml
-Type: Int32
-Parameter Sets: Gen1Radius, Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -BaseURI
-
-A string containing the base web address to send the request to.
-
-Pass the PVWA HTTP address.
-
-Do not include "/PasswordVault/"
-
-```yaml
-Type: String
-Parameter Sets: Gen2, Gen1Radius, Gen1, Gen2Radius, integrated, shared, Gen2SAML, Gen1SAML
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PVWAAppName
-
-The name of the CyberArk PVWA Virtual Directory.
-
-Defaults to PasswordVault
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: PasswordVault
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -SkipVersionCheck
-
-If the SkipVersionCheck switch is specified, Get-PASServer will not be called after successfully authenticating.
-
-Get-PASServer is not supported before version 9.7.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Certificate
-
 See Invoke-WebRequest
 
-Specifies the client certificate that is used for a secure web request.
-
-Enter a variable that contains a certificate or a command or expression that gets the certificate.
+Uses the credentials of the current user to send the web request
 
 ```yaml
-Type: X509Certificate
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -CertificateThumbprint
-
-See Invoke-WebRequest
-
-The thumbprint of the certificate to use for client certificate authentication.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SkipCertificateCheck
-
-Skips certificate validation checks.
-
-Using this parameter is not secure and is not recommended.
-
-This switch is only intended to be used against known hosts using a self-signed certificate for testing purposes.
-
-Use at your own risk.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -WhatIf
-
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: integrated
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -UseGen1API
@@ -840,121 +1296,139 @@ Accept wildcard characters: False
 Specify to send the authentication request via the Gen1 API endpoint.
 
 Should be specified for versions earlier than 10.4
+Specify to send the authentication request via the Gen1 API endpoint.
+
+Should be specified for versions earlier than 10.4
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: Gen1Radius, Gen1, Gen1SAML
-Aliases: UseClassicAPI
-
-Required: True
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases:
+- UseClassicAPI
+ParameterSets:
+- Name: Gen1SAML
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1Radius
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -TenantSubdomain
+### -useRadiusAuthentication
 
-The subdomain name value of the Shared Services Privilege Cloud Tenant.
-
-The value provided for the subdomain parameter will be used to discover the identity tenant api URL.
-
-- API operations will target URL: https://<TenantSubdomain>.privilegecloud.cyberark.cloud
-- Authentication will be performed against https://<DiscoveredIdentitySubdomain>.id.cyberark.cloud
+Whether or not users will be authenticated via a RADIUS server.
 
 ```yaml
-Type: String
-Parameter Sets: ISPSS-Subdomain-ServiceUser, ISPSS-Subdomain-IdentityUser, ISPSS-Subdomain-SAML
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1Radius
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -IdentityTenantURL
+### -UseSharedAuthentication
 
-Specify the URL value of the CyberArk Identity Portal to authenticate against.
-
-E.G.:
-
-- https://identity-tenant-id.id.cyberark.cloud
-- https://identity-tenant-id.my.idaptive.app
+Specify the UseSharedAuthentication switch to use the Shared Authentication API endpoint to logon
 
 ```yaml
-Type: String
-Parameter Sets: ISPSS-URL-ServiceUser, ISPSS-URL-IdentityUser, ISPSS-URL-SAML
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: shared
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -PrivilegeCloudURL
+### -WhatIf
 
-Specify the URL value used to access the CyberArk Privilege Cloud API.
-
-E.G.:
-
-- https://subdomain.privilegecloud.cyberark.cloud
-
-```yaml
-Type: String
-Parameter Sets: ISPSS-URL-ServiceUser, ISPSS-URL-IdentityUser, ISPSS-URL-SAML
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -IdentityUser
-
-Specify switch parameter to authenticate with standard Interactive Identity User.
-
-Authentication process will require use of the IdentityCommand module.
-
-See: Get-Help IdentityCommand.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: ISPSS-URL-IdentityUser, ISPSS-Subdomain-IdentityUser
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -ServiceUser
-
-Specify switch parameter to authenticate with Identity API Oauth Service User
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: ISPSS-URL-ServiceUser, ISPSS-Subdomain-ServiceUser
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.Management.Automation.PSCredential
+
+{{ Fill in the Description }}
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Management.Automation.SwitchParameter
+
+{{ Fill in the Description }}
+
+### System.Security.SecureString
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
+
+### System.Int32
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -962,16 +1436,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/New-PASSession](https://pspas.pspete.dev/commands/New-PASSession)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PrivCloud-SS/Latest/en/Content/ISPSS/ISPSS-API-Authentication.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PrivCloud-SS/Latest/en/Content/ISPSS/ISPSS-API-Authentication.htm)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/CyberArk%20Authentication%20-%20Logon_v10.htm#CyberArkLDAPRadiusWindows](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/CyberArk%20Authentication%20-%20Logon_v10.htm#CyberArkLDAPRadiusWindows)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/SAML*%20Authentication*%20Logon_newgen.htm#SAMLlogon](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/SAML_%20Authentication_%20Logon_newgen.htm#SAMLlogon)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Shared%20Logon%20Authentication%20-%20Logon.htm#Sharedlogonauthentication](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Shared%20Logon%20Authentication%20-%20Logon.htm#Sharedlogonauthentication)
-
-[https://github.com/allynl93/PS-SAML-Interactive](https://github.com/allynl93/PS-SAML-Interactive)
-
-[https://github.com/pspete/IdentityCommand](https://github.com/pspete/IdentityCommand)
+- [https://pspas.pspete.dev/commands/New-PASSession](https://pspas.pspete.dev/commands/New-PASSession)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PrivCloud-SS/Latest/en/Content/ISPSS/ISPSS-API-Authentication.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PrivCloud-SS/Latest/en/Content/ISPSS/ISPSS-API-Authentication.htm)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/CyberArk%20Authentication%20-%20Logon_v10.htm#CyberArkLDAPRadiusWindows](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/CyberArk%20Authentication%20-%20Logon_v10.htm#CyberArkLDAPRadiusWindows)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/SAML](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/SAML_%20Authentication_%20Logon_newgen.htm#SAMLlogon)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Shared%20Logon%20Authentication%20-%20Logon.htm#Sharedlogonauthentication](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Shared%20Logon%20Authentication%20-%20Logon.htm#Sharedlogonauthentication)
+- [https://github.com/allynl93/PS-SAML-Interactive](https://github.com/allynl93/PS-SAML-Interactive)
+- [https://github.com/pspete/IdentityCommand](https://github.com/pspete/IdentityCommand)

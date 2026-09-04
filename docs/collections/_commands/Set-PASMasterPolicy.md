@@ -1,33 +1,56 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Set-PASMasterPolicy
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Set-PASMasterPolicy
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Set-PASMasterPolicy
 ---
 
 # Set-PASMasterPolicy
 
 ## SYNOPSIS
+
 Updates Master Policy
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
-Set-PASMasterPolicy [-PolicyId <Int32>] [[-DualControl] <Boolean>] [[-MultiLevelApproval] <Boolean>]
- [[-OnlyManagersApproval] <Boolean>] [[-ConfirmersNumber] <Int32>] [[-EnforceExclusiveAccess] <Boolean>]
- [[-EnforceOneTimePassword] <Boolean>] [[-TransparentConnection] <Boolean>] [[-AllowViewPassword] <Boolean>]
- [[-RequireReason] <Boolean>] [[-AllowFreeText] <Boolean>] [[-PasswordChangeDays] <Int32>]
- [[-PasswordVerificationDays] <Int32>] [[-RequireMonitoringAndIsolation] <Boolean>]
- [[-RecordActivity] <Boolean>] [[-RetentionPeriod] <Int32>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PASMasterPolicy [[-DualControl] <Boolean>] [[-MultiLevelApproval] <Boolean>]
+ [[-OnlyManagersApproval] <Boolean>] [[-ConfirmersNumber] <Int32>]
+ [[-EnforceExclusiveAccess] <Boolean>] [[-EnforceOneTimePassword] <Boolean>]
+ [[-TransparentConnection] <Boolean>] [[-AllowViewPassword] <Boolean>] [[-RequireReason] <Boolean>]
+ [[-AllowFreeText] <Boolean>] [[-PasswordChangeDays] <Int32>] [[-PasswordVerificationDays] <Int32>]
+ [[-RequireMonitoringAndIsolation] <Boolean>] [[-RecordActivity] <Boolean>]
+ [[-RetentionPeriod] <Int32>] [-PolicyId <Int32>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Set-PASMasterPolicy [[-PolicyId] <int>] [[-DualControl] <bool>] [[-MultiLevelApproval] <bool>]
+ [[-OnlyManagersApproval] <bool>] [[-ConfirmersNumber] <int>] [[-EnforceExclusiveAccess] <bool>]
+ [[-EnforceOneTimePassword] <bool>] [[-TransparentConnection] <bool>] [[-AllowViewPassword] <bool>]
+ [[-RequireReason] <bool>] [[-AllowFreeText] <bool>] [[-PasswordChangeDays] <int>]
+ [[-PasswordVerificationDays] <int>] [[-RequireMonitoringAndIsolation] <bool>]
+ [[-RecordActivity] <bool>] [[-RetentionPeriod] <int>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Allows a Vault Admin to update Master Policy Settings
 
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
 Set-PASMasterPolicy -DualControl $false
 ```
@@ -35,6 +58,7 @@ Set-PASMasterPolicy -DualControl $false
 Disables Dual Control in master Policy
 
 ### Example 2
+
 ```powershell
 Set-PASMasterPolicy -DualControl $true -ConfirmersNumber 2 -RequireReason $true
 ```
@@ -42,6 +66,7 @@ Set-PASMasterPolicy -DualControl $true -ConfirmersNumber 2 -RequireReason $true
 Enables Dual Control in the Master Policy, sets the required number of confirmers to 2, and requires a reason to be entered before an account can be accessed.
 
 ### Example 3
+
 ```powershell
 Set-PASMasterPolicy -RecordActivity $true -RetentionPeriod 90 -WhatIf
 ```
@@ -49,6 +74,7 @@ Set-PASMasterPolicy -RecordActivity $true -RetentionPeriod 90 -WhatIf
 Shows what would happen if session recording were enabled with a 90 day retention period, without applying the change.
 
 ### Example 4
+
 ```powershell
 2 | Set-PASMasterPolicy -DualControl $true
 ```
@@ -58,277 +84,393 @@ Enables Dual Control on policy ID 2, received from the pipeline. Managing a poli
 ## PARAMETERS
 
 ### -AllowFreeText
+
 Allow free text reason.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 9
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 10
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -AllowViewPassword
+
 Allow view password policy.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 7
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -ConfirmersNumber
-Configure number of confirmers policy.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -DualControl
-Set Dual control policy.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -EnforceExclusiveAccess
-Enforce exclusive access policy.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -EnforceOneTimePassword
-Enforce one-time password policy.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 5
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -MultiLevelApproval
-Configure Multi-level approvals.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -OnlyManagersApproval
-Configure approval by managers only policy.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PasswordChangeDays
-Password change frequency policy.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 10
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PasswordVerificationDays
-Password verification frequency policy.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 11
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -RecordActivity
-Record activity policy.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 13
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -RequireMonitoringAndIsolation
-Require monitoring and isolation policy.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 12
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -RequireReason
-Require reason policy.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 8
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -RetentionPeriod
-Retention period policy.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 14
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -TransparentConnection
-Transparent connection policy.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 6
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 8
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -WhatIf
-Shows what would happen if the cmdlet runs. The cmdlet is not run.
+### -ConfirmersNumber
+
+Configure number of confirmers policy.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
+Type: System.Int32
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 4
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+### -DualControl
+
+Set Dual control policy.
+
+```yaml
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -EnforceExclusiveAccess
+
+Enforce exclusive access policy.
+
+```yaml
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 5
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -EnforceOneTimePassword
+
+Enforce one-time password policy.
+
+```yaml
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 6
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -MultiLevelApproval
+
+Configure Multi-level approvals.
+
+```yaml
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 2
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -OnlyManagersApproval
+
+Configure approval by managers only policy.
+
+```yaml
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 3
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -PasswordChangeDays
+
+Password change frequency policy.
+
+```yaml
+Type: System.Int32
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 11
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -PasswordVerificationDays
+
+Password verification frequency policy.
+
+```yaml
+Type: System.Int32
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 12
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -PolicyId
+
 The ID of the policy to update.
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: System.Int32
+DefaultValue: 1
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: 1
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
+### -RecordActivity
+
+Record activity policy.
+
+```yaml
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 14
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -RequireMonitoringAndIsolation
+
+Require monitoring and isolation policy.
+
+```yaml
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 13
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -RequireReason
+
+Require reason policy.
+
+```yaml
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 9
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -RetentionPeriod
+
+Retention period policy.
+
+```yaml
+Type: System.Int32
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 15
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -TransparentConnection
+
+Transparent connection policy.
+
+```yaml
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 7
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -WhatIf
+
+Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -339,10 +481,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ### System.Object
+
 ## NOTES
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Set-PASMasterPolicy](https://pspas.pspete.dev/commands/Set-PASMasterPolicy)
-
-[https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/update-policy-by-id.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/update-policy-by-id.htm)
+- [https://pspas.pspete.dev/commands/Set-PASMasterPolicy](https://pspas.pspete.dev/commands/Set-PASMasterPolicy)
+- [https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/update-policy-by-id.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/update-policy-by-id.htm)

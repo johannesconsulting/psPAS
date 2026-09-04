@@ -1,8 +1,12 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Set-PASDependentLinkedAccount
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Set-PASDependentLinkedAccount
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Set-PASDependentLinkedAccount
 ---
 
@@ -15,17 +19,22 @@ Sets a Linked Account for a Dependent Account
 ## SYNTAX
 
 ### SaaS
+
 ```
-Set-PASDependentLinkedAccount [-accountId] <String> [-dependentAccountId] <String>
- [-extraPasswordAccountId] <String> [-extraPasswordIndex] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PASDependentLinkedAccount -accountId <string> -dependentAccountId <string>
+ -extraPasswordAccountId <string> -extraPasswordIndex <string> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### SelfHosted
+
 ```
-Set-PASDependentLinkedAccount [-accountId] <String> [-dependentAccountId] <String>
- [-extraPasswordIndex] <String> [-safe] <String> [-name] <String> [[-folder] <String>] [-WhatIf] [-Confirm]
+Set-PASDependentLinkedAccount -accountId <string> -dependentAccountId <string>
+ -extraPasswordIndex <string> -safe <string> -name <string> [-folder <string>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -72,132 +81,27 @@ Shows what would happen if account 56_7 were linked as index 3 for dependent acc
 The ID of the parent account for the dependent account
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: id
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -dependentAccountId
-
-The ID of the dependent account
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: dependentid
-
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -extraPasswordAccountId
-
-The ID of the account to link to the dependent account.
-Used for Privilege Cloud environments.
-
-```yaml
-Type: String
-Parameter Sets: SaaS
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: 3
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -extraPasswordIndex
-
-The index to link the account to
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 4
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -safe
-
-The Safe containing the account to link to the dependent account.
-Used for Self-Hosted environments.
-
-```yaml
-Type: String
-Parameter Sets: SelfHosted
-Aliases:
-
-Required: True
-Position: 5
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -name
-
-The name of the account to link to the dependent account.
-Used for Self-Hosted environments.
-
-```yaml
-Type: String
-Parameter Sets: SelfHosted
-Aliases:
-
-Required: True
-Position: 6
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -folder
-
-The folder containing the account to link to the dependent account.
-Used for Self-Hosted environments. Defaults to Root.
-
-```yaml
-Type: String
-Parameter Sets: SelfHosted
-Aliases:
-
-Required: False
-Position: 7
-Default value: Root
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -WhatIf
-
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+- id
+ParameterSets:
+- Name: SaaS
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: SelfHosted
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Confirm
@@ -205,21 +109,212 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+### -dependentAccountId
+
+The ID of the dependent account
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- dependentid
+ParameterSets:
+- Name: SaaS
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: SelfHosted
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -extraPasswordAccountId
+
+The ID of the account to link to the dependent account.
+Used for Privilege Cloud environments.
+The ID of the account to link to the dependent account.
+Used for Privilege Cloud environments.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SaaS
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -extraPasswordIndex
+
+The index to link the account to
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SelfHosted
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: SaaS
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -folder
+
+The folder containing the account to link to the dependent account.
+Used for Self-Hosted environments. Defaults to Root.
+The folder containing the account to link to the dependent account.
+Used for Self-Hosted environments.
+Defaults to Root.
+
+```yaml
+Type: System.String
+DefaultValue: Root
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SelfHosted
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -name
+
+The name of the account to link to the dependent account.
+Used for Self-Hosted environments.
+The name of the account to link to the dependent account.
+Used for Self-Hosted environments.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SelfHosted
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -safe
+
+The Safe containing the account to link to the dependent account.
+Used for Self-Hosted environments.
+The Safe containing the account to link to the dependent account.
+Used for Self-Hosted environments.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SelfHosted
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -227,6 +322,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Set-PASDependentLinkedAccount](https://pspas.pspete.dev/commands/Set-PASDependentLinkedAccount)
-
-[https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm)
+- [https://pspas.pspete.dev/commands/Set-PASDependentLinkedAccount](https://pspas.pspete.dev/commands/Set-PASDependentLinkedAccount)
+- [https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm)

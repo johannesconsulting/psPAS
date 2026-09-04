@@ -1,25 +1,43 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Add-PASPolicyACL
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Add-PASPolicyACL
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Add-PASPolicyACL
 ---
 
 # Add-PASPolicyACL
 
 ## SYNOPSIS
+
 Adds a new privileged command rule
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
-Add-PASPolicyACL [-Command] <String> [-CommandGroup] <Boolean> [-PermissionType] <String> [-PolicyId] <String>
- [[-Restrictions] <String>] [-UserName] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
+Add-PASPolicyACL [-Command] <String> [-CommandGroup] <Boolean> [-PermissionType] <String>
+ [-PolicyId] <String> [[-Restrictions] <String>] [-UserName] <String> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Add-PASPolicyACL [-Command] <string> [-CommandGroup] <bool> [-PermissionType] <string>
+ [-PolicyId] <string> [[-Restrictions] <string>] [-UserName] <string> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Adds a new privileged command rule to a policy.
 
 Not supported in Privilege Cloud
@@ -27,6 +45,7 @@ Not supported in Privilege Cloud
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Add-PASPolicyACL -Command "chmod" -CommandGroup $false -PermissionType Allow -PolicyId UNIXSSH -UserName user1
 ```
@@ -34,6 +53,7 @@ Add-PASPolicyACL -Command "chmod" -CommandGroup $false -PermissionType Allow -Po
 Adds Rule to UNIXSSH platform
 
 ### EXAMPLE 2
+
 ```
 Add-PASPolicyACL -Command "rm -rf /" -CommandGroup $false -PermissionType Deny -PolicyId UNIXSSH -Restrictions "*" -UserName "*"
 ```
@@ -41,6 +61,7 @@ Add-PASPolicyACL -Command "rm -rf /" -CommandGroup $false -PermissionType Deny -
 Denies all users from running the "rm -rf /" command on any account under the UNIXSSH platform.
 
 ### EXAMPLE 3
+
 ```
 Add-PASPolicyACL -Command NetworkCommands -CommandGroup $true -PermissionType Allow -PolicyId UNIXSSH -UserName opsteam
 ```
@@ -48,6 +69,7 @@ Add-PASPolicyACL -Command NetworkCommands -CommandGroup $true -PermissionType Al
 Allows opsteam to run all commands in the NetworkCommands command group on accounts under the UNIXSSH platform.
 
 ### EXAMPLE 4
+
 ```
 [PSCustomObject]@{PolicyId = 'UNIXSSH'; Command = 'shutdown'; CommandGroup = $false; PermissionType = 'Deny'; UserName = 'user1' } | Add-PASPolicyACL
 ```
@@ -57,131 +79,198 @@ Adds the same rule using pipeline input, since every parameter accepts values by
 ## PARAMETERS
 
 ### -Command
+
 The Command to Add
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -CommandGroup
+
 Boolean to define if commandgroup
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: True
-Position: 2
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -PermissionType
+
 Allow or Deny Permission
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 3
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 2
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -PolicyId
+
 String value of Policy ID
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 4
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 3
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Restrictions
+
 A restrictions string
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 5
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 4
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -UserName
+
+The user this rule applies to.
+
+Specify "*" for all users
 The user this rule applies to.
 
 Specify "*" for all users
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 6
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 5
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -189,6 +278,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Add-PASPolicyACL](https://pspas.pspete.dev/commands/Add-PASPolicyACL)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Policy%20ACL.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Policy%20ACL.htm)
+- [https://pspas.pspete.dev/commands/Add-PASPolicyACL](https://pspas.pspete.dev/commands/Add-PASPolicyACL)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Policy%20ACL.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Policy%20ACL.htm)

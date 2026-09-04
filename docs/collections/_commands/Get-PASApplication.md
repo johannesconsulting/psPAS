@@ -1,30 +1,40 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASApplication
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASApplication
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASApplication
 ---
 
 # Get-PASApplication
 
 ## SYNOPSIS
+
 Returns details of applications in the Vault
 
 ## SYNTAX
 
 ### byQuery (Default)
+
 ```
-Get-PASApplication [-AppID <String>] [-Location <String>] [-IncludeSublocations <Boolean>] [<CommonParameters>]
+Get-PASApplication [-AppID <string>] [-Location <string>] [-IncludeSublocations <bool>]
+ [<CommonParameters>]
 ```
 
 ### byAppID
+
 ```
 Get-PASApplication -AppID <String> [-ExactMatch] [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Returns information on Applications from the Vault.
 
 Results can be filtered by specifying additional parameters.
@@ -36,6 +46,7 @@ Audit Users permission is required.
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Get-PASApplication
 ```
@@ -43,6 +54,7 @@ Get-PASApplication
 Returns information on all defined applications
 
 ### EXAMPLE 2
+
 ```
 Get-PASApplication NewApp -ExactMatch
 ```
@@ -50,6 +62,7 @@ Get-PASApplication NewApp -ExactMatch
 Gets details of the application "NewApp"
 
 ### EXAMPLE 3
+
 ```
 Get-PASApplication NewApp
 ```
@@ -59,88 +72,126 @@ Gets details of all application matching "NewApp"
 ## PARAMETERS
 
 ### -AppID
+
 Application Name
 
 ```yaml
-Type: String
-Parameter Sets: byQuery
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-```yaml
-Type: String
-Parameter Sets: byAppID
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: byQuery
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: byAppID
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -ExactMatch
+
 By Default, the function will search the vault.
 
 All found applications (based on parameters supplied) will be returned.
 
 When Specifying this parameter, the function will not search;
 data for the supplied AppID will be returned.
+By Default, the function will search the vault.
+
+All found applications (based on parameters supplied) will be returned.
+
+When Specifying this parameter, the function will not search; data for the supplied AppID will be returned.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: byAppID
-Aliases:
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: byAppID
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
+### -IncludeSublocations
+
+Will search be carried out in sublocations of specified location?
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: byQuery
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Location
+
+Location of the application in the Vault hierarchy.
+
+Default=\
 Location of the application in the Vault hierarchy.
 
 Default=\
 
 ```yaml
-Type: String
-Parameter Sets: byQuery
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -IncludeSublocations
-Will search be carried out in sublocations of specified location?
-
-```yaml
-Type: Boolean
-Parameter Sets: byQuery
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: byQuery
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -148,8 +199,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASApplication](https://pspas.pspete.dev/commands/Get-PASApplication)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/List%20Applications.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/List%20Applications.htm)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/List%20a%20Specific%20Application.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/List%20a%20Specific%20Application.htm)
+- [https://pspas.pspete.dev/commands/Get-PASApplication](https://pspas.pspete.dev/commands/Get-PASApplication)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/List%20Applications.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/List%20Applications.htm)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/List%20a%20Specific%20Application.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/List%20a%20Specific%20Application.htm)

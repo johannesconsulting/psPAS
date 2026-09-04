@@ -1,40 +1,50 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Set-PASAccount
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Set-PASAccount
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Set-PASAccount
 ---
 
 # Set-PASAccount
 
 ## SYNOPSIS
+
 Updates an existing accounts details.
 
 ## SYNTAX
 
 ### Gen2SingleOp (Default)
+
 ```
-Set-PASAccount -AccountID <String> -op <String> -path <String> [-value <String>] [-InputObject <PSObject>]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PASAccount -AccountID <String> -op <String> -path <String> [-value <String>]
+ [-InputObject <PSObject>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### Gen2MultiOp
+
 ```
-Set-PASAccount -AccountID <String> -operations <Hashtable[]> [-InputObject <PSObject>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Set-PASAccount -AccountID <String> -operations <Hashtable[]> [-InputObject <PSObject>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### Gen1
+
 ```
 Set-PASAccount -AccountID <String> -Folder <String> -AccountName <String> [-DeviceType <String>]
  [-PlatformID <String>] [-Address <String>] [-UserName <String>] [-GroupName <String>]
- [-GroupPlatformID <String>] [-Properties <Hashtable>] [-InputObject <PSObject>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+ [-GroupPlatformID <String>] [-Properties <Hashtable>] [-InputObject <PSObject>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Updates an existing accounts details.
 
 Default operation using the Gen2 API requires minimum version fo 10.4
@@ -55,6 +65,7 @@ reconciliation or verification), the links will be automatically updated.
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Set-PASAccount -AccountID 27_4 -op replace -path "/address" -value "NewAddress"
 ```
@@ -64,6 +75,7 @@ Replaces the current address value with NewAddress
 Requires minimum version of 10.4
 
 ### EXAMPLE 2
+
 ```
 Set-PASAccount -AccountID 27_4 -op remove -path "/platformAccountProperties/UserDN"
 ```
@@ -73,6 +85,7 @@ Removes UserDN property set on account
 Requires minimum version of 10.4
 
 ### EXAMPLE 3
+
 ```
 $actions += @{"op"="Add";"path"="/platformAccountProperties/UserDN";"value"="SomeDN"}
 
@@ -86,6 +99,7 @@ Performs the update operations contained in the $actions array against the accou
 Requires minimum version of 10.4
 
 ### EXAMPLE 4
+
 ```
 Get-PASAccount -Keywords DBUser | Set-PASAccount -Properties @{"DSN"="myDSN"}
 ```
@@ -95,6 +109,7 @@ Sets DSN value on matched account dbUser
 Requires minimum version of 10.4
 
 ### EXAMPLE 5
+
 ```
 Set-PASAccount -AccountID 21_3 -Folder Root -AccountName NewName `
 -DeviceType Database -PlatformID Oracle -Address dbServer.domain.com -UserName DBUser
@@ -122,121 +137,104 @@ Requires minimum version of 10.4
 ## PARAMETERS
 
 ### -AccountID
+
+The unique ID of the account to update.
+
+As returned by by Get-PASAccount
 The unique ID of the account to update.
 
 As returned by by Get-PASAccount
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: id
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -op
-The operation to perform (add, remove, replace).
-
-Requires minimum version of 10.4
-
-```yaml
-Type: String
-Parameter Sets: Gen2SingleOp
-Aliases: Operation
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -path
-The path of the property to update, for instance /address or /name.
-
-Requires minimum version of 10.4
-
-```yaml
-Type: String
-Parameter Sets: Gen2SingleOp
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -value
-The new property value for add or replace operations.
-
-Requires minimum version of 10.4
-
-```yaml
-Type: String
-Parameter Sets: Gen2SingleOp
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -operations
-A collection of update actions to perform, must include op, path & value (except where action is remove).
-
-Requires minimum version of 10.4
-
-```yaml
-Type: Hashtable[]
-Parameter Sets: Gen2MultiOp
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Folder
-The folder where the account is stored.
-
-```yaml
-Type: String
-Parameter Sets: Gen1
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- id
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -AccountName
+
 The name of the account
 
 ```yaml
-Type: String
-Parameter Sets: Gen1
-Aliases: Name
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- Name
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -Address
+
+The Name or Address of the machine where the account will be used
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -DeviceType
+
+The devicetype assigned to the account.
+
+Ensure all required parameters are specified.
+
+Different device types require different parameters
 The devicetype assigned to the account.
 
 Ensure all required parameters are specified.
@@ -244,67 +242,45 @@ Ensure all required parameters are specified.
 Different device types require different parameters
 
 ```yaml
-Type: String
-Parameter Sets: Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -PlatformID
-The CyberArk platform assigned to the account
+### -Folder
 
-Ensure all required parameters are specified.
-
-Different platforms require different parameters
+The folder where the account is stored.
 
 ```yaml
-Type: String
-Parameter Sets: Gen1
-Aliases: PolicyID
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Address
-The Name or Address of the machine where the account will be used
-
-```yaml
-Type: String
-Parameter Sets: Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -UserName
-The Username on the target machine
-
-```yaml
-Type: String
-Parameter Sets: Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -GroupName
+
 A groupname with which the account will be associated
 
 The name of the group with which the account is associated.
@@ -313,117 +289,318 @@ To create a new group, specify the group platform ID in the GroupPlatformID prop
 then specify the group name.
 
 The group will then be created automatically.
+A groupname with which the account will be associated
+
+The name of the group with which the account is associated.
+
+To create a new group, specify the group platform ID in the GroupPlatformID property, then specify the group name.
+
+The group will then be created automatically.
 
 ```yaml
-Type: String
-Parameter Sets: Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -GroupPlatformID
+
 GroupPlatformID is required if account is to be moved to a new group.
 
 ```yaml
-Type: String
-Parameter Sets: Gen1
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -InputObject
+
+Receives object from pipeline.
+
+```yaml
+Type: System.Management.Automation.PSObject
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: Gen2MultiOp
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: Gen2SingleOp
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -op
+
+The operation to perform (add, remove, replace).
+
+Requires minimum version of 10.4
+The operation to perform (add, remove, replace).
+
+Requires minimum version of 10.4
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- Operation
+ParameterSets:
+- Name: Gen2SingleOp
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -operations
+
+A collection of update actions to perform, must include op, path & value (except where action is remove).
+
+Requires minimum version of 10.4
+A collection of update actions to perform, must include op, path & value (except where action is remove).
+
+Requires minimum version of 10.4
+
+```yaml
+Type: System.Collections.Hashtable[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2MultiOp
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -path
+
+The path of the property to update, for instance /address or /name.
+
+Requires minimum version of 10.4
+The path of the property to update, for instance /address or /name.
+
+Requires minimum version of 10.4
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2SingleOp
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -PlatformID
+
+The CyberArk platform assigned to the account
+
+Ensure all required parameters are specified.
+
+Different platforms require different parameters
+The CyberArk platform assigned to the account
+
+Ensure all required parameters are specified.
+
+Different platforms require different parameters
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- PolicyID
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Properties
+
+Hashtable of name=value pairs.
+
+Specify properties to update.
 Hashtable of name=value pairs.
 
 Specify properties to update.
 
 ```yaml
-Type: Hashtable
-Parameter Sets: Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: @{ }
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Collections.Hashtable
+DefaultValue: '@{ }'
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -InputObject
-Receives object from pipeline.
+### -UserName
+
+The Username on the target machine
 
 ```yaml
-Type: PSObject
-Parameter Sets: Gen2SingleOp, Gen2MultiOp
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-```yaml
-Type: PSObject
-Parameter Sets: Gen1
-Aliases:
+### -value
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+The new property value for add or replace operations.
+
+Requires minimum version of 10.4
+The new property value for add or replace operations.
+
+Requires minimum version of 10.4
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2SingleOp
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Collections.Hashtable[]
+
+{{ Fill in the Description }}
+
+### System.Management.Automation.PSObject
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
 ## NOTES
+
 Dependencies (usages) cannot be updated.
 Accounts that do not have a policy ID cannot be updated.
 
@@ -433,6 +610,5 @@ To move accounts to a different folder, Move accounts/folders permission is requ
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Set-PASAccount](https://pspas.pspete.dev/commands/Set-PASAccount)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/UpdateAccount%20v10.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/UpdateAccount%20v10.htm)
+- [https://pspas.pspete.dev/commands/Set-PASAccount](https://pspas.pspete.dev/commands/Set-PASAccount)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/UpdateAccount%20v10.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/UpdateAccount%20v10.htm)

@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Set-PASPTARule {
 	[CmdletBinding(SupportsShouldProcess)]
 	param(

@@ -1,24 +1,43 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Add-PASDiscoveredLocalAccount
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Add-PASDiscoveredLocalAccount
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
+title: Add-PASDiscoveredLocalAccount
 ---
 
 # Add-PASDiscoveredLocalAccount
 
 ## SYNOPSIS
+
 Add a specific account from the list of discovered local endpoint accounts to the Discovered Accounts list.
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
-Add-PASDiscoveredLocalAccount [-type] <String> [-identifiers] <Hashtable> [[-isPrivileged] <Boolean>]
- [[-customProperties] <Hashtable>] [[-source] <String>] [-tags <String[]>] [-WhatIf] [-Confirm]
+Add-PASDiscoveredLocalAccount [-type] <String> [-identifiers] <Hashtable>
+ [[-isPrivileged] <Boolean>] [[-customProperties] <Hashtable>] [[-source] <String>]
+ [-tags <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### __AllParameterSets
+
+```
+Add-PASDiscoveredLocalAccount [-type] <string> [-identifiers] <hashtable> [[-isPrivileged] <bool>]
+ [[-customProperties] <hashtable>] [[-source] <string>] [[-tags] <string[]>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Adds a specific account from the list of discovered accounts for local endpoint Windows and MacOS accounts to the Discovered Accounts list.
 
 Applies to the accounts that are discovered by the EPM scanning of endpoints, including loosely connected devices:
@@ -34,6 +53,7 @@ Requires one of the following roles:
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Add-PASDiscoveredLocalAccount -type windows -identifiers @{'username'='administrator'; 'address'='somemachine.pspete.dev'}
 ```
@@ -41,6 +61,7 @@ Add-PASDiscoveredLocalAccount -type windows -identifiers @{'username'='administr
 Adds the specified local account as a discovered local account.
 
 ### EXAMPLE 2
+
 ```
 Add-PASDiscoveredLocalAccount -type mac -identifiers @{'username'='root'; 'address'='mac01.pspete.dev'} -isPrivileged $true -source EPM
 ```
@@ -48,6 +69,7 @@ Add-PASDiscoveredLocalAccount -type mac -identifiers @{'username'='root'; 'addre
 Adds the specified local Mac account, flagged as privileged, attributing the discovery to the EPM source.
 
 ### EXAMPLE 3
+
 ```
 Add-PASDiscoveredLocalAccount -type unix -identifiers @{'username'='oracle'; 'address'='unixsrv01.pspete.dev'} -customProperties @{'Department'='Finance'; 'Owner'='Bob'}
 ```
@@ -55,6 +77,7 @@ Add-PASDiscoveredLocalAccount -type unix -identifiers @{'username'='oracle'; 'ad
 Adds the specified local Unix account, including additional custom properties.
 
 ### EXAMPLE 4
+
 ```
 $Accounts = @(
     [pscustomobject]@{type = 'windows'; identifiers = @{'username' = 'svc-web'; 'address' = 'web01.pspete.dev'} }
@@ -67,133 +90,207 @@ Adds multiple discovered local accounts, piping objects with type and identifier
 
 ## PARAMETERS
 
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -customProperties
+
+List of additional account properties.
+
+```yaml
+Type: System.Collections.Hashtable
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 3
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -identifiers
+
+List of properties that define the uniqueness of the account.
+
+```yaml
+Type: System.Collections.Hashtable
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -isPrivileged
+
+Whether the user is privileged on the target.
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 2
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -source
+
+The service which discovered the account.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 4
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -tags
+
+List of tag(s) assigned to the discovered account by the scan definition.
+
+```yaml
+Type: System.String[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 5
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### -type
+
+The type of the account
+
+Valid values: windows, mac, unix
 The type of the account
 
 Valid values: windows, mac, unix
 
-
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -identifiers
-List of properties that define the uniqueness of the account.
-
-```yaml
-Type: Hashtable
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -isPrivileged
-Whether the user is privileged on the target.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -customProperties
-List of additional account properties.
-
-```yaml
-Type: Hashtable
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -source
-The service which discovered the account.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 5
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -tags
-List of tag(s) assigned to the discovered account by the scan definition.
-
-```yaml
-Type: String[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Collections.Hashtable
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
+
+### System.String[]
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -201,6 +298,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Add-PASDiscoveredLocalAccount](https://pspas.pspete.dev/commands/Add-PASDiscoveredLocalAccount)
-
-[https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/Content/Privilege%20Cloud/PrivCloud-DiscoveredAccountsService-Add.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/Content/Privilege%20Cloud/PrivCloud-DiscoveredAccountsService-Add.htm)
+- [https://pspas.pspete.dev/commands/Add-PASDiscoveredLocalAccount](https://pspas.pspete.dev/commands/Add-PASDiscoveredLocalAccount)
+- [https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/Content/Privilege%20Cloud/PrivCloud-DiscoveredAccountsService-Add.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/Content/Privilege%20Cloud/PrivCloud-DiscoveredAccountsService-Add.htm)

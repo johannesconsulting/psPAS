@@ -1,30 +1,46 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Import-PASConnectionComponent
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Import-PASConnectionComponent
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Import-PASConnectionComponent
 ---
 
 # Import-PASConnectionComponent
 
 ## SYNOPSIS
+
 Import a new connection component.
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Import-PASConnectionComponent [-ImportFile] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Import-PASConnectionComponent [-ImportFile] <string> [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Allows administrators to import a new connection component, such as those available to download from the
 CyberArk Marketplace.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Import-PASConnectionComponent -ImportFile ConnectionComponent.zip
 ```
@@ -32,6 +48,7 @@ Import-PASConnectionComponent -ImportFile ConnectionComponent.zip
 Imports ConnectionComponent.zip Connection Component
 
 ### EXAMPLE 2
+
 ```
 Get-ChildItem -Path C:\ConnectionComponents -Filter *.zip | ForEach-Object { Import-PASConnectionComponent -ImportFile $_.FullName }
 ```
@@ -39,6 +56,7 @@ Get-ChildItem -Path C:\ConnectionComponents -Filter *.zip | ForEach-Object { Imp
 Imports every connection component zip file found in the C:\ConnectionComponents folder.
 
 ### EXAMPLE 3
+
 ```
 Import-PASConnectionComponent -ImportFile ConnectionComponent.zip -WhatIf
 ```
@@ -47,64 +65,94 @@ Shows what would happen if the connection component was imported, without actual
 
 ## PARAMETERS
 
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### -ImportFile
+
 The zip file that contains the connection component.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
 ## NOTES
+
 Minimum CyberArk version 10.3
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Import-PASConnectionComponent](https://pspas.pspete.dev/commands/Import-PASConnectionComponent)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/ImportConnComponent.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/ImportConnComponent.htm)
+- [https://pspas.pspete.dev/commands/Import-PASConnectionComponent](https://pspas.pspete.dev/commands/Import-PASConnectionComponent)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/ImportConnComponent.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/ImportConnComponent.htm)

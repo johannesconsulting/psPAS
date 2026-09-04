@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Add-PASDiscoveryScan {
 	[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingPlainTextForPassword', '', Justification = 'The API requires the scan credential object, including its password field, as JSON.')]
 	[CmdletBinding(SupportsShouldProcess)]

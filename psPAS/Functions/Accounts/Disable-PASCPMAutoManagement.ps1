@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Disable-PASCPMAutoManagement {
 	[CmdletBinding(SupportsShouldProcess)]
 	param(

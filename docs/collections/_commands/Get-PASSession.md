@@ -1,24 +1,39 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASSession
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASSession
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASSession
 ---
 
 # Get-PASSession
 
 ## SYNOPSIS
+
 Returns information related to the authenticated session
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Get-PASSession [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Get-PASSession [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 For the current session, returns data from the module scope:
 - BaseURI: URL value used for sending requests to the API.
 - ExternalVersion: PAS version information.
@@ -42,6 +57,7 @@ The session information can be saved a variable accessible outside of the module
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Get-PASSession
 ```
@@ -49,6 +65,7 @@ Get-PASSession
 Show current session related information
 
 ### EXAMPLE 2
+
 ```
 $session = Get-PASSession
 ```
@@ -56,6 +73,7 @@ $session = Get-PASSession
 Save current session related information
 
 ### EXAMPLE 3
+
 ```
 $session = Get-PASSession
 
@@ -65,6 +83,7 @@ Invoke-RestMethod -Method GET -Uri "$session.BaseURI/SomePath" -WebSession $sess
 Use session information for Invoke-RestMethod command
 
 ### EXAMPLE 4
+
 ```
 (Get-PASSession).GetRemainingSessionTime()
 ```
@@ -72,6 +91,7 @@ Use session information for Invoke-RestMethod command
 Returns a live TimeSpan indicating how much longer the session has before it idle-times out
 
 ### EXAMPLE 5
+
 ```
 (Get-PASSession).Refresh()
 ```
@@ -81,7 +101,11 @@ Resets the idle timer for the current session, extending it, and returns the ref
 ## PARAMETERS
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -91,6 +115,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASSession](https://pspas.pspete.dev/commands/Get-PASSession)
-
-[https://pspas.pspete.dev/docs/api-sessions/](https://pspas.pspete.dev/docs/api-sessions/)
+- [https://pspas.pspete.dev/commands/Get-PASSession](https://pspas.pspete.dev/commands/Get-PASSession)
+- [https://pspas.pspete.dev/docs/api-sessions/](https://pspas.pspete.dev/docs/api-sessions/)

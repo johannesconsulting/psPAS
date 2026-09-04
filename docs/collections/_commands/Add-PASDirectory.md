@@ -1,34 +1,43 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Add-PASDirectory
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Add-PASDirectory
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Add-PASDirectory
 ---
 
 # Add-PASDirectory
 
 ## SYNOPSIS
+
 Adds an LDAP directory to the Vault
 
 ## SYNTAX
 
 ### 10.4 (Default)
+
 ```
-Add-PASDirectory -DirectoryType <String> -HostAddresses <String[]> -BindUsername <String>
- -BindPassword <SecureString> [-Port <Int32>] -DomainName <String> -DomainBaseContext <String>
- [-SSLConnect <Boolean>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Add-PASDirectory -DirectoryType <string> -HostAddresses <string[]> -BindUsername <string>
+ -BindPassword <securestring> -DomainName <string> -DomainBaseContext <string> [-Port <int>]
+ [-SSLConnect <bool>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### 10.7
+
 ```
-Add-PASDirectory -DirectoryType <String> -BindUsername <String> -BindPassword <SecureString> [-Port <Int32>]
- [-DCList <Hashtable[]>] -DomainName <String> -DomainBaseContext <String> [-SSLConnect <Boolean>] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+Add-PASDirectory -DirectoryType <string> -BindUsername <string> -BindPassword <securestring>
+ -DomainName <string> -DomainBaseContext <string> [-Port <int>] [-DCList <hashtable[]>]
+ [-SSLConnect <bool>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Adds an LDAP directory to the Vault.
 
 Membership of the Vault Admins group required.
@@ -38,6 +47,7 @@ Minimum required version 10.4
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Add-PASDirectory -DirectoryType "MicrosoftADProfile.ini" -HostAddresses "192.168.60.1","192.168.60.100" -BindUsername "CABind" -BindPassword $pw -Port 389 -DomainName "DOMAIN.COM" -DomainBaseContext "DC=DOMAIN,DC=COM"
 ```
@@ -45,6 +55,7 @@ Add-PASDirectory -DirectoryType "MicrosoftADProfile.ini" -HostAddresses "192.168
 Adds the Domain.Com directory to the vault
 
 ### EXAMPLE 2
+
 ```
 Add-PASDirectory -DirectoryType "MicrosoftADProfile.ini" -BindUsername "BindUser@domain.com" -BindPassword $($Creds.Password) -DomainName DOMAIN `
 
@@ -56,6 +67,7 @@ Adds the Domain.Com directory to the vault, configured for LDAPS.
 Minimum required version 10.7
 
 ### EXAMPLE 3
+
 ```
 $directory = [pscustomobject]@{
 	DirectoryType     = "MicrosoftADProfile.ini"
@@ -71,6 +83,7 @@ $directory | Add-PASDirectory
 Adds the Domain.Com directory to the vault, using pipeline input.
 
 ### EXAMPLE 4
+
 ```
 Add-PASDirectory -DirectoryType "MicrosoftADProfile.ini" -BindUsername "CABind" -BindPassword $pw -DomainName "DOMAIN.COM" -DomainBaseContext "DC=DOMAIN,DC=COM"
 ```
@@ -81,182 +94,331 @@ Minimum required version 10.7
 
 ## PARAMETERS
 
-### -DirectoryType
-The name of the directory profile file that the Vault will use when working with the specified LDAP directory.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -HostAddresses
-List of IP addresses of the host servers where the External Directories exist.
-
-If the Vault will use an SSL connection to connect to the External Directory, this name must match the subject
-that appears in the Directory certificate
-
-```yaml
-Type: String[]
-Parameter Sets: 10.4
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -BindUsername
-The username of the account used to bind to the directory
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
 ### -BindPassword
+
 A SecureString containing the password for the Bind User
 
 ```yaml
-Type: SecureString
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Security.SecureString
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 10.7
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: 10.4
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -Port
-The port that will be used to access the specified server.
+### -BindUsername
 
-The standard port for SSL LDAP connections is 636, and for non-SSL LDAP connections is 389
+The username of the account used to bind to the directory
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 10.7
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: 10.4
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -DCList
+
+Array of hashtables containing LDAPDomainController information.
+
+Minimum required version 10.7
 Array of hashtables containing LDAPDomainController information.
 
 Minimum required version 10.7
 
 ```yaml
-Type: Hashtable[]
-Parameter Sets: 10.7
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Collections.Hashtable[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 10.7
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -DomainName
-The address of the domain
+### -DirectoryType
+
+The name of the directory profile file that the Vault will use when working with the specified LDAP directory.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 10.7
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: 10.4
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -DomainBaseContext
+
 The base context of the External Directory.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 10.7
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: 10.4
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -DomainName
+
+The address of the domain
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 10.7
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: 10.4
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -HostAddresses
+
+List of IP addresses of the host servers where the External Directories exist.
+
+If the Vault will use an SSL connection to connect to the External Directory, this name must match the subject
+that appears in the Directory certificate
+List of IP addresses of the host servers where the External Directories exist.
+
+If the Vault will use an SSL connection to connect to the External Directory, this name must match the subject that appears in the Directory certificate
+
+```yaml
+Type: System.String[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 10.4
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Port
+
+The port that will be used to access the specified server.
+
+The standard port for SSL LDAP connections is 636, and for non-SSL LDAP connections is 389
+The port that will be used to access the specified server.
+
+The standard port for SSL LDAP connections is 636, and for non-SSL LDAP connections is 389
+
+```yaml
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 10.7
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: 10.4
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -SSLConnect
+
 Boolean value defining whether or not to connect to the external directory with SSL.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: 10.7
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: 10.4
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.String[]
+
+{{ Fill in the Description }}
+
+### System.Security.SecureString
+
+{{ Fill in the Description }}
+
+### System.Int32
+
+{{ Fill in the Description }}
+
+### System.Collections.Hashtable[]
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -264,6 +426,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Add-PASDirectory](https://pspas.pspete.dev/commands/Add-PASDirectory)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/LDAP_Create_Directory.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/LDAP_Create_Directory.htm)
+- [https://pspas.pspete.dev/commands/Add-PASDirectory](https://pspas.pspete.dev/commands/Add-PASDirectory)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/LDAP_Create_Directory.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/LDAP_Create_Directory.htm)

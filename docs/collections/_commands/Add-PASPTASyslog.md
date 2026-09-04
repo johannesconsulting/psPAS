@@ -1,25 +1,43 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Add-PASPTASyslog
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Add-PASPTASyslog
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Add-PASPTASyslog
 ---
 
 # Add-PASPTASyslog
 
 ## SYNOPSIS
+
 Add a SYSLOG configuration to PTA
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
-Add-PASPTASyslog [-siem] <String> [-format] <String> [-host] <String> [-port] <Int32> [-protocol] <String>
- [[-CertificateFile] <String>] [-syslogType] <String> [-tcpOctetCounting] <Boolean> [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Add-PASPTASyslog [-siem] <String> [-format] <String> [-host] <String> [-port] <Int32>
+ [-protocol] <String> [[-CertificateFile] <String>] [-syslogType] <String>
+ [-tcpOctetCounting] <Boolean> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Add-PASPTASyslog [-siem] <string> [-format] <string> [-host] <string> [-port] <int>
+ [-protocol] <string> [[-CertificateFile] <string>] [-syslogType] <string>
+ [-tcpOctetCounting] <bool> [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Add a new SYSLOG configuration to PTA
 
 This API is not officially documented, so this help file may not help 100%
@@ -27,6 +45,7 @@ This API is not officially documented, so this help file may not help 100%
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
 Add-PASPTASyslog -siem SomeSIEM -format CEF -host SOMEHOST.domain.com -port 514 -protocol UDP -syslogType SomeType -tcpOctetCounting $false
 ```
@@ -34,6 +53,7 @@ Add-PASPTASyslog -siem SomeSIEM -format CEF -host SOMEHOST.domain.com -port 514 
 Adds the specified SYSLOG configuration to PTA
 
 ### Example 2
+
 ```powershell
 Add-PASPTASyslog -siem 'CorpSIEM' -format LEEF -host syslog.cyberark.local -port 6514 -protocol TCP -syslogType RFC5424 -tcpOctetCounting $true
 ```
@@ -41,6 +61,7 @@ Add-PASPTASyslog -siem 'CorpSIEM' -format LEEF -host syslog.cyberark.local -port
 Adds a LEEF-formatted SYSLOG configuration named "CorpSIEM" that sends events to syslog.cyberark.local over TCP on port 6514, using RFC5424 framing with TCP octet-counting enabled
 
 ### Example 3
+
 ```powershell
 Add-PASPTASyslog -siem 'SecureSIEM' -format CEF -host siem.cyberark.local -port 6514 -protocol TLS -CertificateFile C:\Certs\siem.cer -syslogType RFC3164 -tcpOctetCounting $false
 ```
@@ -48,6 +69,7 @@ Add-PASPTASyslog -siem 'SecureSIEM' -format CEF -host siem.cyberark.local -port 
 Adds a SYSLOG configuration that connects to siem.cyberark.local over TLS on port 6514, presenting the specified certificate file for the connection
 
 ### Example 4
+
 ```powershell
 [PSCustomObject]@{siem='RemoteSIEM'; format='CEF'; host='192.168.1.10'; port=514; protocol='UDP'; syslogType='SEMI_RFC5424'; tcpOctetCounting=$false} | Add-PASPTASyslog
 ```
@@ -56,160 +78,241 @@ Adds a SYSLOG configuration using property values supplied via the pipeline
 
 ## PARAMETERS
 
-### -siem
-A name for the SIEM configuration
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: Name
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -format
-CEF or LEEF format
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -host
-The SYSLOG host
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 3
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -port
-The SYSLOG port
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 4
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -protocol
-The SYSLOG protocol
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 5
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
 ### -CertificateFile
+
 The certificate file for SYSLOG connectivity
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 6
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -syslogType
-The SYSLOG type
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 7
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -tcpOctetCounting
-Whether to set TCP Octet Counting
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 8
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 5
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+### -format
+
+CEF or LEEF format
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -host
+
+The SYSLOG host
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 2
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -port
+
+The SYSLOG port
+
+```yaml
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 3
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -protocol
+
+The SYSLOG protocol
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 4
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -siem
+
+A name for the SIEM configuration
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- Name
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -syslogType
+
+The SYSLOG type
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 6
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -tcpOctetCounting
+
+Whether to set TCP Octet Counting
+
+```yaml
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 7
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Int32
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -217,4 +320,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Add-PASPTASyslog](https://pspas.pspete.dev/commands/Add-PASPTASyslog)
+- [https://pspas.pspete.dev/commands/Add-PASPTASyslog](https://pspas.pspete.dev/commands/Add-PASPTASyslog)

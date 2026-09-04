@@ -1,8 +1,12 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASReportTask
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASReportTask
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASReportTask
 ---
 
@@ -15,15 +19,19 @@ Returns details of available report schedules
 ## SYNTAX
 
 ### byQuery (Default)
+
 ```
-Get-PASReportTask [-search <String>] [-subType <String>] [-name <String>] [-FilterLogicalOperator <String>]
- [-limit <Int32>] [<CommonParameters>]
+Get-PASReportTask [-search <string>] [-subType <string>] [-name <string>]
+ [-FilterLogicalOperator <string>] [-limit <int>] [<CommonParameters>]
 ```
 
 ### byID
+
 ```
 Get-PASReportTask [-id <String>] [<CommonParameters>]
 ```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -72,18 +80,26 @@ Returns report schedules of the InventoryReports.InventoryReportUI subtype.
 
 The logical operator (AND/OR) used to combine multiple filter parameters, when both
 subType and name are specified together. Defaults to AND.
+The logical operator (AND/OR) used to combine multiple filter parameters, when both subType and name are specified together.
+Defaults to AND.
 
 ```yaml
-Type: String
-Parameter Sets: byQuery
-Aliases:
-Accepted values: AND, OR
-
-Required: False
-Position: Named
-Default value: AND
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: AND
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: byQuery
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues:
+- AND
+- OR
+HelpMessage: ''
 ```
 
 ### -id
@@ -91,15 +107,20 @@ Accept wildcard characters: False
 When specified, returns a specific report schedule, otherwise returns all the user has access to.
 
 ```yaml
-Type: String
-Parameter Sets: byID
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: byID
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -limit
@@ -107,15 +128,20 @@ Accept wildcard characters: False
 The number of report schedules to return on one page.
 
 ```yaml
-Type: Int32
-Parameter Sets: byQuery
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Int32
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: byQuery
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -name
@@ -123,17 +149,25 @@ Accept wildcard characters: False
 Filters report schedules by task name.
 
 Only the EQ operator is supported; other operators are rejected by the API.
+Filters report schedules by task name.
+
+Only the EQ operator is supported; other operators are rejected by the API.
 
 ```yaml
-Type: String
-Parameter Sets: byQuery
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: byQuery
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -search
@@ -141,15 +175,20 @@ Accept wildcard characters: False
 A simple, case-insensitive keyword search across common textual fields.
 
 ```yaml
-Type: String
-Parameter Sets: byQuery
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: byQuery
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -subType
@@ -157,23 +196,43 @@ Accept wildcard characters: False
 Filters report schedules by task subtype.
 
 Only the EQ operator is supported; other operators are rejected by the API.
+Filters report schedules by task subtype.
+
+Only the EQ operator is supported; other operators are rejected by the API.
 
 ```yaml
-Type: String
-Parameter Sets: byQuery
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: byQuery
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Int32
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -191,6 +250,5 @@ despite being returned in the response body.
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASReportTask](https://pspas.pspete.dev/commands/Get-PASReportTask)
-
-[https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-tasks.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-tasks.htm)
+- [https://pspas.pspete.dev/commands/Get-PASReportTask](https://pspas.pspete.dev/commands/Get-PASReportTask)
+- [https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-tasks.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-tasks.htm)

@@ -1,23 +1,39 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASAccountSearchProperty
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASAccountSearchProperty
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASAccountSearchProperty
 ---
 
 # Get-PASAccountSearchProperty
 
 ## SYNOPSIS
+
 Return a list of available search properties
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Get-PASAccountSearchProperty [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Get-PASAccountSearchProperty [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Returns a list of all the properties that are included in the search filter when searching for an account.
 
 The list is created from the list of parameters in Options > Search Properties
@@ -25,6 +41,7 @@ The list is created from the list of parameters in Options > Search Properties
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
 Get-PASAccountSearchProperty
 ```
@@ -32,6 +49,7 @@ Get-PASAccountSearchProperty
 Returns valid search properties and any valid operators which can be used
 
 ### Example 2
+
 ```powershell
 Get-PASAccountSearchProperty | Where-Object { $_.PropertyName -eq 'UserName' }
 ```
@@ -39,6 +57,7 @@ Get-PASAccountSearchProperty | Where-Object { $_.PropertyName -eq 'UserName' }
 Returns the search property details for the UserName property, including its supported operators.
 
 ### Example 3
+
 ```powershell
 Get-PASAccountSearchProperty | Format-Table PropertyName, SupportedOperators -AutoSize
 ```
@@ -48,7 +67,11 @@ Displays every available search property alongside the operators supported for f
 ## PARAMETERS
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -58,6 +81,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASAccountSearchProperty](https://pspas.pspete.dev/commands/Get-PASAccountSearchProperty)
-
-[https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/get-advanced-search-properties.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/get-advanced-search-properties.htm)
+- [https://pspas.pspete.dev/commands/Get-PASAccountSearchProperty](https://pspas.pspete.dev/commands/Get-PASAccountSearchProperty)
+- [https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/get-advanced-search-properties.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/get-advanced-search-properties.htm)

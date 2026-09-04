@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Reset-PASPTASecurityConfigurationCategory {
     [CmdletBinding(SupportsShouldProcess = $true)]
     param(

@@ -1,24 +1,39 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASComponentSummary
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASComponentSummary
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASComponentSummary
 ---
 
 # Get-PASComponentSummary
 
 ## SYNOPSIS
+
 Returns consolidated information about CyberArk Components.
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Get-PASComponentSummary [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Get-PASComponentSummary [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Returns consolidated information about the Vault, PVWA, CPM, PSM/PSMP and AIM.
 
 Includes all clients that are relevant to each specific component.
@@ -26,6 +41,7 @@ Includes all clients that are relevant to each specific component.
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Get-PASComponentSummary
 ```
@@ -33,6 +49,7 @@ Get-PASComponentSummary
 Displays CyberArk Component information
 
 ### EXAMPLE 2
+
 ```
 Get-PASComponentSummary | Where-Object ComponentID -eq 'CPM'
 ```
@@ -40,6 +57,7 @@ Get-PASComponentSummary | Where-Object ComponentID -eq 'CPM'
 Returns component summary information for the CPM component only.
 
 ### EXAMPLE 3
+
 ```
 Get-PASComponentSummary | Where-Object Role -eq 'DR'
 ```
@@ -49,17 +67,21 @@ Returns information about any Disaster Recovery vault, including replication sta
 ## PARAMETERS
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ## OUTPUTS
 
 ## NOTES
+
 Requires minimum version of CyberArk 10.1.
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASComponentSummary](https://pspas.pspete.dev/commands/Get-PASComponentSummary)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/SystemSummary.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/SystemSummary.htm)
+- [https://pspas.pspete.dev/commands/Get-PASComponentSummary](https://pspas.pspete.dev/commands/Get-PASComponentSummary)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/SystemSummary.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/SystemSummary.htm)

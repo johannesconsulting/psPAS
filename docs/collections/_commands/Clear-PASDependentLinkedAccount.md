@@ -1,8 +1,12 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Clear-PASDependentLinkedAccount
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Clear-PASDependentLinkedAccount
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Clear-PASDependentLinkedAccount
 ---
 
@@ -15,16 +19,20 @@ Clears a linked account from a dependent account
 ## SYNTAX
 
 ### SaaS
+
 ```
-Clear-PASDependentLinkedAccount [-AccountID] <String> [-dependentAccountId] <String>
- [-extraPasswordIndex] <Int32> [-WhatIf] [-Confirm] [<CommonParameters>]
+Clear-PASDependentLinkedAccount -AccountID <string> -dependentAccountId <string>
+ -extraPasswordIndex <int> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### SelfHosted
+
 ```
-Clear-PASDependentLinkedAccount [-AccountID] <String> [-dependentAccountId] <String> [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Clear-PASDependentLinkedAccount -AccountID <string> -dependentAccountId <string> [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -73,65 +81,27 @@ Clears linked account index 1 from dependent account 32_2, using pipeline input 
 The ID of the parent account for the linked account
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: id
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -dependentAccountId
-
-The ID of the Dependent account for the Parent Account
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: dependentid
-
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -extraPasswordIndex
-
-The index of the account to unlink from the dependent account.
-Used for Privilege Cloud environments.
-
-```yaml
-Type: Int32
-Parameter Sets: SaaS
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: 3
-Default value: 0
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -WhatIf
-
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+- id
+ParameterSets:
+- Name: SaaS
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: SelfHosted
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Confirm
@@ -139,21 +109,116 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+### -dependentAccountId
+
+The ID of the Dependent account for the Parent Account
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- dependentid
+ParameterSets:
+- Name: SaaS
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: SelfHosted
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -extraPasswordIndex
+
+The index of the account to unlink from the dependent account.
+Used for Privilege Cloud environments.
+The index of the account to unlink from the dependent account.
+Used for Privilege Cloud environments.
+
+```yaml
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: SaaS
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Int32
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -161,6 +226,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Clear-PASDependentLinkedAccount](https://pspas.pspete.dev/commands/Clear-PASDependentLinkedAccount)
-
-[https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm)
+- [https://pspas.pspete.dev/commands/Clear-PASDependentLinkedAccount](https://pspas.pspete.dev/commands/Clear-PASDependentLinkedAccount)
+- [https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm)

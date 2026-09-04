@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Set-PASPTARiskEvent {
     [CmdletBinding(SupportsShouldProcess, DefaultParameterSetName = '13.2')]
     param(

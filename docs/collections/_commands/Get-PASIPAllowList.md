@@ -1,23 +1,39 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASIPAllowList
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASIPAllowList
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASIPAllowList
 ---
 
 # Get-PASIPAllowList
 
 ## SYNOPSIS
+
 List allowed IP addresses that are enabled for communication with the Privilege Cloud SaaS environment.
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Get-PASIPAllowList [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Get-PASIPAllowList [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Requires one of the following roles:
 - Privilege Cloud Administrator
 - Privilege Cloud Administrator Basic
@@ -26,6 +42,7 @@ Requires one of the following roles:
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```powershell
 Get-PASIPAllowList
 ```
@@ -33,6 +50,7 @@ Get-PASIPAllowList
 List the current IP Allow List configuration
 
 ### EXAMPLE 2
+
 ```powershell
 (Get-PASIPAllowList).customerPublicIPs
 ```
@@ -40,6 +58,7 @@ List the current IP Allow List configuration
 Returns just the list of IP addresses and subnets currently permitted to communicate with the Privilege Cloud SaaS environment.
 
 ### EXAMPLE 3
+
 ```powershell
 if (-not (Get-PASIPAllowList).updateInProgress) {
     Set-PASIPAllowList -customerPublicIPs '10.0.0.0/24','192.168.1.0/28'
@@ -51,7 +70,11 @@ Checks that no IP Allow List update is already in progress before applying a new
 ## PARAMETERS
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -61,6 +84,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASIPAllowList](https://pspas.pspete.dev/commands/Get-PASIPAllowList)
-
-[https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/Content/PrivilegeCloudAPIs/PrivCloud-IP-allowlist-Get-API.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/Content/PrivilegeCloudAPIs/PrivCloud-IP-allowlist-Get-API.htm)
+- [https://pspas.pspete.dev/commands/Get-PASIPAllowList](https://pspas.pspete.dev/commands/Get-PASIPAllowList)
+- [https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/Content/PrivilegeCloudAPIs/PrivCloud-IP-allowlist-Get-API.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/Content/PrivilegeCloudAPIs/PrivCloud-IP-allowlist-Get-API.htm)

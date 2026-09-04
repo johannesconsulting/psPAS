@@ -1,23 +1,39 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASUserLicenseReport
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASUserLicenseReport
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASUserLicenseReport
 ---
 
 # Get-PASUserLicenseReport
 
 ## SYNOPSIS
+
 Returns information about usage of the Privilege Cloud user licenses defined in your system
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Get-PASUserLicenseReport [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Get-PASUserLicenseReport [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Returns information about usage of the Privilege Cloud user licenses
 
 A license is in use in one of the following scenarios:
@@ -35,6 +51,7 @@ User license types
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
 Get-PASUserLicenseReport
 ```
@@ -42,6 +59,7 @@ Get-PASUserLicenseReport
 Returns information about usage of the Privilege Cloud user licenses
 
 ### Example 2
+
 ```powershell
 $LicenseReport = Get-PASUserLicenseReport
 $LicenseReport | Format-List *
@@ -50,6 +68,7 @@ $LicenseReport | Format-List *
 Retrieves the Privilege Cloud user license usage report and displays all returned properties.
 
 ### Example 3
+
 ```powershell
 Get-PASUserLicenseReport | Export-Csv -Path C:\Reports\UserLicenseReport.csv -NoTypeInformation
 ```
@@ -59,7 +78,11 @@ Exports the Privilege Cloud user license usage report to a CSV file for offline 
 ## PARAMETERS
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -69,6 +92,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASUserLicenseReport](https://pspas.pspete.dev/commands/Get-PASUserLicenseReport)
-
-[https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/privcloud-user-licenses-report.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/privcloud-user-licenses-report.htm)
+- [https://pspas.pspete.dev/commands/Get-PASUserLicenseReport](https://pspas.pspete.dev/commands/Get-PASUserLicenseReport)
+- [https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/privcloud-user-licenses-report.htm](https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/privcloud-user-licenses-report.htm)

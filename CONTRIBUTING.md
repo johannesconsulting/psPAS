@@ -48,12 +48,14 @@ The [Docs][pspas-docs] site content is generated from [these files][docs]
 
 The files can be edited to correct any errors, or include any additional detail, examples or relevant information.
 
-If changes have been made the the parameters of the related psPAS function, the `platyPS` module must be used to automatically update markdown files with changes to parameters and command syntax:
+If changes have been made the the parameters of the related psPAS function, the `Microsoft.PowerShell.PlatyPS` module must be used to automatically update markdown files with changes to parameters and command syntax:
 
 ```powershell
 #From the module root directory, run:
-import-module platyPS
-Update-MarkdownHelp -Path .\docs\collections\_commands\
+Import-Module Microsoft.PowerShell.PlatyPS
+Measure-PlatyPSMarkdown -Path .\docs\collections\_commands\*.md |
+  Where-Object FileType -match 'CommandHelp' |
+  Update-MarkdownCommandHelp -Path { $_.FilePath }
 ```
 
 #### External Help File
@@ -62,12 +64,11 @@ Update-MarkdownHelp -Path .\docs\collections\_commands\
 
 Changes to these markdown files must be reflected in the `Get-Help` content.
 
-`platyPS` must be used to automatically generate the external help file:
+`Microsoft.PowerShell.PlatyPS` must be used to automatically generate the external help file:
 
 ```powershell
 #From the module root directory, run:
-import-module platyPS
-New-ExternalHelp -Path .\docs\collections\_commands\ -OutputPath .\psPAS\en-US\psPAS-help.xml -Force
+& .\build\Export-ExternalHelp.ps1
 ```
 
 [commit]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html

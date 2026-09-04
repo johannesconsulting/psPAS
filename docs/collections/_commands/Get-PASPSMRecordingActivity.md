@@ -1,29 +1,45 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASPSMRecordingActivity
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASPSMRecordingActivity
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASPSMRecordingActivity
 ---
 
 # Get-PASPSMRecordingActivity
 
 ## SYNOPSIS
+
 Get activity details of PSM Recordings
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Get-PASPSMRecordingActivity [-RecordingID] <String> [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Get-PASPSMRecordingActivity [-RecordingID] <string> [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Returns activity details of a PSM recording.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Get-PASPSMRecordingActivity -RecordingID 123_45
 ```
@@ -31,6 +47,7 @@ Get-PASPSMRecordingActivity -RecordingID 123_45
 Returns details of activities in PSM Recording with Id 123_45
 
 ### EXAMPLE 2
+
 ```
 Get-PASPSMRecordingActivity -SessionID 123_45
 ```
@@ -38,6 +55,7 @@ Get-PASPSMRecordingActivity -SessionID 123_45
 Returns details of activities in PSM Recording with Id 123_45, using the SessionID alias for the RecordingID parameter.
 
 ### EXAMPLE 3
+
 ```
 Get-PASPSMRecording -RecordingID 123_45 | Get-PASPSMRecordingActivity
 ```
@@ -45,6 +63,7 @@ Get-PASPSMRecording -RecordingID 123_45 | Get-PASPSMRecordingActivity
 Gets the PSM Recording with Id 123_45, and returns its activity details. The RecordingID is passed via the pipeline.
 
 ### EXAMPLE 4
+
 ```
 Get-PASPSMRecording -Safe Win-Safe -FromTime (Get-Date).AddDays(-1) | Get-PASPSMRecordingActivity
 ```
@@ -54,32 +73,47 @@ Returns activity details for every PSM Recording created on the Win-Safe safe in
 ## PARAMETERS
 
 ### -RecordingID
+
 Unique ID of the recorded PSM session
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: SessionID
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- SessionID
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
 ## NOTES
+
 Minimum CyberArk Version 10.6
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASPSMRecordingActivity](https://pspas.pspete.dev/commands/Get-PASPSMRecordingActivity)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetRecordingActivities.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetRecordingActivities.htm)
+- [https://pspas.pspete.dev/commands/Get-PASPSMRecordingActivity](https://pspas.pspete.dev/commands/Get-PASPSMRecordingActivity)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetRecordingActivities.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetRecordingActivities.htm)

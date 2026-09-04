@@ -1,24 +1,41 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Add-PASPublicSSHKey
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Add-PASPublicSSHKey
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Add-PASPublicSSHKey
 ---
 
 # Add-PASPublicSSHKey
 
 ## SYNOPSIS
+
 Adds an authorised public SSH key for a specific user in the Vault.
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
-Add-PASPublicSSHKey [-UserName] <String> [-PublicSSHKey] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
+Add-PASPublicSSHKey [-UserName] <String> [-PublicSSHKey] <String> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Add-PASPublicSSHKey [-UserName] <string> [-PublicSSHKey] <string> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Adding an authorised public SSH key to a vault user allows the user
 to authenticate to the Vault through PSMP using a corresponding private SSH key.
 
@@ -32,6 +49,7 @@ A user cannot manage their own public SSH keys.
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Add-PASPublicSSHKey -UserName keyUser -PublicSSHKey AAAAB3NzaC1kc3MAAACBAJ3hB5SAF6mBXPlZlRoJEZi0KSIN+NU2iGiaXZXi9CDrgVxp6/andonandonandOON==
 ```
@@ -39,6 +57,7 @@ Add-PASPublicSSHKey -UserName keyUser -PublicSSHKey AAAAB3NzaC1kc3MAAACBAJ3hB5SA
 Adds SSH Key to vault user keyUser
 
 ### EXAMPLE 2
+
 ```
 $Key = Get-Content .\bob_rsa.pub
 Add-PASPublicSSHKey -UserName Bob -PublicSSHKey $Key
@@ -47,6 +66,7 @@ Add-PASPublicSSHKey -UserName Bob -PublicSSHKey $Key
 Reads the contents of a public key file and adds it as an authorized SSH key for vault user Bob.
 
 ### EXAMPLE 3
+
 ```
 Get-PASUser -Search Bob | Add-PASPublicSSHKey -PublicSSHKey "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC..."
 ```
@@ -54,6 +74,7 @@ Get-PASUser -Search Bob | Add-PASPublicSSHKey -PublicSSHKey "ssh-rsa AAAAB3NzaC1
 Adds a public SSH key for the vault user found by Get-PASUser, with the UserName value supplied via the pipeline.
 
 ### EXAMPLE 4
+
 ```
 Import-Csv .\ssh-keys.csv | Add-PASPublicSSHKey
 ```
@@ -62,24 +83,30 @@ Adds an authorized public SSH key for each vault user listed in ssh-keys.csv, ma
 
 ## PARAMETERS
 
-### -UserName
-The username of the Vault user whose public SSH keys will be added
+### -Confirm
 
-A username cannot contain the following characters: "%", "&", "+" or ".".
+Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -PublicSSHKey
+
 The content of the public SSH key as it appears in the authorized_keys file.
 
 The key must not include new lines ('\n').
@@ -88,53 +115,93 @@ Do not include options such as "command", as they are not supported when
 authenticating through PSMP.
 
 This key can only include comments in English.
+The content of the public SSH key as it appears in the authorized_keys file.
+
+The key must not include new lines ('\n').
+
+Do not include options such as "command", as they are not supported when authenticating through PSMP.
+
+This key can only include comments in English.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
+### -UserName
+
+The username of the Vault user whose public SSH keys will be added
+
+A username cannot contain the following characters: "%", "&", "+" or ".".
+The username of the Vault user whose public SSH keys will be added
+
+A username cannot contain the following characters: "%", "&", "+" or ".".
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -142,6 +209,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Add-PASPublicSSHKey](https://pspas.pspete.dev/commands/Add-PASPublicSSHKey)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Public%20SSH%20Keys.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Public%20SSH%20Keys.htm)
+- [https://pspas.pspete.dev/commands/Add-PASPublicSSHKey](https://pspas.pspete.dev/commands/Add-PASPublicSSHKey)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Public%20SSH%20Keys.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Add%20Public%20SSH%20Keys.htm)

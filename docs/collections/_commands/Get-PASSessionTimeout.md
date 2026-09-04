@@ -1,24 +1,39 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASSessionTimeout
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASSessionTimeout
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASSessionTimeout
 ---
 
 # Get-PASSessionTimeout
 
 ## SYNOPSIS
+
 Returns the configured idle session timeout
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Get-PASSessionTimeout [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Get-PASSessionTimeout [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Returns the idle session timeout, in minutes, configured on the server.
 
 This is the same request sent by the PVWA when a user authenticates, and is used to determine
@@ -34,6 +49,7 @@ is simply left `$null`.
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```powershell
 Get-PASSessionTimeout
 ```
@@ -43,7 +59,11 @@ Returns the configured idle session timeout, in minutes.
 ## PARAMETERS
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -53,4 +73,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASSessionTimeout](https://pspas.pspete.dev/commands/Get-PASSessionTimeout)
+- [https://pspas.pspete.dev/commands/Get-PASSessionTimeout](https://pspas.pspete.dev/commands/Get-PASSessionTimeout)

@@ -1,9 +1,12 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASAccount
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASAccount
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASAccount
 ---
 
@@ -17,21 +20,26 @@ Returns information about a single account. (Version 9.3 - 10.3)
 ## SYNTAX
 
 ### Gen2Query (Default)
+
 ```
-Get-PASAccount [-search <String>] [-searchType <String>] [-safeName <String>] [-savedFilter <String>]
- [-modificationTime <DateTime>] [-sort <String[]>] [-limit <Int32>] [-TimeoutSec <Int32>]
- [-LogicalOperator <String>] [<CommonParameters>]
+Get-PASAccount [-search <string>] [-searchType <string>] [-safeName <string>]
+ [-savedFilter <string>] [-modificationTime <datetime>] [-sort <string[]>] [-limit <int>]
+ [-TimeoutSec <int>] [-LogicalOperator <string>] [<CommonParameters>]
 ```
 
 ### Gen2ID
+
 ```
-Get-PASAccount -id <String> [-TimeoutSec <Int32>] [<CommonParameters>]
+Get-PASAccount -id <string> [-TimeoutSec <int>] [<CommonParameters>]
 ```
 
 ### Gen1
+
 ```
-Get-PASAccount [-Keywords <String>] [-Safe <String>] [-TimeoutSec <Int32>] [<CommonParameters>]
+Get-PASAccount [-Keywords <string>] [-Safe <string>] [-TimeoutSec <int>] [<CommonParameters>]
 ```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -157,110 +165,26 @@ Requires minimum version of 10.4
 A specific account ID to return details for.
 
 Requires minimum version of 10.4
-
-```yaml
-Type: String
-Parameter Sets: Gen2ID
-Aliases: AccountID
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -search
-
-The search term or keywords.
+A specific account ID to return details for.
 
 Requires minimum version of 10.4
 
 ```yaml
-Type: String
-Parameter Sets: Gen2Query
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -searchType
-
-Get accounts that either contain or start with the value specified in the Search parameter.
-
-Requires minimum version of 11.2
-
-```yaml
-Type: String
-Parameter Sets: Gen2Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -safeName
-
-The name of the safe to return accounts from.
-
-Requires minimum version of 10.4
-
-```yaml
-Type: String
-Parameter Sets: Gen2Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -modificationTime
-
-Specify to only return details of accounts modified after this date/time
-
-Requires minimum version of 11.4
-
-```yaml
-Type: DateTime
-Parameter Sets: Gen2Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -sort
-
-Property or properties by which to sort returned accounts,
-followed by asc (default) or desc to control sort direction.
-
-Separate multiple properties with commas, up to a maximum of three properties.
-
-Requires minimum version of 10.4
-
-```yaml
-Type: String[]
-Parameter Sets: Gen2Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- AccountID
+ParameterSets:
+- Name: Gen2ID
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Keywords
@@ -272,17 +196,111 @@ If multiple keywords are specified, the search will include all the keywords.
 Separate keywords with a space.
 
 Relevant for CyberArk versions earlier than 10.4
+Keyword to search for.
+
+If multiple keywords are specified, the search will include all the keywords.
+
+Separate keywords with a space.
+
+Relevant for CyberArk versions earlier than 10.4
 
 ```yaml
-Type: String
-Parameter Sets: Gen1
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -limit
+
+The maximum page size of accounts to return per request.
+Specify a number up to 1000.
+Each page of results will be limited in size to the number provided.
+The maximum page size of accounts to return per request.
+Specify a number up to 1000.
+Each page of results will be limited in size to the number provided.
+
+```yaml
+Type: System.Int32
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -LogicalOperator
+
+Specify either the 'OR' or 'AND' logical operator to apply against provided search parameters.
+
+Default mode of operation is 'AND'
+
+Requires minimum version of 14.6
+Specify either the 'OR' or 'AND' logical operator to apply against provided search parameters.
+
+Default mode of operation is 'AND'
+
+Requires minimum version of 14.6
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -modificationTime
+
+Specify to only return details of accounts modified after this date/time
+
+Requires minimum version of 11.4
+Specify to only return details of accounts modified after this date/time
+
+Requires minimum version of 11.4
+
+```yaml
+Type: System.DateTime
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Safe
@@ -290,35 +308,51 @@ Accept wildcard characters: False
 The name of a Safe to search that the authenticated user is authorized to access.
 
 Relevant for CyberArk versions earlier than 10.4
+The name of a Safe to search that the authenticated user is authorized to access.
+
+Relevant for CyberArk versions earlier than 10.4
 
 ```yaml
-Type: String
-Parameter Sets: Gen1
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -TimeoutSec
+### -safeName
 
-See Invoke-WebRequest
+The name of the safe to return accounts from.
 
-Specify a timeout value in seconds
+Requires minimum version of 10.4
+The name of the safe to return accounts from.
+
+Requires minimum version of 10.4
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -savedFilter
@@ -333,61 +367,162 @@ Specify a value matching one of the configured Saved Filters:
 Requires minimum version of 12.6
 
 DeleteInsightStatus only applies to Privilege Cloud
+Specify a value matching one of the configured Saved Filters: 'Regular', 'Recently', 'New', 'Link', 'Deleted', 'PolicyFailures', 'AccessedByUsers', 'ModifiedByUsers', 'ModifiedByCPM', 'DisabledPasswordByUser', 'DisabledPasswordByCPM', 'ScheduledForChange', 'ScheduledForVerify', 'ScheduledForReconcile', 'SuccessfullyReconciled', 'FailedChange', 'FailedVerify', 'FailedReconcile', 'LockedOrNew', 'Locked', 'Favorites', 'DeleteInsightStatus'
+
+Requires minimum version of 12.6
+
+DeleteInsightStatus only applies to Privilege Cloud
 
 ```yaml
-Type: String
-Parameter Sets: Gen2Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -limit
+### -search
 
-The maximum page size of accounts to return per request.
-Specify a number up to 1000.
-Each page of results will be limited in size to the number provided.
+The search term or keywords.
+
+Requires minimum version of 10.4
+The search term or keywords.
+
+Requires minimum version of 10.4
 
 ```yaml
-Type: Int32
-Parameter Sets: Gen2Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -LogicalOperator
+### -searchType
 
-Specify either the 'OR' or 'AND' logical operator to apply against provided search parameters.
+Get accounts that either contain or start with the value specified in the Search parameter.
 
-Default mode of operation is 'AND'
+Requires minimum version of 11.2
+Get accounts that either contain or start with the value specified in the Search parameter.
 
-Requires minimum version of 14.6
+Requires minimum version of 11.2
 
 ```yaml
-Type: String
-Parameter Sets: Gen2Query
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+### -sort
+
+Property or properties by which to sort returned accounts,
+followed by asc (default) or desc to control sort direction.
+
+Separate multiple properties with commas, up to a maximum of three properties.
+
+Requires minimum version of 10.4
+Property or properties by which to sort returned accounts, followed by asc (default) or desc to control sort direction.
+
+Separate multiple properties with commas, up to a maximum of three properties.
+
+Requires minimum version of 10.4
+
+```yaml
+Type: System.String[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -TimeoutSec
+
+See Invoke-WebRequest
+
+Specify a timeout value in seconds
+See Invoke-WebRequest
+
+Specify a timeout value in seconds
+
+```yaml
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.DateTime
+
+{{ Fill in the Description }}
+
+### System.String[]
+
+{{ Fill in the Description }}
+
+### System.Int32
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -397,8 +532,6 @@ New functionality added in version 10.4, limited functionality before this versi
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASAccount](https://pspas.pspete.dev/commands/Get-PASAccount)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/GetAccounts.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/GetAccounts.htm)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Get%20Account%20Details.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Get%20Account%20Details.htm)
+- [https://pspas.pspete.dev/commands/Get-PASAccount](https://pspas.pspete.dev/commands/Get-PASAccount)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/GetAccounts.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/GetAccounts.htm)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Get%20Account%20Details.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/Get%20Account%20Details.htm)

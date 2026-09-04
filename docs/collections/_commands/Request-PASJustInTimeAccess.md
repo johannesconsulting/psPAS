@@ -1,30 +1,46 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Request-PASJustInTimeAccess
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Request-PASJustInTimeAccess
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Request-PASJustInTimeAccess
 ---
 
 # Request-PASJustInTimeAccess
 
 ## SYNOPSIS
+
 Requests JIT access to a target Windows machine
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Request-PASJustInTimeAccess [-AccountID] <String> [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Request-PASJustInTimeAccess [-AccountID] <string> [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Requests and receives access, with administrative rights, to a target Windows machine.
 The domain user who requests access will be added to the local Administrators group of the target machine.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Request-PASJustInTimeAccess -AccountID 36_3
 ```
@@ -32,6 +48,7 @@ Request-PASJustInTimeAccess -AccountID 36_3
 Requests JIT access on the server for which the account with id 36_3 is a local account with local admin membership.
 
 ### EXAMPLE 2
+
 ```
 Get-PASAccount -id 36_3 | Request-PASJustInTimeAccess
 ```
@@ -39,6 +56,7 @@ Get-PASAccount -id 36_3 | Request-PASJustInTimeAccess
 Requests JIT access using the account object returned by Get-PASAccount.
 
 ### EXAMPLE 3
+
 ```
 '36_3', '44_9' | ForEach-Object { Request-PASJustInTimeAccess -AccountID $_ }
 ```
@@ -48,24 +66,39 @@ Requests JIT access for each of the specified local admin accounts.
 ## PARAMETERS
 
 ### -AccountID
+
 The ID of the local account that will be used to add the logged on user to the Administrators group on the target machine.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: id
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- id
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -73,6 +106,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Request-PASJustInTimeAccess](https://pspas.pspete.dev/commands/Request-PASJustInTimeAccess)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetAccess.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetAccess.htm)
+- [https://pspas.pspete.dev/commands/Request-PASJustInTimeAccess](https://pspas.pspete.dev/commands/Request-PASJustInTimeAccess)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetAccess.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/WebServices/GetAccess.htm)

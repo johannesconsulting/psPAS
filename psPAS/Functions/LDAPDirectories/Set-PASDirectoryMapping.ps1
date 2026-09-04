@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Set-PASDirectoryMapping {
 	[CmdletBinding(SupportsShouldProcess)]
 	param(

@@ -1,8 +1,12 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Set-PASReportTask
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Set-PASReportTask
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Set-PASReportTask
 ---
 
@@ -14,12 +18,25 @@ Updates an existing report schedule
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
 Set-PASReportTask [-id] <String> [[-name] <String>] [[-keepTaskDefinition] <Boolean>]
  [[-notifyOnFailure] <Boolean>] [[-Subscribers] <Subscriber[]>] [[-startTime] <DateTime>]
- [[-recurrenceType] <String>] [[-recurrenceValue] <String>] [[-daysOfWeek] <String>] [[-weekNumber] <String>]
- [[-filters] <TaskFilter[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [[-recurrenceType] <String>] [[-recurrenceValue] <String>] [[-daysOfWeek] <String>]
+ [[-weekNumber] <String>] [[-filters] <TaskFilter[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
+
+### __AllParameterSets
+
+```
+Set-PASReportTask [-id] <string> [[-name] <string>] [[-keepTaskDefinition] <bool>]
+ [[-notifyOnFailure] <bool>] [[-Subscribers] <Subscriber[]>] [[-startTime] <datetime>]
+ [[-recurrenceType] <string>] [[-recurrenceValue] <string>] [[-daysOfWeek] <string>]
+ [[-weekNumber] <string>] [[-filters] <TaskFilter[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -91,51 +108,21 @@ Shows what would happen if the report schedule was updated, without actually upd
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Subscribers
-
-The subscribers to notify of the report results.
-
-Any subscribers currently configured on the task are replaced by the supplied value.
-
-Use the `[Subscriber]` Class to format the required data.
-
-```yaml
-Type: Subscriber[]
-Parameter Sets: (All)
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-
-Required: False
-Position: 5
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -WhatIf
-
-Shows what would happen if the cmdlet runs. The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -daysOfWeek
@@ -144,17 +131,25 @@ The days of the week on which the report runs, as a comma separated list of day 
 where 0 is Sunday and 6 is Saturday.
 
 Applicable to a weekly recurrence.
+The days of the week on which the report runs, as a comma separated list of day numbers, where 0 is Sunday and 6 is Saturday.
+
+Applicable to a weekly recurrence.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 9
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 8
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -filters
@@ -168,17 +163,31 @@ differs per the task's existing subType - see NOTES. A filter name not documente
 subType generates a warning, but is still sent to the API.
 
 Requires CyberArk version 15.0 or later.
+The filters to apply to the report.
+
+Any filters currently configured on the task are replaced by the supplied value.
+
+Use the `[TaskFilter]` Class to format the required data.
+The set of valid filter names differs per the task's existing subType - see NOTES.
+A filter name not documented for the subType generates a warning, but is still sent to the API.
+
+Requires CyberArk version 15.0 or later.
 
 ```yaml
 Type: TaskFilter[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 11
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 10
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -id
@@ -186,15 +195,20 @@ Accept wildcard characters: False
 The unique ID of the report schedule to update.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -keepTaskDefinition
@@ -202,15 +216,20 @@ Accept wildcard characters: False
 Whether the task definition is retained after the report has been generated.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 2
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -name
@@ -218,15 +237,20 @@ Accept wildcard characters: False
 The name of the report schedule.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -notifyOnFailure
@@ -234,15 +258,20 @@ Accept wildcard characters: False
 Whether subscribers are notified if report generation fails.
 
 ```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 3
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -recurrenceType
@@ -250,31 +279,43 @@ Accept wildcard characters: False
 Recurrence type.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 7
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 6
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -recurrenceValue
 
 Frequency multiplier (e.g. every 2 weeks).
+Frequency multiplier (e.g.
+every 2 weeks).
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 8
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 7
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -startTime
@@ -282,17 +323,55 @@ Accept wildcard characters: False
 Scheduled start time.
 
 Must be later than the current date and time, otherwise the API returns an error.
+Scheduled start time.
+
+Must be later than the current date and time, otherwise the API returns an error.
 
 ```yaml
-Type: DateTime
-Parameter Sets: (All)
-Aliases:
+Type: System.DateTime
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 5
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: 6
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -Subscribers
+
+The subscribers to notify of the report results.
+
+Any subscribers currently configured on the task are replaced by the supplied value.
+
+Use the `[Subscriber]` Class to format the required data.
+The subscribers to notify of the report results.
+
+Any subscribers currently configured on the task are replaced by the supplied value.
+
+Use the `[Subscriber]` Class to format the required data.
+
+```yaml
+Type: Subscriber[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 4
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -weekNumber
@@ -300,25 +379,74 @@ Accept wildcard characters: False
 Week number for monthly recurrence.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 9
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: 10
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -WhatIf
+
+Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.String
 
 You can pipe objects with an `id` property to this command, such as the output of `Get-PASReportTask`.
+
+### System.Boolean
+
+{{ Fill in the Description }}
+
+### Subscriber[]
+
+{{ Fill in the Description }}
+
+### System.DateTime
+
+{{ Fill in the Description }}
+
+### TaskFilter[]
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -373,10 +501,7 @@ forward to the next occurrence which satisfies `-daysOfWeek`.
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Set-PASReportTask](https://pspas.pspete.dev/commands/Set-PASReportTask)
-
-[https://pspas.pspete.dev/commands/Get-PASReportTask](https://pspas.pspete.dev/commands/Get-PASReportTask)
-
-[https://pspas.pspete.dev/commands/New-PASReportTask](https://pspas.pspete.dev/commands/New-PASReportTask)
-
-[https://pspas.pspete.dev/commands/Remove-PASReportTask](https://pspas.pspete.dev/commands/Remove-PASReportTask)
+- [https://pspas.pspete.dev/commands/Set-PASReportTask](https://pspas.pspete.dev/commands/Set-PASReportTask)
+- [https://pspas.pspete.dev/commands/Get-PASReportTask](https://pspas.pspete.dev/commands/Get-PASReportTask)
+- [https://pspas.pspete.dev/commands/New-PASReportTask](https://pspas.pspete.dev/commands/New-PASReportTask)
+- [https://pspas.pspete.dev/commands/Remove-PASReportTask](https://pspas.pspete.dev/commands/Remove-PASReportTask)

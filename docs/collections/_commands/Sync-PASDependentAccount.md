@@ -1,9 +1,12 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Sync-PASDependentAccount
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Sync-PASDependentAccount
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Sync-PASDependentAccount
 ---
 
@@ -15,10 +18,21 @@ This syncs the dependent account secret with its master account.
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
 Sync-PASDependentAccount [-accountId] <String> [-dependentAccountId] <String[]> [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
+
+### __AllParameterSets
+
+```
+Sync-PASDependentAccount [-accountId] <string> [-dependentAccountId] <string[]> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
+```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -71,49 +85,21 @@ Synchronizes the password of the specified dependent accounts for parent account
 The ID of the parent account whose password will be synchronized to the dependent account.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: id
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -dependentAccountId
-
-The ID of the dependent account that will receive the synchronized password from the parent account.
-
-Specify multiple values to perform bulk synchronisation in a single request.
-
-```yaml
-Type: String[]
-Parameter Sets: (All)
-Aliases: dependentid
-
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -WhatIf
-
-Shows what would happen if the cmdlet runs. The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- id
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Confirm
@@ -121,19 +107,80 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+### -dependentAccountId
+
+The ID of the dependent account that will receive the synchronized password from the parent account.
+
+Specify multiple values to perform bulk synchronisation in a single request.
+The ID of the dependent account that will receive the synchronized password from the parent account.
+
+Specify multiple values to perform bulk synchronisation in a single request.
+
+```yaml
+Type: System.String[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- dependentid
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -WhatIf
+
+Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -145,8 +192,6 @@ Requires minimum version 14.6
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Sync-PASDependentAccount](https://pspas.pspete.dev/commands/Sync-PASDependentAccount)
-
-[https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/Dependent-Accounts.htm](https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/Dependent-Accounts.htm)
-
-[https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/bulk-sync-dependent-account-secret.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/bulk-sync-dependent-account-secret.htm)
+- [https://pspas.pspete.dev/commands/Sync-PASDependentAccount](https://pspas.pspete.dev/commands/Sync-PASDependentAccount)
+- [https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/Dependent-Accounts.htm](https://docs.cyberark.com/PAS/Latest/en/Content/WebServices/Dependent-Accounts.htm)
+- [https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/bulk-sync-dependent-account-secret.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/bulk-sync-dependent-account-secret.htm)

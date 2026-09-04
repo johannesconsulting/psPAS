@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Publish-PASDiscoveredLocalAccount {
     [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', 'coreAttributesProperties', Justification = 'False Positive')]
     [CmdletBinding(SupportsShouldProcess)]

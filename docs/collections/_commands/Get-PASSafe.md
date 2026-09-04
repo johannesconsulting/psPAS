@@ -1,47 +1,59 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASSafe
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASSafe
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASSafe
 ---
 
 # Get-PASSafe
 
 ## SYNOPSIS
+
 Returns safe details from the vault.
 
 ## SYNTAX
 
 ### Gen2 (Default)
+
 ```
-Get-PASSafe [-search <String>] [-sort <String>] [-sortDirection <String>] [-includeAccounts <Boolean>]
- [-extendedDetails <Boolean>] [-TimeoutSec <Int32>] [<CommonParameters>]
+Get-PASSafe [-search <string>] [-sort <string>] [-sortDirection <string>] [-includeAccounts <bool>]
+ [-extendedDetails <bool>] [-TimeoutSec <int>] [<CommonParameters>]
 ```
 
 ### Gen2-byName
+
 ```
-Get-PASSafe [-includeAccounts <Boolean>] -SafeName <String> [-useCache <Boolean>] [-TimeoutSec <Int32>]
+Get-PASSafe -SafeName <string> [-includeAccounts <bool>] [-useCache <bool>] [-TimeoutSec <int>]
  [<CommonParameters>]
 ```
 
 ### Gen1-byName
+
 ```
-Get-PASSafe -SafeName <String> [-UseGen1API] [-TimeoutSec <Int32>] [<CommonParameters>]
+Get-PASSafe -SafeName <string> -UseGen1API [-TimeoutSec <int>] [<CommonParameters>]
 ```
 
 ### Gen1-byQuery
+
 ```
-Get-PASSafe [-query <String>] [-TimeoutSec <Int32>] [<CommonParameters>]
+Get-PASSafe [-query <string>] [-TimeoutSec <int>] [<CommonParameters>]
 ```
 
 ### Gen1-byAll
+
 ```
-Get-PASSafe [-FindAll] [-UseGen1API] [-TimeoutSec <Int32>] [<CommonParameters>]
+Get-PASSafe -FindAll -UseGen1API [-TimeoutSec <int>] [<CommonParameters>]
 ```
 
+## ALIASES
+
 ## DESCRIPTION
+
 Gets safe by SafeName, by search query string, or, by default will return all safes.
 - Minimum required version for default operation using Gen2 API is 12.0.
 - Minimum required version for operation using Gen2-byName ParameterSet is 12.2.
@@ -51,6 +63,7 @@ Gets safe by SafeName, by search query string, or, by default will return all sa
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Get-PASSafe
 ```
@@ -60,6 +73,7 @@ Returns details of all safes.
 Minimum required version 12.0.
 
 ### EXAMPLE 2
+
 ```
 Get-PASSafe -search SAFE1 -extendedDetails $false
 ```
@@ -69,6 +83,7 @@ Returns names of safes matching pattern "Safe1"
 Minimum required version 12.1
 
 ### EXAMPLE 3
+
 ```
 Get-PASSafe -SafeName SAFE1
 ```
@@ -78,6 +93,7 @@ Returns details of "Safe1" using Gen2 API.
 Minimum required version 12.2
 
 ### EXAMPLE 4
+
 ```
 Get-PASSafe -query SAFE1
 ```
@@ -87,6 +103,7 @@ Returns details of safes matching query "Safe1" using Gen1 API.
 Deprecated from version 12.2
 
 ### EXAMPLE 5
+
 ```
 Get-PASSafe -FindAll -UseGen1API
 ```
@@ -96,6 +113,7 @@ Returns details of all safes using Gen1 API.
 Deprecated from version 12.3
 
 ### EXAMPLE 6
+
 ```
 Get-PASSafe -SafeName SAFE1 -UseGen1API
 ```
@@ -106,7 +124,69 @@ Deprecated from version 12.3
 
 ## PARAMETERS
 
+### -extendedDetails
+
+Whether or not to return all Safe details or only safeName as part of the response.
+
+Minimum required version 12.1
+Whether or not to return all Safe details or only safeName as part of the response.
+
+Minimum required version 12.1
+
+```yaml
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -FindAll
+
+Specify to find all safes using Gen1 API.
+
+Should be specified for versions earlier than 12.0
+
+Deprecated from version 12.3
+Specify to find all safes using Gen1 API.
+
+Should be specified for versions earlier than 12.0
+
+Deprecated from version 12.3
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1-byAll
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### -includeAccounts
+
+Whether or not to return accounts for each Safe as part of the response.
+
+Minimum required version 12.0 (Default Gen2 Operation)
+
+Minimum required version 12.2 (Gen2-byName Operation)
 Whether or not to return accounts for each Safe as part of the response.
 
 Minimum required version 12.0 (Default Gen2 Operation)
@@ -114,69 +194,67 @@ Minimum required version 12.0 (Default Gen2 Operation)
 Minimum required version 12.2 (Gen2-byName Operation)
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2, Gen2-byName
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2-byName
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -search
-Searches according to the Safe name.
+### -query
 
-Minimum required version 12.0
+Query String for safe search in the vault using Gen1 API.
 
-```yaml
-Type: String
-Parameter Sets: Gen2
-Aliases:
+Should be specified for versions earlier than 12.0
 
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
+Deprecated from version 12.3
+Query String for safe search in the vault using Gen1 API.
 
-### -sort
-Sorts output according to the safeName or ManagingCPM properties.
+Should be specified for versions earlier than 12.0
 
-Minimum required version 12.0
+Deprecated from version 12.3
 
 ```yaml
-Type: String
-Parameter Sets: Gen2
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -extendedDetails
-Whether or not to return all Safe details or only safeName as part of the response.
-
-Minimum required version 12.1
-
-```yaml
-Type: Boolean
-Parameter Sets: Gen2
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1-byQuery
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -SafeName
+
+The name of a specific safe to get details of.
+
+Gen2 API operation requires minimum version 12.2
+
+When using Gen1 API in versions earlier than 12.0, must be specified with the `-UseGen1API` parameter.
+
+Gen1 operation deprecated from version 12.3
 The name of a specific safe to get details of.
 
 Gen2 API operation requires minimum version 12.2
@@ -186,133 +264,195 @@ When using Gen1 API in versions earlier than 12.0, must be specified with the `-
 Gen1 operation deprecated from version 12.3
 
 ```yaml
-Type: String
-Parameter Sets: Gen2-byName, Gen1-byName
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2-byName
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+- Name: Gen1-byName
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -query
-Query String for safe search in the vault using Gen1 API.
+### -search
 
-Should be specified for versions earlier than 12.0
+Searches according to the Safe name.
 
-Deprecated from version 12.3
+Minimum required version 12.0
+Searches according to the Safe name.
+
+Minimum required version 12.0
 
 ```yaml
-Type: String
-Parameter Sets: Gen1-byQuery
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -FindAll
-Specify to find all safes using Gen1 API.
+### -sort
 
-Should be specified for versions earlier than 12.0
+Sorts output according to the safeName or ManagingCPM properties.
 
-Deprecated from version 12.3
+Minimum required version 12.0
+Sorts output according to the safeName or ManagingCPM properties.
+
+Minimum required version 12.0
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: Gen1-byAll
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: True
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
+### -sortDirection
+
+Sort according to the property specified for the sort parameter in ascending order (default) or descending order.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -TimeoutSec
+
+See Invoke-WebRequest
+
+Specify a timeout value in seconds
 See Invoke-WebRequest
 
 Specify a timeout value in seconds
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -useCache
+
 Whether to retrieve from session or not.
 
 ```yaml
-Type: Boolean
-Parameter Sets: Gen2-byName
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Boolean
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen2-byName
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -UseGen1API
+
 Specify to force use of the Gen1 API
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: Gen1-byName
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: Gen1-byAll
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -sortDirection
-Sort according to the property specified for the sort parameter in ascending order (default) or descending order.
-
-```yaml
-Type: String
-Parameter Sets: Gen2
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Gen1-byAll
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: Gen1-byName
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Boolean
+
+{{ Fill in the Description }}
+
+### System.Management.Automation.SwitchParameter
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -320,10 +460,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASSafe](https://pspas.pspete.dev/commands/Get-PASSafe)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20List%20Safes.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20List%20Safes.htm)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20Search%20for%20Safe.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20Search%20for%20Safe.htm)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20Get%20Safes%20Details.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20Get%20Safes%20Details.htm)
+- [https://pspas.pspete.dev/commands/Get-PASSafe](https://pspas.pspete.dev/commands/Get-PASSafe)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20List%20Safes.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20List%20Safes.htm)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20Search%20for%20Safe.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20Search%20for%20Safe.htm)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20Get%20Safes%20Details.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20Get%20Safes%20Details.htm)

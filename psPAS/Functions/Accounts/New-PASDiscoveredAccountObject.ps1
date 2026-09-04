@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function New-PASDiscoveredAccountObject {
 	[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', 'identifiers', Justification = 'False Positive')]
 	[CmdletBinding(SupportsShouldProcess)]

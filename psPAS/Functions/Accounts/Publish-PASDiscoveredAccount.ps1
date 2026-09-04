@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Publish-PASDiscoveredAccount {
     [CmdletBinding(SupportsShouldProcess)]
     param(

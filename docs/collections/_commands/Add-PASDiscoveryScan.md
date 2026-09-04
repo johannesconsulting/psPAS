@@ -1,8 +1,12 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Add-PASDiscoveryScan
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Add-PASDiscoveryScan
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Add-PASDiscoveryScan
 ---
 
@@ -14,11 +18,23 @@ Creates a discovery scan in the Vault.
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
 Add-PASDiscoveryScan [-scanType] <String> [-scanCredentials] <Object[]> [[-discoveryName] <String>]
- [-managingScanner] <String> [[-scheduleInformation] <Object>] [[-csvFile] <String>] [[-fileName] <String>]
- [[-scanProperties] <Hashtable>] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-managingScanner] <String> [[-scheduleInformation] <Object>] [[-csvFile] <String>]
+ [[-fileName] <String>] [[-scanProperties] <Hashtable>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
+
+### __AllParameterSets
+
+```
+Add-PASDiscoveryScan [-scanType] <string> [-scanCredentials] <Object[]> [[-discoveryName] <string>]
+ [-managingScanner] <string> [[-scheduleInformation] <Object>] [[-csvFile] <string>]
+ [[-fileName] <string>] [[-scanProperties] <hashtable>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -46,37 +62,49 @@ Creates a scheduled Active Directory discovery scan.
 
 ## PARAMETERS
 
-### -scanType
+### -Confirm
 
-The type of discovery scan to create. Valid values are `ActiveDirectory` and `CsvFile`.
+Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
 Aliases:
-Accepted values: ActiveDirectory, CsvFile
-
-Required: True
-Position: 0
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+- cf
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -scanCredentials
+### -csvFile
 
-One or more credential objects for the scan. Active Directory scans can specify an existing CyberArk account with `scanAccountId`, or a `username` and `password`. CSV-file scans require `username` and `password` only.
+Base64-encoded contents of the CSV input file. Required when `scanType` is `CsvFile`.
+Base64-encoded contents of the CSV input file.
+Required when `scanType` is `CsvFile`.
 
 ```yaml
-Type: Object[]
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 5
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -discoveryName
@@ -84,15 +112,43 @@ Accept wildcard characters: False
 The name of the discovery scan.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 2
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -fileName
+
+Name of the CSV input file. Required when `scanType` is `CsvFile`.
+Name of the CSV input file.
+Required when `scanType` is `CsvFile`.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 6
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -managingScanner
@@ -100,115 +156,148 @@ Accept wildcard characters: False
 The name of the scanner that manages the discovery scan.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 3
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 3
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -scheduleInformation
+### -scanCredentials
 
-The scan schedule object. It can contain `daysOfWeek` and `time` properties.
-
-```yaml
-Type: Object
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -csvFile
-
-Base64-encoded contents of the CSV input file. Required when `scanType` is `CsvFile`.
+One or more credential objects for the scan. Active Directory scans can specify an existing CyberArk account with `scanAccountId`, or a `username` and `password`. CSV-file scans require `username` and `password` only.
+One or more credential objects for the scan.
+Active Directory scans can specify an existing CyberArk account with `scanAccountId`, or a `username` and `password`.
+CSV-file scans require `username` and `password` only.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 5
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -fileName
-
-Name of the CSV input file. Required when `scanType` is `CsvFile`.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 6
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.Object[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -scanProperties
 
 Additional scan-type-specific request properties. Each entry is sent as a top-level request property. For example, an Active Directory scan can provide `@{ domainName = 'contoso.com'; OU = 'All OUs'; useSecureProtocol = $true }`.
+Additional scan-type-specific request properties.
+Each entry is sent as a top-level request property.
+For example, an Active Directory scan can provide `@{ domainName = 'contoso.com'; OU = 'All OUs'; useSecureProtocol = $true }`.
 
 ```yaml
-Type: Hashtable
-Parameter Sets: (All)
-Aliases:
+Type: System.Collections.Hashtable
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 7
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: 7
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+### -scanType
+
+The type of discovery scan to create. Valid values are `ActiveDirectory` and `CsvFile`.
+The type of discovery scan to create.
+Valid values are `ActiveDirectory` and `CsvFile`.
+
+```yaml
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues:
+- ActiveDirectory
+- CsvFile
+HelpMessage: ''
+```
+
+### -scheduleInformation
+
+The scan schedule object. It can contain `daysOfWeek` and `time` properties.
+The scan schedule object.
+It can contain `daysOfWeek` and `time` properties.
+
+```yaml
+Type: System.Object
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 4
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -WhatIf
 
 Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Confirm
-
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: None
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -216,11 +305,31 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 You can pipe objects with `scanType`, `scanCredentials`, and `managingScanner` properties to this command.
 
+### System.String
+
+{{ Fill in the Description }}
+
+### System.Object[]
+
+{{ Fill in the Description }}
+
+### System.Object
+
+{{ Fill in the Description }}
+
+### System.Collections.Hashtable
+
+{{ Fill in the Description }}
+
 ## OUTPUTS
 
 ### System.Management.Automation.PSCustomObject
 
 Returns a `psPAS.CyberArk.Vault.DiscoveryScan` object.
+
+### System.Management.Automation.PSObject
+
+{{ Fill in the Description }}
 
 ## NOTES
 
@@ -228,4 +337,4 @@ Requires CyberArk Self-Hosted version 12.2 or higher.
 
 ## RELATED LINKS
 
-[Add-PASDiscoveryScan](https://pspas.pspete.dev/commands/Add-PASDiscoveryScan)
+- [Add-PASDiscoveryScan](https://pspas.pspete.dev/commands/Add-PASDiscoveryScan)

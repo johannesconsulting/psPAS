@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Set-PASPTAEvent {
 	[CmdletBinding(SupportsShouldProcess, DefaultParameterSetName = '11.3')]
 	param(

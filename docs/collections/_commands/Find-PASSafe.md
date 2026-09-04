@@ -1,24 +1,39 @@
 ---
 category: PSPAS
-external help file: psPAS-help.xml
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Find-PASSafe
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Find-PASSafe
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Find-PASSafe
 ---
 
 # Find-PASSafe
 
 ## SYNOPSIS
+
 (Deprecated) Returns safe list from the vault.
 
 ## SYNTAX
+
+### Default (Default)
 
 ```
 Find-PASSafe [[-search] <String>] [[-TimeoutSec] <Int32>] [<CommonParameters>]
 ```
 
+### __AllParameterSets
+
+```
+Find-PASSafe [[-search] <string>] [[-TimeoutSec] <int>] [<CommonParameters>]
+```
+
+## ALIASES
+
 ## DESCRIPTION
+
 Minimum required version 10.1
 
 Deprecated from 11.7
@@ -28,6 +43,7 @@ Returns abbreviated details for all safes
 ## EXAMPLES
 
 ### EXAMPLE 1
+
 ```
 Find-PASSafe
 ```
@@ -35,6 +51,7 @@ Find-PASSafe
 Returns details of all safes which the user has access to.
 
 ### EXAMPLE 2
+
 ```
 Find-PASSafe -search "xyz abc"
 ```
@@ -42,6 +59,7 @@ Find-PASSafe -search "xyz abc"
 Returns details of all matching safes which the user has access to.
 
 ### EXAMPLE 3
+
 ```
 Find-PASSafe -TimeoutSec 30
 ```
@@ -49,6 +67,7 @@ Find-PASSafe -TimeoutSec 30
 Returns details of all safes which the user has access to, specifying a 30 second timeout for the request.
 
 ### EXAMPLE 4
+
 ```
 Find-PASSafe -search "UNIX" -TimeoutSec 30
 ```
@@ -58,45 +77,65 @@ Returns details of all matching safes which the user has access to, specifying a
 ## PARAMETERS
 
 ### -search
+
 List of keywords, separated with a space.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -TimeoutSec
+
+See Invoke-WebRequest
+
+Specify a timeout value in seconds
 See Invoke-WebRequest
 
 Specify a timeout value in seconds
 
 ```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Int32
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ## OUTPUTS
 
 ## NOTES
+
 Find-PASSafe is deprecated from 11.7
 
 Function was based on undocumented features available since V10
@@ -107,7 +146,5 @@ Now documented since version 12.0, this is the Gen2 API for Get-PASafe.
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Find-PASSafe](https://pspas.pspete.dev/commands/Find-PASSafe)
-
-[https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20List%20Safes.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20List%20Safes.htm)
-
+- [https://pspas.pspete.dev/commands/Find-PASSafe](https://pspas.pspete.dev/commands/Find-PASSafe)
+- [https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20List%20Safes.htm](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/SDK/Safes%20Web%20Services%20-%20List%20Safes.htm)

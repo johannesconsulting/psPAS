@@ -1,4 +1,4 @@
-# .ExternalHelp psPAS-help.xml
+# .ExternalHelp psPAS-Help.xml
 function Remove-PASDirectory {
 	[CmdletBinding(SupportsShouldProcess = $true)]
 	param(

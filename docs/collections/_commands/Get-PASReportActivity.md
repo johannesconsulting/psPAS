@@ -1,8 +1,12 @@
 ---
-external help file: psPAS-help.xml
+category: PSPAS
+document type: cmdlet
+external help file: psPAS-Help.xml
+HelpUri: https://pspas.pspete.dev/commands/Get-PASReportActivity
+Locale: en-US
 Module Name: psPAS
-online version: https://pspas.pspete.dev/commands/Get-PASReportActivity
-schema: 2.0.0
+ms.date: 09/04/2026
+PlatyPS schema version: 2024-05-01
 title: Get-PASReportActivity
 ---
 
@@ -14,9 +18,19 @@ Returns the activity groups and activities available for use in reports
 
 ## SYNTAX
 
+### Default (Default)
+
 ```
 Get-PASReportActivity [[-Type] <String>] [<CommonParameters>]
 ```
+
+### __AllParameterSets
+
+```
+Get-PASReportActivity [[-Type] <string>] [<CommonParameters>]
+```
+
+## ALIASES
 
 ## DESCRIPTION
 
@@ -49,24 +63,41 @@ Returns activity groups and activities scoped to the ActivitiesReport report typ
 The type of report to return activity groups/activities for.
 
 This is not the same as the activityGroup values returned in the response.
+The type of report to return activity groups/activities for.
+
+This is not the same as the activityGroup values returned in the response.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: ActivitiesReport, ActiveNonActiveSafesReport
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues:
+- ActivitiesReport
+- ActiveNonActiveSafesReport
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -76,6 +107,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://pspas.pspete.dev/commands/Get-PASReportActivity](https://pspas.pspete.dev/commands/Get-PASReportActivity)
-
-[https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/rest-api-get-reportparams-activities.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/rest-api-get-reportparams-activities.htm)
+- [https://pspas.pspete.dev/commands/Get-PASReportActivity](https://pspas.pspete.dev/commands/Get-PASReportActivity)
+- [https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/rest-api-get-reportparams-activities.htm](https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/rest-api-get-reportparams-activities.htm)
